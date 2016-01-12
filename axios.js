@@ -22,20 +22,25 @@ declare module 'axios' {
     config: AxiosXHRConfig<T>;
   }
   declare class AxiosInterceptorIdent extends String {}
-  declare class AxiosInterceptor<T> {
+  declare class AxiosInterceptor<T, U> {
     use(
-      successHandler: ?(config: AxiosXHRConfig<T>) => AxiosXHRConfig<T>,
+      successHandler: ?(config: AxiosXHRConfig<T>) => U,
       errorHandler: ?(error: any) => any,
     ): AxiosInterceptorIdent;
     eject(ident: AxiosInterceptorIdent): void;
   }
   declare class Axios {
-    get<T>(url: string, config: ?AxiosXHRConfigBase<T>): Promise<T>;
-    delete<T>(url: string, config: ?AxiosXHRConfigBase<T>): Promise<T>;
-    head<T>(url: string, config: ?AxiosXHRConfigBase<T>): Promise<T>;
-    post<T>(url: string, data?: any, config: ?AxiosXHRConfigBase<T>): Promise<T>;
-    put<T>(url: string, data?: any, config: ?AxiosXHRConfigBase<T>): Promise<T>;
-    interceptors: AxiosInterceptor,
+    constructor<T>(config: AxiosXHRConfigBase<T>): Promise<T>;
+    <T>(config: AxiosXHRConfigBase<T>): Promise<T>;
+    get<T>(url: string, config?: AxiosXHRConfigBase<T>): Promise<T>;
+    delete<T>(url: string, config?: AxiosXHRConfigBase<T>): Promise<T>;
+    head<T>(url: string, config?: AxiosXHRConfigBase<T>): Promise<T>;
+    post<T>(url: string, data?: any, config?: AxiosXHRConfigBase<T>): Promise<T>;
+    put<T>(url: string, data?: any, config?: AxiosXHRConfigBase<T>): Promise<T>;
+    interceptors: {
+      request: AxiosInterceptor<any, Promise | AxiosXHRConfig>,
+      response: AxiosInterceptor<any, any>,
+    },
   }
   declare var exports: Axios;
 }
