@@ -36,6 +36,21 @@ declare module 'lodash' {
     static dropRight<T>(array: Array<T>, n: ?number): Array<T>;
     static dropRightWhile<T>(array: Array<T>, predicate: ?((item: T) => bool)|Object|string): Array<T>;
     static dropWhile<T>(array: Array<T>, predicate: ?((item: T) => bool)|Object|string): Array<T>;
+    static fill<T, U>(array: Array<T>, value: U, start: ?number, end: ?number): Array<T|U>;
+    static findIndex<T>(array: Array<T>, predicate: ?((item: T) => bool)|Object|string): number;
+    static findLastIndex<T>(array: Array<T>, predicate: ?((item: T) => bool)|Object|string): number;
+    static flatMap<T, U>(array: Array<T>, iteratee: ?((item: T, index: number, array: Array<T>) => U)|Object|string): Array<U>;
+    static flatten<T>(array: Array<T|Array<T>>): Array<T|Array<T>>;
+    static flattenDeep<T>(array: Array<T|Array<T>>): Array<T>;
+    static fromPairs<T>(pairs: Array<T>): Object;
+    static head<T>(pairs: Array<T>): T;
+    static indexOf<T>(array: Array<T>, value: T, fromIndex: ?number): number;
+    static initial<T>(array: Array<T>): Array<T>;
+    static intersection<T>(...arrays: Array<Array<T>>): Array<T>;
+    static intersectionBy<T>(...arrays: Array<Array<T>>, iteratee: ?(()))
+
+
+
   }
   declare class lodash {
     static VERSION: string;
