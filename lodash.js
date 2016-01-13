@@ -445,6 +445,7 @@ declare module 'lodash' {
     uniqueId(prefix?: string): string;
   }
   declare class lodash extends lodashUtil {
+    <T>(value: any): any;
     VERSION: string;
     support: Support;
     templateSettings: TemplateSettings;
