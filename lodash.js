@@ -438,6 +438,7 @@ declare module 'lodash' {
   declare function property(path: Array<string>|string): Function;
   declare function propertyOf(object: Object): Function;
   declare function range(start?: number, end: number, step?: number): Array<number>;
+  declare function range(end: number): Array<number>;
   declare function rangeRight(start?: number, end: number, step?: number): Array<number>;
   declare function runInContext(context?: Object): Function;
   declare function times(n: number, iteratee?: Function): Function;
