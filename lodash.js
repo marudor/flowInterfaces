@@ -223,7 +223,7 @@ declare module 'lodash' {
   declare function bindKey(obj: Object, key: string, ...partials: Array<any>): Function;
   declare function curry(func: Function, arity?: number): Function;
   declare function curryRight(func: Function, arity?: number): Function;
-  declare function debounce(func: Function, wait?: Number, options?: DebounceOptions): Function;
+  declare function debounce(func: Function, wait?: number, options?: DebounceOptions): Function;
   declare function defer(func: Function, ...args?: Array<any>): number;
   declare function delay(func: Function, wait: number, ...args?: Array<any>): number;
   declare function flip(func: Function): Function;
