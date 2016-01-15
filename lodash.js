@@ -316,6 +316,8 @@ declare module 'lodash' {
   // Object
   declare function assign(object: Object, ...sources?: Array<Object>): Object;
   declare function assignIn(object: Object, ...sources?: Array<Object>): Object;
+  // alias
+  declare function extend(object: Object, ...sources?: Array<Object>): Object;
 
   declare function assignInWith<T: Object, A: Object>(object: T, s1: A, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A) => any|void): Object;
   declare function assignInWith<T: Object, A: Object, B: Object>(object: T, s1: A, s2: B, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A|B) => any|void): Object;
@@ -367,7 +369,7 @@ declare module 'lodash' {
   declare function setWith<T>(object: T, path: Array<string>|string, value: any, customizer?: (nsValue: any, key: string, nsObject: T) => any): Object;
   declare function toPairs(object: Object): NestedArray<any>;
   declare function toPairsIn(object: Object): NestedArray<any>;
-  declare function transform(object: Object, iteratee?: OIteratee, accumulator?: any): any;
+  declare function transform(collection: Object|Array<any>, iteratee?: OIteratee, accumulator?: any): any;
   declare function unset(object: Object, path: Array<string>|string): bool;
   declare function values(object: Object): Array<any>;
   declare function valuesIn(object: Object): Array<any>;
