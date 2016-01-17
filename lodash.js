@@ -65,7 +65,7 @@ declare module 'lodash' {
   declare function first<T>(array: Array<T>): T;
   declare function indexOf<T>(array: Array<T>, value: T, fromIndex?: number): number;
   declare function initial<T>(array: Array<T>): Array<T>;
-  declare function intersection<T>(...arrays: NestedArray<T>): Array<T>;
+  declare function intersection<T>(...arrays: Array<Array<T>>): Array<T>;
   //Workaround until (...parameter: T, parameter2: U) works
   declare function  intersectionBy<T>(a1: Array<T>, iteratee?: Iteratee<T>): Array<T>;
   declare function intersectionBy<T>(a1: Array<T>, a2: Array<T>, iteratee?: Iteratee<T>): Array<T>;
@@ -114,7 +114,7 @@ declare module 'lodash' {
   declare function unzip<T>(array: Array<T>): Array<T>;
   declare function unzipWith<T>(array: Array<T>, iteratee?: Iteratee<T>): Array<T>;
   declare function without<T>(array: Array<T>, ...values?: Array<T>): Array<T>;
-  declare function xor<T>(...array: NestedArray<T>): Array<T>;
+  declare function xor<T>(...array: Array<Array<T>>): Array<T>;
   //Workaround until (...parameter: T, parameter2: U) works
   declare function xorBy<T>(a1: Array<T>, iteratee?: Iteratee<T>): Array<T>;
   declare function xorBy<T>(a1: Array<T>, a2: Array<T>, iteratee?: Iteratee<T>): Array<T>;
@@ -126,7 +126,7 @@ declare module 'lodash' {
   declare function xorWith<T>(a1: NestedArray<T>, a2: NestedArray<T>, a3: NestedArray<T>, comparator?: Comparator<T>): Array<T>;
   declare function xorWith<T>(a1: NestedArray<T>, a2: NestedArray<T>, a3: NestedArray<T>, a4: NestedArray<T>, comparator?: Comparator<T>): Array<T>;
 
-  declare function zip<T>(...arrays: NestedArray<T>): NestedArray<T>;
+  declare function zip<T>(...arrays: Array<Array<T>>): NestedArray<T>;
   declare function zipObject(props?: Array<any>, values?: Array<any>): Object;
   //Workaround until (...parameter: T, parameter2: U) works
   declare function zipWith<T>(a1: NestedArray<T>, iteratee?: Iteratee<T>): Array<T>;
@@ -379,7 +379,7 @@ declare module 'lodash' {
   //   thru<T>(value: T, interceptor: (value: T) => any): lodash;
   // }
   // String
-  declare function camelCase(string?: string): string;
+  declare function camelCase(string?: ?string): string;
   declare function capitalize(string?: string): string;
   declare function deburr(string?: string): string;
   declare function endsWith(string?: string, target?: string, position?: number): bool;

@@ -1046,7 +1046,7 @@ declare module 'immutable' {
    *     // { x: 0, y: 2, z: 4 }
    */
 
-  declare interface Seq<K, V> extends Iterable<K, V> {
+  declare class Seq<K, V> extends Iterable<K, V> {
     /**
     * Creates a Seq.
     *
@@ -1195,7 +1195,7 @@ declare module 'immutable' {
    * Note: An iterable is always iterated in the same order, however that order
    * may not always be well defined, as is the case for the `Map` and `Set`.
    */
-  declare interface Iterable<K, V> {
+  declare class Iterable<K, V> {
     /**
     * Creates an Iterable.
     *
@@ -1938,7 +1938,7 @@ declare module 'immutable' {
    * in other words, `Iterable#entries` is the default iterator for Keyed
    * Iterables.
    */
-  declare interface KeyedIterable<K, V> extends Iterable<K, V> {
+  declare class KeyedIterable<K, V> extends Iterable<K, V> {
     /**
     * Creates a KeyedIterable
     *
@@ -2050,7 +2050,7 @@ declare module 'immutable' {
    * preserve indices, using them as keys, convert to a KeyedIterable by calling
    * `toKeyedSeq`.
    */
-  declare interface IndexedIterable<T> extends Iterable<number, T> {
+  declare class IndexedIterable<T> extends Iterable<number, T> {
     /**
     * Creates a new IndexedIterable.
     */
@@ -2217,7 +2217,7 @@ declare module 'immutable' {
    *     assert.equal(seq.every((v, k) => v === k), true);
    *
    */
-  declare interface SetIterable<T> extends Iterable<T, T> {
+  declare class SetIterable<T> extends Iterable<T, T> {
     /**
     * Similar to `Iterable()`, but always returns a SetIterable.
     */
@@ -2241,7 +2241,7 @@ declare module 'immutable' {
    * Implementations should extend one of the subclasses, `KeyedCollection`,
    * `IndexedCollection`, or `SetCollection`.
    */
-  declare interface Collection<K, V> extends Iterable<K, V> {
+  declare class Collection<K, V> extends Iterable<K, V> {
 
     /**
      * All collections maintain their current `size` as an integer.
