@@ -1,36 +1,36 @@
 type MomentOptions = {
-  y?: Number|string,
-  year?: Number|string,
-  years?: Number|string,
-  M?: Number|string,
-  month?: Number|string,
-  months?: Number|string,
-  d?: Number|string,
-  day?: Number|string,
-  days?: Number|string,
-  date?: Number|string,
-  h?: Number|string,
-  hour?: Number|string,
-  hours?: Number|string,
-  m?: Number|string,
-  minute?: Number|string,
-  minutes?: Number|string,
-  s?: Number|string,
-  second?: Number|string,
-  seconds?: Number|string,
-  ms?: Number|string,
-  millisecond?: Number|string,
-  milliseconds?: Number|string,
+  y?: number|string,
+  year?: number|string,
+  years?: number|string,
+  M?: number|string,
+  month?: number|string,
+  months?: number|string,
+  d?: number|string,
+  day?: number|string,
+  days?: number|string,
+  date?: number|string,
+  h?: number|string,
+  hour?: number|string,
+  hours?: number|string,
+  m?: number|string,
+  minute?: number|string,
+  minutes?: number|string,
+  s?: number|string,
+  second?: number|string,
+  seconds?: number|string,
+  ms?: number|string,
+  millisecond?: number|string,
+  milliseconds?: number|string,
 };
 
 type MomentObject = {
-  years: Number,
-  months: Number,
-  date: Number,
-  hours: Number,
-  minutes: Number,
-  seconds: Number,
-  milliseconds: Number,
+  years: number,
+  months: number,
+  date: number,
+  hours: number,
+  minutes: number,
+  seconds: number,
+  milliseconds: number,
 };
 
 type MomentCreationData = {
@@ -54,18 +54,18 @@ declare module 'moment' {
   declare class LocaleData {
     months(moment: Moment): string;
     monthsShort(moment: Moment): string;
-    monthsParse(month: string): Number;
+    monthsParse(month: string): number;
     weekdays(moment: Moment): string;
     weekdaysShort(moment: Moment): string;
     weekdaysMin(moment: Moment): string;
-    weekdaysParse(weekDay: string): Number;
+    weekdaysParse(weekDay: string): number;
     longDateFormat(dateFormat: string): string;
     isPM(date: string): bool;
-    meridiem(hours: Number, minutes: Number, isLower: bool): string;
+    meridiem(hours: number, minutes: number, isLower: bool): string;
     calendar(key: 'sameDay'|'nextDay'|'lastDay'|'nextWeek'|'prevWeek'|'sameElse', moment: Moment): string;
-    relativeTime(number: Number, withoutSuffix: bool, key: 's'|'m'|'mm'|'h'|'hh'|'d'|'dd'|'M'|'MM'|'y'|'yy', isFuture: bool): string;
+    relativeTime(number: number, withoutSuffix: bool, key: 's'|'m'|'mm'|'h'|'hh'|'d'|'dd'|'M'|'MM'|'y'|'yy', isFuture: bool): string;
     pastFuture(diff: any, relTime: string): string;
-    ordinal(number: Number): string;
+    ordinal(number: number): string;
     preparse(str: string): any;
     postformat(str: string): any;
     week(moment: Moment): string;
@@ -75,40 +75,40 @@ declare module 'moment' {
   }
   declare class MomentDuration {
     humanize(suffix?: bool): string;
-    milliseconds(): Number;
-    asMilliseconds(): Number;
-    seconds(): Number;
-    asSeconds(): Number;
-    minutes(): Number;
-    asMinutes(): Number;
-    hours(): Number;
-    asHours(): Number;
-    days(): Number;
-    asDays(): Number;
-    months(): Number;
-    asMonths(): Number;
-    years(): Number;
-    asYears(): Number;
-    add(value: Number, unit?: string): MomentDuration;
+    milliseconds(): number;
+    asMilliseconds(): number;
+    seconds(): number;
+    asSeconds(): number;
+    minutes(): number;
+    asMinutes(): number;
+    hours(): number;
+    asHours(): number;
+    days(): number;
+    asDays(): number;
+    months(): number;
+    asMonths(): number;
+    years(): number;
+    asYears(): number;
+    add(value: number, unit?: string): MomentDuration;
     add(duration: MomentDuration): MomentDuration;
     add(object: Object): MomentDuration;
-    subtract(value: Number, unit?: string): MomentDuration;
+    subtract(value: number, unit?: string): MomentDuration;
     subtract(duration: MomentDuration): MomentDuration;
     subtract(object: Object): MomentDuration;
-    as(unit: string): Number;
-    get(unit: string): Number;
+    as(unit: string): number;
+    get(unit: string): number;
     toJSON(): string;
   }
   declare class Moment {
     static (string?: string, format?: string|Array<string>, locale?: string, strict?: bool): Moment;
     static (options: MomentOptions): Moment;
-    static (millseconds: Number): Moment;
+    static (millseconds: number): Moment;
     static (date: Date): Moment;
     static (numbers: Array<number>): Moment;
     static (moment: Moment): Moment;
-    static unix(seconds: Number): Moment;
+    static unix(seconds: number): Moment;
     static utc(): Moment;
-    static utc(number: Number|Array<Number>): Moment;
+    static utc(number: number|Array<number>): Moment;
     static utc(str: string, str2?: string|Array<string>, str3?: string): Moment;
     static utc(moment: Moment): Moment;
     static utc(date: Date): Moment;
@@ -116,97 +116,97 @@ declare module 'moment' {
     isValid(): bool;
     invalidAt(): 0|1|2|3|4|5|6;
     creationData(): MomentCreationData;
-    millisecond(number: Number): void;
-    milliseconds(number: Number): void;
-    millisecond(): Number;
-    milliseconds(): Number;
-    second(number: Number): void;
-    seconds(number: Number): void;
-    second(): Number;
-    seconds(): Number;
-    minute(number: Number): void;
-    minutes(number: Number): void;
-    minute(): Number;
-    minutes(): Number;
-    hour(number: Number): void;
-    hours(number: Number): void;
-    hour(): Number;
-    hours(): Number;
-    date(number: Number): void;
-    dates(number: Number): void;
-    date(): Number;
-    dates(): Number;
-    day(day: Number|string): void;
-    days(day: Number|string): void;
-    day(): Number;
-    days(): Number;
-    weekday(number: Number): void;
-    weekday(): Number;
-    isoWeekday(number: Number): void;
-    isoWeekday(): Number;
-    dayOfYear(number: Number): void;
-    dayOfYear(): Number;
-    week(number: Number): void;
-    weeks(number: Number): void;
-    week(): Number;
-    weeks(): Number;
-    isoWeek(number: Number): void;
-    isoWeeks(number: Number): void;
-    isoWeek(): Number;
-    isoWeeks(): Number;
-    month(number: Number): void;
-    months(number: Number): void;
-    month(): Number;
-    months(): Number;
-    quarter(number: Number): void;
-    quarter(): Number;
-    year(number: Number): void;
-    years(number: Number): void;
-    year(): Number;
-    years(): Number;
-    weekYear(number: Number): void;
-    weekYear(): Number;
-    isoWeekYear(number: Number): void;
-    isoWeekYear(): Number;
-    weeksInYear():  Number;
-    isoWeeksInYear(): Number;
+    millisecond(): number;
+    milliseconds(): number;
+    millisecond(number: number): Moment;
+    milliseconds(number: number): Moment;
+    second(): number;
+    seconds(): number;
+    second(number: number): Moment;
+    seconds(number: number): Moment;
+    minute(): number;
+    minutes(): number;
+    minute(number: number): Moment;
+    minutes(number: number): Moment;
+    hour(): number;
+    hours(): number;
+    hour(number: number): Moment;
+    hours(number: number): Moment;
+    date(): number;
+    dates(): number;
+    date(number: number): Moment;
+    dates(number: number): Moment;
+    day(): number;
+    days(): number;
+    day(day: number|string): Moment;
+    days(day: number|string): Moment;
+    weekday(): number;
+    weekday(number: number): Moment;
+    isoWeekday(): number;
+    isoWeekday(number: number): Moment;
+    dayOfYear(): number;
+    dayOfYear(number: number): Moment;
+    week(): number;
+    weeks(): number;
+    week(number: number): Moment;
+    weeks(number: number): Moment;
+    isoWeek(): number;
+    isoWeeks(): number;
+    isoWeek(number: number): Moment;
+    isoWeeks(number: number): Moment;
+    month(): number;
+    months(): number;
+    month(number: number): Moment;
+    months(number: number): Moment;
+    quarter(): number;
+    quarter(number: number): Moment;
+    year(): number;
+    years(): number;
+    year(number: number): Moment;
+    years(number: number): Moment;
+    weekYear(): number;
+    weekYear(number: number): Moment;
+    isoWeekYear(): number;
+    isoWeekYear(number: number): Moment;
+    weeksInYear():  number;
+    isoWeeksInYear(): number;
     get(string: string): number;
-    set(unit: string, value: Number): void;
-    set(options: { unit: string, value: Number }): void;
+    set(unit: string, value: number): Moment;
+    set(options: { unit: string, value: number }): Moment;
     static max(...dates: Array<Moment>): Moment;
     static min(...dates: Array<Moment>): Moment;
-    add(value: Number, unit: string): Moment;
+    add(value: number, unit: string): Moment;
     add(duration: MomentDuration): Moment;
     add(object: Object): Moment;
-    subtract(value: Number, unit: string): Moment;
+    subtract(value: number, unit?: string): Moment;
     subtract(duration: MomentDuration): Moment;
     subtract(object: Object): Moment;
-    startOf(unit: string): void;
-    endOf(unit: string): void;
+    startOf(unit: string): Moment;
+    endOf(unit: string): Moment;
     local(): void;
     utc(): void;
-    utcOffset(offset?: Number|string): void;
+    utcOffset(offset?: number|string): void;
     format(format?: string): string;
     fromNow(removeSuffix?: bool): string;
-    from(value: Moment|string|Number|Date|Array<Number>, removePrefix?: bool): string;
+    from(value: Moment|string|number|Date|Array<number>, removePrefix?: bool): string;
     toNow(removePrefix?: bool): string;
-    to(value: Moment|string|Number|Date|Array<Number>, removePrefix?: bool): string;
+    to(value: Moment|string|number|Date|Array<number>, removePrefix?: bool): string;
     calendar(refTime?: any, formats?: CalendarFormats): void;
-    diff(date: Moment|string|Number|Date|Array<Number>, format?: string, floating?: bool): Number;
+    diff(date: Moment|string|number|Date|Array<number>, format?: string, floating?: bool): number;
     valueOf(): number;
-    unix(): Number;
-    daysInMonth(): Number;
+    unix(): number;
+    daysInMonth(): number;
     toDate(): Date;
-    toArray(): Array<Number>;
+    toArray(): Array<number>;
     toJSON(): string;
     toISOString(): string;
     toObject(): MomentObject;
-    isBefore(date: Moment|string|Number|Date|Array<Number>): bool;
-    isSame(date: Moment|string|Number|Date|Array<Number>): bool;
-    isAfter(date: Moment|string|Number|Date|Array<Number>): bool;
-    isSameOrBefore(date: Moment|string|Number|Date|Array<Number>): bool;
-    isSameOrAfter(date: Moment|string|Number|Date|Array<Number>): bool;
-    isBetween(date: Moment|string|Number|Date|Array<Number>): bool;
+    isBefore(date: Moment|string|number|Date|Array<number>): bool;
+    isSame(date: Moment|string|number|Date|Array<number>): bool;
+    isAfter(date: Moment|string|number|Date|Array<number>): bool;
+    isSameOrBefore(date: Moment|string|number|Date|Array<number>): bool;
+    isSameOrAfter(date: Moment|string|number|Date|Array<number>): bool;
+    isBetween(date: Moment|string|number|Date|Array<number>): bool;
     isDST(): bool;
     isDSTShifted(): bool;
     isLeapYear(): bool;
@@ -227,7 +227,7 @@ declare module 'moment' {
     static weekdaysShort(): string;
     static weekdaysMin(): string;
     static localeData(key?: string): LocaleData;
-    static duration(value: Number, unit: string): MomentDuration;
+    static duration(value: number, unit: string): MomentDuration;
     static duration(object: Object): MomentDuration;
     static duration(string: string): MomentDuration;
     static isDuration(obj: any): bool;

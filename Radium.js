@@ -1,3 +1,9 @@
 declare module 'Radium' {
-  declare function keyframes(animationObject: Object, name?: string): string;
+  declare class Radium {
+    (reactClass: ReactClass): ReactClass;
+    keyframes(animationObject: Object, name?: string): string;
+    Style: ReactClass;
+    StyleRoot: ReactClass;
+  }
+  declare var exports: Radium;
 }
