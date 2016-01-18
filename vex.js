@@ -26,7 +26,7 @@ declare module 'vex' {
     static open(options: VexOptions): any;
     static close(id: number): void;
     static closeAll(): void;
-    static getAllVexes(): Array<string>;
+    static getAllVexes(): Array<Element>;
     static getVexByID(id: number): any;
   }
   declare class Vex extends VexDialog {

@@ -89,23 +89,15 @@ declare module 'moment' {
     asMonths(): number;
     years(): number;
     asYears(): number;
-    add(value: number, unit?: string): MomentDuration;
-    add(duration: MomentDuration): MomentDuration;
-    add(object: Object): MomentDuration;
-    subtract(value: number, unit?: string): MomentDuration;
-    subtract(duration: MomentDuration): MomentDuration;
-    subtract(object: Object): MomentDuration;
+    add(value: number|MomentDuration|Object, unit?: string): MomentDuration;
+    subtract(value: number|MomentDuration|Object, unit?: string): MomentDuration;
     as(unit: string): number;
     get(unit: string): number;
     toJSON(): string;
   }
   declare class Moment {
     static (string?: string, format?: string|Array<string>, locale?: string, strict?: bool): Moment;
-    static (options: MomentOptions): Moment;
-    static (millseconds: number): Moment;
-    static (date: Date): Moment;
-    static (numbers: Array<number>): Moment;
-    static (moment: Moment): Moment;
+    static (initDate: Object|number|Date|Array<number>|Moment): Moment;
     static unix(seconds: number): Moment;
     static utc(): Moment;
     static utc(number: number|Array<number>): Moment;
@@ -175,12 +167,8 @@ declare module 'moment' {
     set(options: { unit: string, value: number }): Moment;
     static max(...dates: Array<Moment>): Moment;
     static min(...dates: Array<Moment>): Moment;
-    add(value: number, unit: string): Moment;
-    add(duration: MomentDuration): Moment;
-    add(object: Object): Moment;
-    subtract(value: number, unit?: string): Moment;
-    subtract(duration: MomentDuration): Moment;
-    subtract(object: Object): Moment;
+    add(value: number|MomentDuration|Object, unit?: string): Moment;
+    subtract(value: number|MomentDuration|string, unit?: string): Moment;
     startOf(unit: string): Moment;
     endOf(unit: string): Moment;
     local(): void;
@@ -210,6 +198,7 @@ declare module 'moment' {
     isDST(): bool;
     isDSTShifted(): bool;
     isLeapYear(): bool;
+    clone(): Moment;
     static isMoment(obj: any): bool;
     static isDatE(obj: any): bool;
     static locale(locale: string, localeData?: Object): void;
@@ -227,9 +216,7 @@ declare module 'moment' {
     static weekdaysShort(): string;
     static weekdaysMin(): string;
     static localeData(key?: string): LocaleData;
-    static duration(value: number, unit: string): MomentDuration;
-    static duration(object: Object): MomentDuration;
-    static duration(string: string): MomentDuration;
+    static duration(value: number|Object|string, unit?: string): MomentDuration;
     static isDuration(obj: any): bool;
     static normalizeUnits(unit: string): string;
     static invaid(object: any): Moment;

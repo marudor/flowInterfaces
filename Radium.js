@@ -4,6 +4,7 @@ declare module 'Radium' {
     keyframes(animationObject: Object, name?: string): string;
     Style: ReactClass;
     StyleRoot: ReactClass;
+    getState(state: any, componentRef: string, property: string): bool;
   }
   declare var exports: Radium;
 }
