@@ -100,7 +100,7 @@ declare class Promise<R> {
     reducer: (total: T, item: U, index: number, arrayLength: number) => Promise<T> | T,
     initialValue?: T
   ): Promise<T>;
-  filter<T>(filterer: (item: T, index: number, arrayLength: number) => Promise<bool> | bool, options: ConcurrencyOption): Promise<Array<T>>;
+  filter<T>(filterer: (item: T, index: number, arrayLength: number) => Promise<bool> | bool, options?: ConcurrencyOption): Promise<Array<T>>;
   each<T, U>(iterator: (item: T, index: number, arrayLength: number) => Promise<U> | U): Promise<Array<T>>;
 
   reflect(): Promise<PromiseInspection>;
