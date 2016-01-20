@@ -10,8 +10,8 @@ type Difference = {
 type PrefilterFn = (path: string, key: string) => bool;
 
 declare module 'deep-diff' {
-  declare function exports(lhs: any, rhs: any, prefilter?: PrefitlerFn, acc?: Array<any>): ?Array<Difference>;
-  declare function diff(lhs: any, rhs: any, prefilter?: PrefitlerFn, acc?: Array<any>): ?Array<Difference>;
+  declare function exports(lhs: any, rhs: any, prefilter?: PrefilterFn, acc?: Array<any>): ?Array<Difference>;
+  declare function diff(lhs: any, rhs: any, prefilter?: PrefilterFn, acc?: Array<any>): ?Array<Difference>;
   declare function observableDiff(lhs: any, rhs: any, observerFn: Function): void;
   declare function applyChange(lhs: any, rhs: any, difference: Difference): void;
   declare function revertChange(lhs: any, rhs: any, difference: Difference): void;
