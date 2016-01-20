@@ -38,10 +38,10 @@ type OPredicate = ((value: any, key: string, object: *) => bool)|Object|string;
 type _OIteratee<T> = ((value: any, key: string, object: *) => T)|Object|string;
 type OIteratee = _OIteratee<any>;
 
-type Predicate<T> = ((value: T, index: number, array: Array<T>) => bool)|Object|string;
-type _Iteratee<T> = (item: T, index: number, array: Array<T>) => mixed;
+type Predicate<T> = ((value: T, index: number, array: ?Array<T>) => bool)|Object|string;
+type _Iteratee<T> = (item: T, index: number, array: ?Array<T>) => mixed;
 type Iteratee<T> = _Iteratee<T>|Object|string;
-type Iteratee2<T, U> = ((item: T, index: number, array: Array<T>) => U)|Object|string;
+type Iteratee2<T, U> = ((item: T, index: number, array: ?Array<T>) => U)|Object|string;
 type Comparator<T> = (arr: Array<T>, arr2: Array<T>) => bool;
 
 declare module 'lodash' {
@@ -49,25 +49,25 @@ declare module 'lodash' {
     (value: any): any;
 
     // Array
-    chunk<T>(array: Array<T>, size?: number): Array<T>;
+    chunk<T>(array: ?Array<T>, size?: number): Array<T>;
     compact<T>(array: Array<T|false|null|0|''>): Array<T>;
-    difference<T>(array: Array<T>, values: Array<T>): Array<T>;
-    drop<T>(array: Array<T>, n?: number): Array<T>;
-    dropRight<T>(array: Array<T>, n?: number): Array<T>;
-    dropRightWhile<T>(array: Array<T>, predicate?: Predicate<T>): Array<T>;
-    dropWhile<T>(array: Array<T>, predicate?: Predicate<T>): Array<T>;
-    fill<T, U>(array: Array<T>, value: U, start?: number, end?: number): Array<T|U>;
-    findIndex<T>(array: Array<T>, predicate?: Predicate<T>): number;
-    findLastIndex<T>(array: Array<T>, predicate?: Predicate<T>): number;
-    flatMap<T, U>(array: Array<T>, iteratee?: Iteratee2<T, U>): Array<U>;
+    difference<T>(array: ?Array<T>, values: Array<T>): Array<T>;
+    drop<T>(array: ?Array<T>, n?: number): Array<T>;
+    dropRight<T>(array: ?Array<T>, n?: number): Array<T>;
+    dropRightWhile<T>(array: ?Array<T>, predicate?: Predicate<T>): Array<T>;
+    dropWhile<T>(array: ?Array<T>, predicate?: Predicate<T>): Array<T>;
+    fill<T, U>(array: ?Array<T>, value: U, start?: number, end?: number): Array<T|U>;
+    findIndex<T>(array: ?Array<T>, predicate?: Predicate<T>): number;
+    findLastIndex<T>(array: ?Array<T>, predicate?: Predicate<T>): number;
+    flatMap<T, U>(array: ?Array<T>, iteratee?: Iteratee2<T, U>): Array<U>;
     flatten<T>(array: RecursiveArray<T>): RecursiveArray<T>;
     flattenDeep<T>(array: RecursiveArray<T>): Array<T>;
     fromPairs<T>(pairs: Array<T>): Object;
-    head<T>(array: Array<T>): T;
+    head<T>(array: ?Array<T>): T;
     // Alias
-    first<T>(array: Array<T>): T;
-    indexOf<T>(array: Array<T>, value: T, fromIndex?: number): number;
-    initial<T>(array: Array<T>): Array<T>;
+    first<T>(array: ?Array<T>): T;
+    indexOf<T>(array: ?Array<T>, value: T, fromIndex?: number): number;
+    initial<T>(array: ?Array<T>): Array<T>;
     intersection<T>(...arrays: Array<Array<T>>): Array<T>;
     //Workaround until (...parameter: T, parameter2: U) works
     intersectionBy<T>(a1: Array<T>, iteratee?: Iteratee<T>): Array<T>;
@@ -80,29 +80,29 @@ declare module 'lodash' {
     intersectionWith<T>(a1: Array<T>, a2: Array<T>, a3: Array<T>, comparator: Comparator<T>): Array<T>;
     intersectionWith<T>(a1: Array<T>, a2: Array<T>, a3: Array<T>, a4: Array<T>, comparator: Comparator<T>): Array<T>;
 
-    join<T>(array: Array<T>, separator?: string): string;
-    last<T>(array: Array<T>): T;
-    lastIndexOf<T>(array: Array<T>, value: T, fromIndex?: number): number;
-    pull<T>(array: Array<T>, ...values?: Array<T>): Array<T>;
-    pullAll<T>(array: Array<T>, values: Array<T>): Array<T>;
-    pullAllBy<T>(array: Array<T>, values: Array<T>, iteratee?: Iteratee<T>): Array<T>;
-    pullAt<T>(array: Array<T>, ...indexed?: Array<number>): Array<T>;
-    pullAt<T>(array: Array<T>, indexed?: Array<number>): Array<T>;
-    remove<T>(array: Array<T>, predicate?: Predicate<T>): Array<T>;
-    slice<T>(array: Array<T>, start?: number, end?: number): Array<T>;
-    sortedIndex<T>(array: Array<T>, value: T): number;
-    sortedIndexBy<T>(array: Array<T>, value: T, iteratee?: Iteratee<T>): number;
-    sortedIndexOf<T>(array: Array<T>, value: T): number;
-    sortedLastIndex<T>(array: Array<T>, value: T): number;
-    sortedLastIndexBy<T>(array: Array<T>, value: T, iteratee?: Iteratee<T>): number;
-    sortedLastIndexOf<T>(array: Array<T>, value: T): number;
-    sortedUniq<T>(array: Array<T>): Array<T>;
-    sortedUniqBy<T>(array: Array<T>, iteratee?: (value: T) => mixed): Array<T>;
-    tail<T>(array: Array<T>): Array<T>;
-    take<T>(array: Array<T>, n?: number): Array<T>;
-    takeRight<T>(array: Array<T>, n?: number): Array<T>;
-    takeRightWhile<T>(array: Array<T>, predicate?: Predicate<T>): Array<T>;
-    takeWhile<T>(array: Array<T>, predicate?: Predicate<T>): Array<T>;
+    join<T>(array: ?Array<T>, separator?: string): string;
+    last<T>(array: ?Array<T>): T;
+    lastIndexOf<T>(array: ?Array<T>, value: T, fromIndex?: number): number;
+    pull<T>(array: ?Array<T>, ...values?: Array<T>): Array<T>;
+    pullAll<T>(array: ?Array<T>, values: Array<T>): Array<T>;
+    pullAllBy<T>(array: ?Array<T>, values: Array<T>, iteratee?: Iteratee<T>): Array<T>;
+    pullAt<T>(array: ?Array<T>, ...indexed?: Array<number>): Array<T>;
+    pullAt<T>(array: ?Array<T>, indexed?: Array<number>): Array<T>;
+    remove<T>(array: ?Array<T>, predicate?: Predicate<T>): Array<T>;
+    slice<T>(array: ?Array<T>, start?: number, end?: number): Array<T>;
+    sortedIndex<T>(array: ?Array<T>, value: T): number;
+    sortedIndexBy<T>(array: ?Array<T>, value: T, iteratee?: Iteratee<T>): number;
+    sortedIndexOf<T>(array: ?Array<T>, value: T): number;
+    sortedLastIndex<T>(array: ?Array<T>, value: T): number;
+    sortedLastIndexBy<T>(array: ?Array<T>, value: T, iteratee?: Iteratee<T>): number;
+    sortedLastIndexOf<T>(array: ?Array<T>, value: T): number;
+    sortedUniq<T>(array: ?Array<T>): Array<T>;
+    sortedUniqBy<T>(array: ?Array<T>, iteratee?: (value: T) => mixed): Array<T>;
+    tail<T>(array: ?Array<T>): Array<T>;
+    take<T>(array: ?Array<T>, n?: number): Array<T>;
+    takeRight<T>(array: ?Array<T>, n?: number): Array<T>;
+    takeRightWhile<T>(array: ?Array<T>, predicate?: Predicate<T>): Array<T>;
+    takeWhile<T>(array: ?Array<T>, predicate?: Predicate<T>): Array<T>;
     union<T>(array?: Array<T>): Array<T>;
     unionBy<T>(array?: Array<T>, iteratee?: Iteratee<T>): Array<T>;
     //Workaround until (...parameter: T, parameter2: U) works
@@ -111,12 +111,12 @@ declare module 'lodash' {
     unionWith<T>(a1: Array<T>, a2: Array<T>, a3: Array<T>, comparator?: Comparator<T>): Array<T>;
     unionWith<T>(a1: Array<T>, a2: Array<T>, a3: Array<T>, a4: Array<T>, comparator?: Comparator<T>): Array<T>;
 
-    uniq<T>(array: Array<T>): Array<T>;
-    uniqBy<T>(array: Array<T>, iteratee?: Iteratee<T>): Array<T>;
-    uniqWith<T>(array: Array<T>, comparator?: Comparator<T>): Array<T>;
-    unzip<T>(array: Array<T>): Array<T>;
-    unzipWith<T>(array: Array<T>, iteratee?: Iteratee<T>): Array<T>;
-    without<T>(array: Array<T>, ...values?: Array<T>): Array<T>;
+    uniq<T>(array: ?Array<T>): Array<T>;
+    uniqBy<T>(array: ?Array<T>, iteratee?: Iteratee<T>): Array<T>;
+    uniqWith<T>(array: ?Array<T>, comparator?: Comparator<T>): Array<T>;
+    unzip<T>(array: ?Array<T>): Array<T>;
+    unzipWith<T>(array: ?Array<T>, iteratee?: Iteratee<T>): Array<T>;
+    without<T>(array: ?Array<T>, ...values?: Array<T>): Array<T>;
     xor<T>(...array: Array<Array<T>>): Array<T>;
     //Workaround until (...parameter: T, parameter2: U) works
     xorBy<T>(a1: Array<T>, iteratee?: Iteratee<T>): Array<T>;
@@ -138,80 +138,80 @@ declare module 'lodash' {
     zipWith<T>(a1: NestedArray<T>, a2: NestedArray<T>, a3: NestedArray<T>, a4: NestedArray<T>, iteratee?: Iteratee<T>): Array<T>;
 
     // Collection
-    countBy<T>(array: Array<T>, iteratee?: Iteratee<T>): Object;
+    countBy<T>(array: ?Array<T>, iteratee?: Iteratee<T>): Object;
     countBy<T>(object: T, iteratee?: OIteratee): Object;
 
-    every<T>(array: Array<T>, iteratee?: Iteratee<T>): bool;
+    every<T>(array: ?Array<T>, iteratee?: Iteratee<T>): bool;
     every<T>(object: T, iteratee?: OIteratee): bool;
 
-    filter<T>(array: Array<T>, predicate?: Predicate<T>): Array<T>;
+    filter<T>(array: ?Array<T>, predicate?: Predicate<T>): Array<T>;
     filter<T>(object: T, predicate?: OPredicate): Array<any>;
 
-    find<T>(array: Array<T>, predicate?: Predicate<T>): T;
+    find<T>(array: ?Array<T>, predicate?: Predicate<T>): T;
     find<T>(object: T, predicate?: OPredicate): any;
 
-    findLast<T>(array: Array<T>, predicate?: Predicate<T>): T;
+    findLast<T>(array: ?Array<T>, predicate?: Predicate<T>): T;
     findLast<T>(object: T, predicate?: OPredicate): any;
 
-    forEach<T>(array: Array<T>, iteratee?: Iteratee<T>): Array<T>;
+    forEach<T>(array: ?Array<T>, iteratee?: Iteratee<T>): Array<T>;
     forEach<T>(object: T, iteratee?: OIteratee): T;
     //Alias
-    each<T>(array: Array<T>, iteratee?: Iteratee<T>): Array<T>;
+    each<T>(array: ?Array<T>, iteratee?: Iteratee<T>): Array<T>;
     each<T>(object: T, iteratee?: OIteratee): T;
 
-    forEachRight<T>(array: Array<T>, iteratee?: Iteratee<T>): Array<T>;
+    forEachRight<T>(array: ?Array<T>, iteratee?: Iteratee<T>): Array<T>;
     forEachRight<T>(object: T, iteratee?: OIteratee): T;
     //Alias
-    eachRight<T>(array: Array<T>, iteratee?: Iteratee<T>): Array<T>;
+    eachRight<T>(array: ?Array<T>, iteratee?: Iteratee<T>): Array<T>;
     eachRight<T>(object: T, iteratee?: OIteratee): T;
 
-    groupBy<T>(array: Array<T>, iteratee?: Iteratee<T>): Object;
+    groupBy<T>(array: ?Array<T>, iteratee?: Iteratee<T>): Object;
     groupBy<T>(object: T, iteratee?: OIteratee): Object;
 
-    includes<T>(array: Array<T>, value: T, fromIndex?: number): bool;
+    includes<T>(array: ?Array<T>, value: T, fromIndex?: number): bool;
     includes<T>(object: T, value: any, fromIndex?: number): bool;
     includes(str: string, value: string, fromIndex?: number): bool;
 
-    invokeMap<T>(array: Array<T>, path: ((value: T) => Array<string>|string)|Array<string>|string, ...args?: Array<any>): Array<any>;
+    invokeMap<T>(array: ?Array<T>, path: ((value: T) => Array<string>|string)|Array<string>|string, ...args?: Array<any>): Array<any>;
     invokeMap<T>(object: T, path: ((value: any) => Array<string>|string)|Array<string>|string, ...args?: Array<any>): Array<any>;
 
-    keyBy<T>(array: Array<T>, iteratee?: Iteratee<T>): Object;
+    keyBy<T>(array: ?Array<T>, iteratee?: Iteratee<T>): Object;
     keyBy<T>(object: T, iteratee?: OIteratee): Object;
 
-    map<T, U>(array: Array<T>, iteratee?: Iteratee2<T, U>): Array<U>;
+    map<T, U>(array: ?Array<T>, iteratee?: Iteratee2<T, U>): Array<U>;
     map<T, U>(object: T, iteratee?: OIteratee): Array<U>;
 
-    orderBy<T>(array: Array<T>, iteratees?: Array<Iteratee<T>>, orders?: Array<'asc'|'desc'>): Array<T>;
+    orderBy<T>(array: ?Array<T>, iteratees?: Array<Iteratee<T>>, orders?: Array<'asc'|'desc'>): Array<T>;
     orderBy<T>(object: T, iteratees?: Array<OIteratee>, orders?: Array<'asc'|'desc'>): Array<any>;
 
-    partition<T>(array: Array<T>, predicate?: Predicate<T>): NestedArray<T>;
+    partition<T>(array: ?Array<T>, predicate?: Predicate<T>): NestedArray<T>;
     partition<T>(object: T, predicate?: OPredicate): NestedArray<any>;
 
-    reduce<T, U>(array: Array<T>, iteratee?: (accumulator: U, value: T, index: number, array: Array<T>) => U, accumulator?: U): U;
+    reduce<T, U>(array: ?Array<T>, iteratee?: (accumulator: U, value: T, index: number, array: ?Array<T>) => U, accumulator?: U): U;
     reduce<T, U>(object: T, iteratee?: (accumulator: U, value: any, key: string, object: T) => U, accumulator?: U): U;
 
-    reduceRight<T, U>(array: Array<T>, iteratee?: (accumulator: U, value: T, index: number, array: Array<T>) => U, accumulator?: U): U;
+    reduceRight<T, U>(array: ?Array<T>, iteratee?: (accumulator: U, value: T, index: number, array: ?Array<T>) => U, accumulator?: U): U;
     reduceRight<T, U>(object: T, iteratee?: (accumulator: U, value: any, key: string, object: T) => U, accumulator?: U): U;
 
-    reject<T>(array: Array<T>, predicate?: Predicate<T>): Array<T>;
+    reject<T>(array: ?Array<T>, predicate?: Predicate<T>): Array<T>;
     reject<T>(object: T, predicate?: OPredicate): Array<any>;
 
-    sample<T>(array: Array<T>): T;
+    sample<T>(array: ?Array<T>): T;
     sample<T>(object: T): any;
 
-    sampleSize<T>(array: Array<T>, n?: number): Array<T>;
+    sampleSize<T>(array: ?Array<T>, n?: number): Array<T>;
     sampleSize<T>(object: T, n?: number): Array<any>;
 
-    shuffle<T>(array: Array<T>): Array<T>;
+    shuffle<T>(array: ?Array<T>): Array<T>;
     shuffle<T>(object: T): Array<any>;
 
     size(collection: Array<any>|Object): number;
 
-    some<T>(array: Array<T>, predicate?: Predicate<T>): bool;
+    some<T>(array: ?Array<T>, predicate?: Predicate<T>): bool;
     some<T>(object: Object, predicate?: OPredicate): bool;
 
-    sortBy<T>(array: Array<T>, ...iteratees?: Array<Iteratee<T>>): Array<T>;
-    sortBy<T>(array: Array<T>, iteratees?: Array<Iteratee<T>>): Array<T>;
+    sortBy<T>(array: ?Array<T>, ...iteratees?: Array<Iteratee<T>>): Array<T>;
+    sortBy<T>(array: ?Array<T>, iteratees?: Array<Iteratee<T>>): Array<T>;
     sortBy<T>(object: T, ...iteratees?: Array<OIteratee>): Array<any>;
     sortBy<T>(object: T, iteratees?: Array<OIteratee>): Array<any>;
 
@@ -300,11 +300,11 @@ declare module 'lodash' {
     add(augend: number, addend: number): number;
     ceil(number: number, precision?: number): number;
     floor(number: number, precision?: number): number;
-    max<T>(array: Array<T>): T;
-    maxBy<T>(array: Array<T>, iteratee?: Iteratee<T>): T;
+    max<T>(array: ?Array<T>): T;
+    maxBy<T>(array: ?Array<T>, iteratee?: Iteratee<T>): T;
     mean(array: Array<*>): number;
-    min<T>(array: Array<T>): T;
-    minBy<T>(array: Array<T>, iteratee?: Iteratee<T>): T;
+    min<T>(array: ?Array<T>): T;
+    minBy<T>(array: ?Array<T>, iteratee?: Iteratee<T>): T;
     round(number: number, precision?: number): number;
     subtract(minuend: number, subtrahend: number): number;
     sum(array: Array<*>): number;
