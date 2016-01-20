@@ -7,7 +7,7 @@ type Difference = {
   item?: Difference,
 }
 
-type PrefilterFn = (path: string, key: string) => bool;
+type PrefilterFn = (path: Array<string>, key: string) => bool|void;
 
 declare module 'deep-diff' {
   declare function exports(lhs: any, rhs: any, prefilter?: PrefilterFn, acc?: Array<any>): ?Array<Difference>;
