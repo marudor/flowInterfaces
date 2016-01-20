@@ -24,7 +24,7 @@ declare module 'vex' {
     static confirm(options: VexOptions): any;
     static prompt(options: VexOptions): any;
     static open(options: VexOptions): any;
-    static close(id: number): void;
+    static close(id?: ?number): void;
     static closeAll(): void;
     static getAllVexes(): Array<Element>;
     static getVexByID(id: number): any;
