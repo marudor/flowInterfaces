@@ -167,8 +167,8 @@ declare module 'moment' {
     set(options: { unit: string, value: number }): Moment;
     static max(...dates: Array<Moment>): Moment;
     static min(...dates: Array<Moment>): Moment;
-    add(value: number|MomentDuration|Object, unit?: string): Moment;
-    subtract(value: number|MomentDuration|string, unit?: string): Moment;
+    add(value: number|MomentDuration|Moment|Object, unit?: string): Moment;
+    subtract(value: number|MomentDuration|Moment|string, unit?: string): Moment;
     startOf(unit: string): Moment;
     endOf(unit: string): Moment;
     local(): void;
