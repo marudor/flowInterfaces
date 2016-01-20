@@ -1,5 +1,5 @@
 declare module 'react-router' {
-  declare class ReactRouter extends ReactClass {
+  declare interface ReactRouter extends ReactClass {
     Route: ReactClass;
     IndexRoute: ReactClass;
     Redirect: ReactClass;

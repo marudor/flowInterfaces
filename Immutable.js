@@ -96,7 +96,7 @@ declare module 'immutable' {
    * "unset" index and an index set to `undefined`. `List#forEach` visits all
    * indices from 0 to size, regardless of if they where explicitly defined.
    */
-  declare class List<T> extends IndexedCollection<T> {
+  declare interface List<T> extends IndexedCollection<T> {
 
     /**
     * Create a new immutable List containing the values of the provided
@@ -369,7 +369,7 @@ declare module 'immutable' {
    *
    * Implemented by a hash-array mapped trie.
    */
-  declare class Map<K, V> extends KeyedCollection<K, V> {
+  declare interface Map<K, V> extends KeyedCollection<K, V> {
     /**
     * Creates a new Immutable Map.
     *
@@ -661,7 +661,7 @@ declare module 'immutable' {
    * stable.
    */
 
-  declare class OrderedMap<K, V> extends Map<K, V> {
+  declare interface OrderedMap<K, V> extends Map<K, V> {
     /**
     * Creates a new Immutable OrderedMap.
     *
@@ -698,7 +698,7 @@ declare module 'immutable' {
    * `Immutable.is`, enabling Sets to uniquely include other Immutable
    * collections, custom value types, and NaN.
    */
-  declare class Set<T> extends SetCollection<T> {
+  declare interface Set<T> extends SetCollection<T> {
     /**
     * Create a new immutable Set containing the values of the provided
     * iterable-like.
@@ -800,7 +800,7 @@ declare module 'immutable' {
    * consume more memory. `OrderedSet#add` is amoratized O(log32 N), but not
    * stable.
    */
-  declare class OrderedSet<T> extends Set<T> {
+  declare interface OrderedSet<T> extends Set<T> {
     /**
     * Create a new immutable OrderedSet containing the values of the provided
     * iterable-like.
@@ -842,7 +842,7 @@ declare module 'immutable' {
    *
    * Stack is implemented with a Single-Linked List.
    */
-  declare class Stack<T> extends IndexedCollection<T> {
+  declare interface Stack<T> extends IndexedCollection<T> {
     /**
     * Create a new immutable Stack containing the values of the provided
     * iterable-like.
@@ -990,7 +990,7 @@ declare module 'immutable' {
    *     myRecord.getAB() // 4
    *
    */
-  declare class Record {
+  declare interface Record {
     // TODO (glevi) uncripple Record
     static (defaultValues: {[key: string]: any}, name?: string): any;
 
@@ -1046,7 +1046,7 @@ declare module 'immutable' {
    *     // { x: 0, y: 2, z: 4 }
    */
 
-  declare class Seq<K, V> extends Iterable<K, V> {
+  declare interface Seq<K, V> extends Iterable<K, V> {
     /**
     * Creates a Seq.
     *
@@ -1195,7 +1195,7 @@ declare module 'immutable' {
    * Note: An iterable is always iterated in the same order, however that order
    * may not always be well defined, as is the case for the `Map` and `Set`.
    */
-  declare class Iterable<K, V> {
+  declare interface Iterable<K, V> {
     /**
     * Creates an Iterable.
     *
@@ -1938,7 +1938,7 @@ declare module 'immutable' {
    * in other words, `Iterable#entries` is the default iterator for Keyed
    * Iterables.
    */
-  declare class KeyedIterable<K, V> extends Iterable<K, V> {
+  declare interface KeyedIterable<K, V> extends Iterable<K, V> {
     /**
     * Creates a KeyedIterable
     *
@@ -2050,7 +2050,7 @@ declare module 'immutable' {
    * preserve indices, using them as keys, convert to a KeyedIterable by calling
    * `toKeyedSeq`.
    */
-  declare class IndexedIterable<T> extends Iterable<number, T> {
+  declare interface IndexedIterable<T> extends Iterable<number, T> {
     /**
     * Creates a new IndexedIterable.
     */
@@ -2217,7 +2217,7 @@ declare module 'immutable' {
    *     assert.equal(seq.every((v, k) => v === k), true);
    *
    */
-  declare class SetIterable<T> extends Iterable<T, T> {
+  declare interface SetIterable<T> extends Iterable<T, T> {
     /**
     * Similar to `Iterable()`, but always returns a SetIterable.
     */
@@ -2241,7 +2241,7 @@ declare module 'immutable' {
    * Implementations should extend one of the subclasses, `KeyedCollection`,
    * `IndexedCollection`, or `SetCollection`.
    */
-  declare class Collection<K, V> extends Iterable<K, V> {
+  declare interface Collection<K, V> extends Iterable<K, V> {
 
     /**
      * All collections maintain their current `size` as an integer.
