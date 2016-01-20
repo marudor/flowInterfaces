@@ -32,11 +32,12 @@ declare module 'axios' {
   declare class Axios {
     constructor<T>(config: AxiosXHRConfigBase<T>): Promise<T>;
     <T>(config: AxiosXHRConfigBase<T>): Promise<T>;
-    get<T>(url: string, config?: AxiosXHRConfigBase<T>): Promise<T>;
-    delete<T>(url: string, config?: AxiosXHRConfigBase<T>): Promise<T>;
-    head<T>(url: string, config?: AxiosXHRConfigBase<T>): Promise<T>;
-    post<T>(url: string, data?: any, config?: AxiosXHRConfigBase<T>): Promise<T>;
-    put<T>(url: string, data?: any, config?: AxiosXHRConfigBase<T>): Promise<T>;
+    [key: $Enum<Axios>]: Function;
+    get: <T>(url: string, config?: AxiosXHRConfigBase<T>) => Promise<T>;
+    delete: <T>(url: string, config?: AxiosXHRConfigBase<T>) => Promise<T>;
+    head: <T>(url: string, config?: AxiosXHRConfigBase<T>) => Promise<T>;
+    post: <T>(url: string, data?: any, config?: AxiosXHRConfigBase<T>) => Promise<T>;
+    put: <T>(url: string, data?: any, config?: AxiosXHRConfigBase<T>) => Promise<T>;
     interceptors: {
       request: AxiosInterceptor<any, Promise<AxiosXHR> | AxiosXHR>,
       response: AxiosInterceptor<any, any>,

@@ -59,6 +59,7 @@ declare module 'dropzone' {
     processQueue(): void;
     removeAllFiles(cancel?: bool): void;
     removeFile(file: File): void;
+    destroy(): void;
   }
   declare var exports: typeof Dropzone;
 }
