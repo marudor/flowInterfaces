@@ -219,7 +219,7 @@ declare module 'moment' {
     static duration(value: number|Object|string, unit?: string): MomentDuration;
     static isDuration(obj: any): bool;
     static normalizeUnits(unit: string): string;
-    static invaid(object: any): Moment;
+    static invalid(object: any): Moment;
   }
   declare var exports: typeof Moment;
 }
