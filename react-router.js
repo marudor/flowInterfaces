@@ -7,3 +7,11 @@ declare module 'react-router' {
   }
   declare var exports: ReactRouter;
 }
+
+declare module 'react-router/lib/PatternUtils' {
+  declare var exports: any;
+}
+
+declare module 'history/lib/createBrowserHistory' {
+  declare var exports: any;
+}
