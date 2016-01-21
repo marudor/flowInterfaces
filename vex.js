@@ -1,5 +1,9 @@
 declare module 'vex' {
-  declare class VexDefaultOptions {
+  declare interface JQueryArray<T> extends Array<T> {
+    last(): T;
+    first(): T;
+  }
+  declare interface VexDefaultOptions {
     appendLocation?: ?string;
     className?: ?string;
     closeClassName?: ?string;
@@ -14,7 +18,7 @@ declare module 'vex' {
     overlayCSS?: Object;
     showCloseButton?: bool;
   }
-  declare class VexOptions extends VexDefaultOptions {
+  declare interface VexOptions extends VexDefaultOptions {
     afterOpen?: (contentNode: Node) => any;
     afterClose?: () => any;
   }
@@ -26,7 +30,7 @@ declare module 'vex' {
     static open(options: VexOptions): any;
     static close(id?: ?number): void;
     static closeAll(): void;
-    static getAllVexes(): Array<Element>;
+    static getAllVexes(): JQueryArray<Element>;
     static getVexByID(id: number): any;
   }
   declare class Vex extends VexDialog {
