@@ -1320,6 +1320,7 @@ declare module 'immutable' {
      * True if a value exists within this `Iterable`.
      */
     contains(value: V): boolean;
+    includes(value: V): boolean;
 
     /**
      * The first value in the Iterable.
