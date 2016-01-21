@@ -208,7 +208,7 @@ declare module 'lodash' {
     size(collection: Array<any>|Object): number;
 
     some<T>(array: ?Array<T>, predicate?: Predicate<T>): bool;
-    some<T>(object: Object, predicate?: OPredicate): bool;
+    some<T>(object?: ?Object, predicate?: OPredicate): bool;
 
     sortBy<T>(array: ?Array<T>, ...iteratees?: Array<Iteratee<T>>): Array<T>;
     sortBy<T>(array: ?Array<T>, iteratees?: Array<Iteratee<T>>): Array<T>;
@@ -270,7 +270,7 @@ declare module 'lodash' {
     isFunction(value: any): bool;
     isInteger(value: any): bool;
     isLength(value: any): bool;
-    isMatch(object: Object, source: Object): bool;
+    isMatch(object?: ?Object, source: Object): bool;
     isMatchWith<T: Object, U: Object>(object: T, source: U, customizer?: (objValue: any, srcValue: any, key: number|string, object: T, source: U) => bool|void): bool;
     isNaN(value: any): bool;
     isNative(value: any): bool;
@@ -317,10 +317,10 @@ declare module 'lodash' {
 
 
     // Object
-    assign(object: Object, ...sources?: Array<Object>): Object;
-    assignIn(object: Object, ...sources?: Array<Object>): Object;
+    assign(object?: ?Object, ...sources?: Array<Object>): Object;
+    assignIn(object?: ?Object, ...sources?: Array<Object>): Object;
     // alias
-    extend(object: Object, ...sources?: Array<Object>): Object;
+    extend(object?: ?Object, ...sources?: Array<Object>): Object;
 
     assignInWith<T: Object, A: Object>(object: T, s1: A, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A) => any|void): Object;
     assignInWith<T: Object, A: Object, B: Object>(object: T, s1: A, s2: B, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A|B) => any|void): Object;
@@ -332,50 +332,50 @@ declare module 'lodash' {
     assignWith<T: Object, A: Object, B: Object, C: Object>(object: T, s1: A, s2: B, s3: C, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A|B|C) => any|void): Object;
     assignWith<T: Object, A: Object, B: Object, C: Object, D: Object>(object: T, s1: A, s2: B, s3: C, s4: D, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A|B|C|D) => any|void): Object;
 
-    at(object: Object, ...paths: Array<string>): Array<any>;
-    at(object: Object, paths: Array<string>): Array<any>;
+    at(object?: ?Object, ...paths: Array<string>): Array<any>;
+    at(object?: ?Object, paths: Array<string>): Array<any>;
     create<T>(prototype: T, properties?: Object): $Supertype<T>;
-    defaults(object: Object, ...sources?: Array<Object>): Object;
-    defaultsDeep(object: Object, ...sources?: Array<Object>): Object;
-    findKey(object: Object, predicate?: OPredicate): string|void;
-    findLastKey(object: Object, predicate?: OPredicate): string|void;
-    forIn(object: Object, iteratee?: OIteratee): Object;
-    forInRight(object: Object, iteratee?: OIteratee): Object;
-    forOwn(object: Object, iteratee?: OIteratee): Object;
-    forOwnRight(object: Object, iteratee?: OIteratee): Object;
-    functions(object: Object): Array<string>;
-    functionsIn(object: Object): Array<string>;
-    get(object: Object, path: Array<string>|string, defaultValue?: any): any;
-    has(object: Object, path: Array<string>|string): bool;
-    hasIn(object: Object, path: Array<string>|string): bool;
-    invert(object: Object, multiVal?: bool): Object;
-    invoke(object: Object, path: Array<string>|string, ...args?: Array<any>): any;
-    keys(object: Object): Array<string>;
-    keysIn(object: Object): Array<string>;
-    mapKeys(object: Object, iteratee?: OIteratee): Object;
-    mapValues(object: Object, iteratee?: OIteratee): Object;
-    merge(object: Object, ...sources?: Array<Object>): Object;
+    defaults(object?: ?Object, ...sources?: Array<Object>): Object;
+    defaultsDeep(object?: ?Object, ...sources?: Array<Object>): Object;
+    findKey(object?: ?Object, predicate?: OPredicate): string|void;
+    findLastKey(object?: ?Object, predicate?: OPredicate): string|void;
+    forIn(object?: ?Object, iteratee?: OIteratee): Object;
+    forInRight(object?: ?Object, iteratee?: OIteratee): Object;
+    forOwn(object?: ?Object, iteratee?: OIteratee): Object;
+    forOwnRight(object?: ?Object, iteratee?: OIteratee): Object;
+    functions(object?: ?Object): Array<string>;
+    functionsIn(object?: ?Object): Array<string>;
+    get(object?: ?Object, path?: ?Array<string>|string, defaultValue?: any): any;
+    has(object?: ?Object, path?: ?Array<string>|string): bool;
+    hasIn(object?: ?Object, path?: ?Array<string>|string): bool;
+    invert(object?: ?Object, multiVal?: bool): Object;
+    invoke(object?: ?Object, path?: ?Array<string>|string, ...args?: Array<any>): any;
+    keys(object?: ?Object): Array<string>;
+    keysIn(object?: ?Object): Array<string>;
+    mapKeys(object?: ?Object, iteratee?: OIteratee): Object;
+    mapValues(object?: ?Object, iteratee?: OIteratee): Object;
+    merge(object?: ?Object, ...sources?: Array<Object>): Object;
 
     mergeWith<T: Object, A: Object>(object: T, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A) => any|void): Object;
     mergeWith<T: Object, A: Object, B: Object>(object: T, s1: A, s2: B, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A|B) => any|void): Object;
     mergeWith<T: Object, A: Object, B: Object, C: Object>(object: T, s1: A, s2: B, s3: C, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A|B|C) => any|void): Object;
     mergeWith<T: Object, A: Object, B: Object, C: Object, D: Object>(object: T, s1: A, s2: B, s3: C, s4: D, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A|B|C|D) => any|void): Object;
 
-    omit(object: Object, ...props: Array<string>): Object;
-    omit(object: Object, props: Array<string>): Object;
-    omitBy(object: Object, predicate?: OPredicate): Object;
-    pick(object: Object, ...props: Array<string>): Object;
-    pick(object: Object, props: Array<string>): Object;
-    pickBy(object: Object, predicate?: OPredicate): Object;
-    result(object: Object, path: Array<string>|string, defaultValue?: any): any;
-    set(object: Object, path: Array<string>|string, value: any): Object;
-    setWith<T>(object: T, path: Array<string>|string, value: any, customizer?: (nsValue: any, key: string, nsObject: T) => any): Object;
-    toPairs(object: Object): NestedArray<any>;
-    toPairsIn(object: Object): NestedArray<any>;
+    omit(object?: ?Object, ...props: Array<string>): Object;
+    omit(object?: ?Object, props: Array<string>): Object;
+    omitBy(object?: ?Object, predicate?: OPredicate): Object;
+    pick(object?: ?Object, ...props: Array<string>): Object;
+    pick(object?: ?Object, props: Array<string>): Object;
+    pickBy(object?: ?Object, predicate?: OPredicate): Object;
+    result(object?: ?Object, path?: ?Array<string>|string, defaultValue?: any): any;
+    set(object?: ?Object, path?: ?Array<string>|string, value: any): Object;
+    setWith<T>(object: T, path?: ?Array<string>|string, value: any, customizer?: (nsValue: any, key: string, nsObject: T) => any): Object;
+    toPairs(object?: ?Object): NestedArray<any>;
+    toPairsIn(object?: ?Object): NestedArray<any>;
     transform(collection: Object|Array<any>, iteratee?: OIteratee, accumulator?: any): any;
-    unset(object: Object, path: Array<string>|string): bool;
-    values(object: Object): Array<any>;
-    valuesIn(object: Object): Array<any>;
+    unset(object?: ?Object, path?: ?Array<string>|string): bool;
+    values(object?: ?Object): Array<any>;
+    valuesIn(object?: ?Object): Array<any>;
     // declare interface lodashSeq {
     //   chain<T>(value: T): any;
     //   tap<T>(value: T, interceptor: (value: T) => any): lodash;
@@ -415,8 +415,8 @@ declare module 'lodash' {
 
     // Util
     attempt(func: Function): any;
-    bindAll(object: Object, methodNames: Array<string>): Object;
-    bindAll(object: Object, ...methodNames: Array<string>): Object;
+    bindAll(object?: ?Object, methodNames: Array<string>): Object;
+    bindAll(object?: ?Object, ...methodNames: Array<string>): Object;
     cond(pairs: NestedArray<Function>): Function;
     conforms(source: Object): Function;
     constant<T>(value: T): () => T;
@@ -427,9 +427,9 @@ declare module 'lodash' {
     identity<T>(value: T): T;
     iteratee(func?: any): Function;
     matches(source: Object): Function;
-    matchesProperty(path: Array<string>|string, srcValue: any): Function;
-    method(path: Array<string>|string, ...args?: Array<any>): Function;
-    methodOf(object: Object, ...args?: Array<any>): Function;
+    matchesProperty(path?: ?Array<string>|string, srcValue: any): Function;
+    method(path?: ?Array<string>|string, ...args?: Array<any>): Function;
+    methodOf(object?: ?Object, ...args?: Array<any>): Function;
     mixin<T: Function|Object>(object?: T, source: Object, options?: { chain: bool }): T;
     // noConflict(): lodashStatic;
     noop(): void;
@@ -440,8 +440,8 @@ declare module 'lodash' {
     overEvery(predicates: Array<Function>): Function;
     overSome(...predicates: Array<Function>): Function;
     overSome(predicates: Array<Function>): Function;
-    property(path: Array<string>|string): Function;
-    propertyOf(object: Object): Function;
+    property(path?: ?Array<string>|string): Function;
+    propertyOf(object?: ?Object): Function;
     range(start?: number, end: number, step?: number): Array<number>;
     range(end: number): Array<number>;
     rangeRight(start?: number, end: number, step?: number): Array<number>;
