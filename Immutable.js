@@ -348,6 +348,14 @@ declare module 'immutable' {
       mapper: (value: T, index: number, iter: /*this*/List<T>) => M,
       context?: any
     ): /*this*/List<M>;
+    filter(
+      mapper: (value: T, index: number, iter: /*this*/IndexedIterable<T>) => bool,
+      context?: any
+    ): /*this*/List<T>;
+    filterNot(
+      mapper: (value: T, index: number, iter: /*this*/IndexedIterable<T>) => bool,
+      context?: any
+    ): /*this*/List<T>;
   }
 
 
@@ -652,9 +660,17 @@ declare module 'immutable' {
      */
     asImmutable(): Map<K, V>;
     map<M>(
-      mapper: (value: V, key: K, iter: /*this*/Map<K, V>) => M,
+      mapper: (value: V, key: K, iter: /*this*/Iterable<K, V>) => M,
       context?: any
     ): /*this*/Map<K, M>;
+    filter(
+      predicate: (value: V, key: K, iter: /*this*/Iterable<K, V>) => any,
+      context?: any
+    ): /*this*/Map<K, V>;
+    filterNot(
+      predicate: (value: V, key: K, iter: /*this*/Iterable<K, V>) => any,
+      context?: any
+    ): /*this*/Iterable<K, V>;
   }
 
 
