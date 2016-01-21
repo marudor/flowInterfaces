@@ -343,6 +343,11 @@ declare module 'immutable' {
      * @see `Map#asImmutable`
      */
     asImmutable(): List<T>;
+
+    map<M>(
+      mapper: (value: T, index: number, iter: /*this*/List<T>) => M,
+      context?: any
+    ): /*this*/List<M>;
   }
 
 
@@ -646,6 +651,10 @@ declare module 'immutable' {
      * copy has become immutable and can be safely returned from a function.
      */
     asImmutable(): Map<K, V>;
+    map<M>(
+      mapper: (value: V, key: K, iter: /*this*/Map<K, V>) => M,
+      context?: any
+    ): /*this*/Map<K, M>;
   }
 
 
