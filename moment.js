@@ -96,6 +96,7 @@ declare module 'moment' {
     toJSON(): string;
   }
   declare class Moment {
+    static ISO_8601: string;
     static (string?: string, format?: string|Array<string>, locale?: string, strict?: bool): Moment;
     static (initDate: Object|number|Date|Array<number>|Moment): Moment;
     static unix(seconds: number): Moment;
