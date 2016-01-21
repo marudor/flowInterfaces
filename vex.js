@@ -3,6 +3,9 @@ declare module 'vex' {
     last(): T;
     first(): T;
   }
+  declare interface JQueryElement extends Element {
+    data(key?: string): any;
+  }
   declare interface VexDefaultOptions {
     appendLocation?: ?string;
     className?: ?string;
@@ -30,7 +33,7 @@ declare module 'vex' {
     static open(options: VexOptions): any;
     static close(id?: ?number): void;
     static closeAll(): void;
-    static getAllVexes(): JQueryArray<Element>;
+    static getAllVexes(): JQueryArray<JQueryElement>;
     static getVexByID(id: number): any;
   }
   declare class Vex extends VexDialog {
