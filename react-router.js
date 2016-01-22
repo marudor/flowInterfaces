@@ -1,9 +1,11 @@
 declare module 'react-router' {
   declare interface ReactRouter extends ReactClass {
-    Route: ReactClass;
     IndexRoute: ReactClass;
-    Redirect: ReactClass;
     Link: ReactClass;
+    Redirect: ReactClass;
+    Route: ReactClass;
+    Router: ReactClass;
+    browserHistory: any;
   }
   declare var exports: ReactRouter;
 }
