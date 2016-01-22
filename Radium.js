@@ -1,5 +1,6 @@
 declare module 'Radium' {
   declare class Radium {
+    (config: Object): (reactClass: ReactClass) => ReactClass;
     (reactClass: ReactClass): ReactClass;
     keyframes(animationObject: Object, name?: string): string;
     Style: ReactClass;
