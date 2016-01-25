@@ -144,8 +144,10 @@ declare module 'lodash' {
     every<T>(array: ?Array<T>, iteratee?: Iteratee<T>): bool;
     every<T>(object: T, iteratee?: OIteratee): bool;
 
-    filter<T>(array: ?Array<T>, predicate?: Predicate<T>): Array<T>;
-    filter<T>(object: T, predicate?: OPredicate): Array<any>;
+    // Detailed Signature results in Recursion limit -> sloooow
+    // filter<T>(array: ?Array<T>, predicate?: Predicate<T>): Array<T>;
+    // filter<T>(object: T, predicate?: OPredicate): Array<any>;
+    filter(object: any, predicate: any): Array<any>;
 
     find<T>(array: ?Array<T>, predicate?: Predicate<T>): T;
     find<T>(object: T, predicate?: OPredicate): any;
