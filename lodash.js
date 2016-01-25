@@ -34,8 +34,8 @@ type ThrottleOptions = {
 type RecursiveArray<T>= Array<T|Array<T>>;
 type NestedArray<T> = Array<Array<T>>;
 
-type OPredicate = ((value: any, key: string, object: *) => bool)|Object|string;
-type _OIteratee<T> = ((value: any, key: string, object: *) => T)|Object|string;
+type OPredicate = ((value: any, key: string, object: any) => bool)|Object|string;
+type _OIteratee<T> = ((value: any, key: string, object: any) => T)|Object|string;
 type OIteratee = _OIteratee<any>;
 
 type Predicate<T> = ((value: T, index: number, array: ?Array<T>) => bool)|Object|string;
@@ -180,8 +180,9 @@ declare module 'lodash' {
     keyBy<T>(array: ?Array<T>, iteratee?: Iteratee<T>): Object;
     keyBy<T>(object: T, iteratee?: OIteratee): Object;
 
-    map<T, U>(array: ?Array<T>, iteratee?: Iteratee2<T, U>): Array<U>;
-    map<T, U>(object: T, iteratee?: OIteratee): Array<U>;
+    map<T, U>(object: T, iteratee?: ((value: any, key: any, object: T) => U)|Object|string): Array<U>;
+    // map<T, U>(array: ?Array<T>, iteratee?: Iteratee2<T, U>): Array<U>;
+    // map<T, U>(object: T, iteratee?: OIteratee): Array<U>;
 
     orderBy<T>(array: ?Array<T>, iteratees?: Array<Iteratee<T>>, orders?: Array<'asc'|'desc'>): Array<T>;
     orderBy<T>(object: T, iteratees?: Array<OIteratee>, orders?: Array<'asc'|'desc'>): Array<any>;
