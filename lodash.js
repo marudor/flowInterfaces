@@ -357,7 +357,7 @@ declare module 'lodash' {
     keysIn(object?: ?Object): Array<string>;
     mapKeys(object?: ?Object, iteratee?: OIteratee): Object;
     mapValues(object?: ?Object, iteratee?: OIteratee): Object;
-    merge(object?: ?Object, ...sources?: Array<Object>): Object;
+    merge(object?: ?Object, ...sources?: Array<?Object>): Object;
 
     mergeWith<T: Object, A: Object>(object: T, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A) => any|void): Object;
     mergeWith<T: Object, A: Object, B: Object>(object: T, s1: A, s2: B, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A|B) => any|void): Object;
