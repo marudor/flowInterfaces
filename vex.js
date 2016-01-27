@@ -1,10 +1,11 @@
 declare module 'vex' {
   declare interface JQueryArray<T> extends Array<T> {
-    last(): T;
     first(): T;
+    last(): T;
   }
   declare interface JQueryElement extends Element {
     data(key?: string): any;
+    get(): any;
   }
   declare interface VexDefaultOptions {
     appendLocation?: ?string;
