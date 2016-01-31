@@ -6,6 +6,8 @@ declare module 'react-router' {
     Route: ReactClass;
     Router: ReactClass;
     browserHistory: any;
+    match: Function;
+    RouterContext: ReactClass;
   }
   declare var exports: ReactRouter;
 }
