@@ -12,3 +12,7 @@ declare module 'react-dnd-html5-backend' {
   }
   declare var exports: HTML5Backend;
 }
+
+declare module 'react-dnd-touch-backend' {
+  declare var exports: any;
+}
