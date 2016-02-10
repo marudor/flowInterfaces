@@ -2,6 +2,7 @@ declare module 'eventemitter3' {
   declare class EventEmitter {
     static defaultMaxListeners: number;
     static constructor(): EventEmitter;
+    _events: Object;
     getMaxListeners(): number;
     setMaxListeners(n: number): EventEmitter;
     listenerCount(event: string): number;
