@@ -366,6 +366,8 @@ declare module 'immutable' {
       comparator?: (valueA: C, valueB: C) => number
     ): /*this*/List<T>;
     reverse(): /*this*/List<T>;
+    flatten(depth?: number): /*this*/List<any>;
+    flatten(shallow?: boolean): /*this*/List<any>;
   }
 
 

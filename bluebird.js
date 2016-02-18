@@ -73,8 +73,8 @@ declare class Promise<R> {
 
 
   constructor(callback: (
-    resolve: (result: Promise<R> | R) => void,
-    reject:  (error: any) => void
+    resolve: (result?: Promise<R> | R) => void,
+    reject:  (error?: any) => void
   ) => mixed): void;
   then<U>(onFulfill?: (value: R) => Promise<U> | U, onReject?: (error: any) => Promise<U> | U): Promise<U>;
   catch<U>(onReject?: (error: any) => ?Promise<U> | U): Promise<U>;

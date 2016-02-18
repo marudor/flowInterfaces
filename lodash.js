@@ -180,7 +180,7 @@ declare module 'lodash' {
     keyBy<T>(array: ?Array<T>, iteratee?: Iteratee<T>): Object;
     keyBy<T>(object: T, iteratee?: OIteratee): Object;
 
-    map<T, U>(object: T, iteratee?: ((value: any, key: any, object: T) => U)|Object|string): Array<U>;
+    map<T, U>(object: T, iteratee?: ?((value: any, key: any, object: T) => U)|Object|string): Array<U>;
     // map<T, U>(array: ?Array<T>, iteratee?: Iteratee2<T, U>): Array<U>;
     // map<T, U>(object: T, iteratee?: OIteratee): Array<U>;
 

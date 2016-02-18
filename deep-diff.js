@@ -1,6 +1,6 @@
 type Difference = {
   kind: 'N'|'D'|'E'|'A',
-  path: string,
+  path: string[],
   lhs: ?any,
   rhs: ?any,
   index?: number,
