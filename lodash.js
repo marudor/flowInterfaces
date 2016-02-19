@@ -34,11 +34,11 @@ type ThrottleOptions = {
 type RecursiveArray<T>= Array<T|Array<T>>;
 type NestedArray<T> = Array<Array<T>>;
 
-type OPredicate = ((value: any, key: string, object: any) => bool)|Object|string;
+type OPredicate = ((value: any, key: string, object: any) => ?bool)|Object|string;
 type _OIteratee<T> = ((value: any, key: string, object: any) => T)|Object|string;
 type OIteratee = _OIteratee<any>;
 
-type Predicate<T> = ((value: T, index: number, array: ?Array<T>) => bool)|Object|string;
+type Predicate<T> = ((value: T, index: number, array: ?Array<T>) => ?bool)|Object|string;
 type _Iteratee<T> = (item: T, index: number, array: ?Array<T>) => mixed;
 type Iteratee<T> = _Iteratee<T>|Object|string;
 type Iteratee2<T, U> = ((item: T, index: number, array: ?Array<T>) => U)|Object|string;
