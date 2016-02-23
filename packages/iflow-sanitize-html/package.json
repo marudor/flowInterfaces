@@ -1,6 +1,6 @@
 {
   "name": "iflow-sanitize-html",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Flow Interface for sanitize-html",
   "main": "index.js.flow",
   "scripts": {

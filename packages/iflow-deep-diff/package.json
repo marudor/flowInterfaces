@@ -1,6 +1,6 @@
 {
   "name": "iflow-deep-diff",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Flow Interface for deep-diff",
   "main": "index.js.flow",
   "scripts": {

@@ -1,6 +1,6 @@
 {
   "name": "iflow-fuse",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Flow Interface for fuse",
   "main": "index.js.flow",
   "scripts": {

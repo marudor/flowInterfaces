@@ -1,6 +1,6 @@
 {
   "name": "iflow-i18next",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Flow Interface for i18next",
   "main": "index.js.flow",
   "scripts": {
