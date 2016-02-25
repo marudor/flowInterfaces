@@ -1,6 +1,6 @@
 {
   "name": "iflow-fuzzaldrin",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Flow Interface for fuzzaldrin",
   "main": "index.js.flow",
   "scripts": {

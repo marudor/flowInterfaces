@@ -1,6 +1,6 @@
 {
   "name": "iflow-clamp-js",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Flow Interface for clamp-js",
   "main": "index.js.flow",
   "scripts": {

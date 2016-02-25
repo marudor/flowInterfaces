@@ -1,6 +1,6 @@
 {
   "name": "iflow-react-dnd",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Flow Interface for react-dnd",
   "main": "index.js.flow",
   "scripts": {

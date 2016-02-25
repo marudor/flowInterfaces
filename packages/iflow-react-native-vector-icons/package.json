@@ -1,6 +1,6 @@
 {
   "name": "iflow-native-vector-icons",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Flow Interface for native-vector-icons",
   "main": "index.js.flow",
   "scripts": {
