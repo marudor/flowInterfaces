@@ -1,6 +1,6 @@
 {
   "name": "iflow-material-ui",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Flow Interface for material-ui",
   "main": "index.js.flow",
   "scripts": {
