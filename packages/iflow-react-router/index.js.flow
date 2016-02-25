@@ -1,13 +1,15 @@
+import React from 'react';
+
 declare module 'react-router' {
-  declare interface ReactRouter extends ReactClass {
-    IndexRoute: ReactClass;
-    Link: ReactClass;
-    Redirect: ReactClass;
-    Route: ReactClass;
-    Router: ReactClass;
+  declare interface ReactRouter extends React.Component {
+    IndexRoute: React.Component;
+    Link: React.Component;
+    Redirect: React.Component;
+    Route: React.Component;
+    Router: React.Component;
     browserHistory: any;
     match: Function;
-    RouterContext: ReactClass;
+    RouterContext: React.Component;
   }
   declare var exports: ReactRouter;
 }

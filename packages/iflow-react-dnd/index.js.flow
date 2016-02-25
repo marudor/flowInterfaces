@@ -1,8 +1,10 @@
+import React from 'react';
+
 declare module 'react-dnd' {
-  declare function DropTarget(type: string|string[], spec?: Object, collect?: Object, options?: any): (component: ReactClass) => ReactClass;
-  declare function DragSource(type: string|string[], spec?: Object, collect?: Object, options?: any): (component: ReactClass) => ReactClass;
-  declare function DragLayer(type: string|string[], spec?: Object, collect?: Object, options?: any): (component: ReactClass) => ReactClass;
-  declare function DragDropContext(backend: any): ReactClass;
+  declare function DropTarget(type: string|string[], spec?: Object, collect?: Object, options?: any): (component: React.Component) => React.Component;
+  declare function DragSource(type: string|string[], spec?: Object, collect?: Object, options?: any): (component: React.Component) => React.Component;
+  declare function DragLayer(type: string|string[], spec?: Object, collect?: Object, options?: any): (component: React.Component) => React.Component;
+  declare function DragDropContext(backend: any): React.Component;
 }
 
 

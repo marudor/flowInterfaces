@@ -1,10 +1,12 @@
+import React from 'react';
+
 declare module 'radium' {
   declare class Radium {
-    (config: Object): (reactClass: ReactClass) => ReactClass;
-    (reactClass: ReactClass): ReactClass;
+    (config: Object): (reactClass: React.Component) => React.Component;
+    (reactClass: React.Component): React.Component;
     keyframes(animationObject: Object, name?: string): string;
-    Style: ReactClass;
-    StyleRoot: ReactClass;
+    Style: React.Component;
+    StyleRoot: React.Component;
     getState(state: any, componentRef: string, property: string): bool;
   }
   declare var exports: Radium;
