@@ -1,6 +1,6 @@
 {
   "name": "iflow-koa",
-  "version": "1.0.0",
+  "version": "1.0.6",
   "description": "Flow Interface for koa (2.0)",
   "main": "index.js.flow",
   "scripts": {

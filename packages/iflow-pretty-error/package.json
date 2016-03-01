@@ -1,6 +1,6 @@
 {
   "name": "iflow-pretty-error",
-  "version": "1.0.0",
+  "version": "1.0.6",
   "description": "Flow Interface for pretty-error",
   "main": "index.js.flow",
   "scripts": {
