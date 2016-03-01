@@ -1,6 +1,13 @@
 {
   "private": true,
+  "scripts": {
+    "postinstall": "./link.sh",
+    "test": "./test.sh"
+  },
   "dependencies": {
     "lerna": "^1.1.1"
+  },
+  "devDependencies": {
+    "flow-bin": "^0.22.0"
   }
 }
