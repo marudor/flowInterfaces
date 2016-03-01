@@ -1,4 +1,3 @@
-*.flowconfig
 /test.js
 .DS_Store
 npm-debug.log
