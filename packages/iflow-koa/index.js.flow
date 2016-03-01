@@ -150,7 +150,7 @@ declare module 'koa' {
 
   }
   declare class Koa extends events$EventEmitter {
-    static (): Koa;
+    static constructor(): Koa;
     listen(port: number): void;
     callback(): Function;
     keys: string[] | Object;
