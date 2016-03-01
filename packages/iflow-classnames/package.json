@@ -1,6 +1,6 @@
 {
   "name": "iflow-classnames",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "Flow Interface for classnames",
   "main": "index.js.flow",
   "scripts": {

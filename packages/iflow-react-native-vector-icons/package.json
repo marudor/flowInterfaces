@@ -1,6 +1,6 @@
 {
   "name": "iflow-react-native-vector-icons",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "Flow Interface for react-native-vector-icons",
   "main": "index.js.flow",
   "scripts": {
