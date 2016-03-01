@@ -3,3 +3,4 @@
 .DS_Store
 npm-debug.log
 test.fish
+node_modules
