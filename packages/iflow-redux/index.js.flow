@@ -1,7 +1,7 @@
 declare module 'redux' {
   declare class Redux {
     bindActionCreators(actionCreators: Object, dispatch: Function): Object;
-    combineReducers(reducers: Object): Object;
+    combineReducers(reducers: Object): Function;
   }
   declare var exports: Redux;
 }
