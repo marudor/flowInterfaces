@@ -1,0 +1,17 @@
+{
+  "name": "iflow-isomorphic-fetch",
+  "version": "1.0.0",
+  "description": "Flow Interface for isomorphic-fetch",
+  "main": "index.js.flow",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "flowInterface",
+    "flow-interface",
+    "flow",
+    "iflow"
+  ],
+  "author": "marudor",
+  "license": "MIT"
+}
