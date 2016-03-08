@@ -1,6 +1,6 @@
 {
   "name": "iflow-primus-emit",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Flow Interface for primus-emit",
   "main": "index.js.flow",
   "scripts": {
