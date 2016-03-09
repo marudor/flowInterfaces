@@ -19,6 +19,7 @@ declare module 'material-ui' {
   declare var DropDownMenu: React.Component;
   declare var FlatButton: React.Component;
   declare var FloatingActionButton: React.Component;
+  declare var FontIcon: React.Component;
   declare var GridList: React.Component;
   declare var IconButton: React.Component;
   declare var IconMenu: React.Component;
