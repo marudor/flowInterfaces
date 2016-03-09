@@ -1,6 +1,6 @@
 {
   "name": "iflow-immutable",
-  "version": "1.0.8",
+  "version": "1.0.14",
   "description": "Flow Interface for immutable",
   "main": "index.js.flow",
   "scripts": {

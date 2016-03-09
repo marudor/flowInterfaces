@@ -1,6 +1,6 @@
 {
   "name": "iflow-core-decorators",
-  "version": "1.0.3",
+  "version": "1.0.14",
   "description": "Flow Interface for core-decorators",
   "main": "index.js.flow",
   "scripts": {
