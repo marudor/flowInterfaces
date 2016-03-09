@@ -1,6 +1,6 @@
 {
   "name": "iflow-react-router-redux",
-  "version": "1.0.0",
+  "version": "1.0.12",
   "description": "Flow Interface for react-router-redux",
   "main": "index.js.flow",
   "scripts": {
