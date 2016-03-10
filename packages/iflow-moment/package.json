@@ -1,6 +1,6 @@
 {
   "name": "iflow-moment",
-  "version": "1.0.3",
+  "version": "1.0.15",
   "description": "Flow Interface for moment",
   "main": "index.js.flow",
   "scripts": {

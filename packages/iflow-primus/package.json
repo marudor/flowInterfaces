@@ -1,6 +1,6 @@
 {
   "name": "iflow-primus",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "Flow Interface for primus",
   "main": "index.js.flow",
   "scripts": {
