@@ -87,6 +87,7 @@ declare class Promise<R> {
   delay(ms: number): Promise<R>;
   timeout(ms: number, message?: string): Promise<R>;
 
+  bind(ctx: any): Promise<R>;
   call(propertyName: string, ...args: Array<any>): Promise<any>;
   throw(reason: Error): Promise<R>;
   thenThrow(reason: Error): Promise<R>;
