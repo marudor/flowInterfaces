@@ -64,6 +64,7 @@ declare class Promise<R> {
 
   static method<T>(fn: (...args: any) => T): Promise<T>;
   static cast<T>(value: T|Promise<T>): Promise<T>;
+  static bind(ctx: any): Promise<void>;
   static is(value: any): boolean;
   static longStackTraces(): void;
 
