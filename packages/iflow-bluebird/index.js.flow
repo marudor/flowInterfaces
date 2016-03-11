@@ -64,7 +64,6 @@ declare class Promise<R> {
 
   static method<T>(fn: (...args: any) => T): Promise<T>;
   static cast<T>(value: T|Promise<T>): Promise<T>;
-  static bind(ctx: any): Promise<void>;
   static is(value: any): boolean;
   static longStackTraces(): void;
 
@@ -87,6 +86,7 @@ declare class Promise<R> {
   delay(ms: number): Promise<R>;
   timeout(ms: number, message?: string): Promise<R>;
 
+  bind(ctx: any): Promise<void>;
   call(propertyName: string, ...args: Array<any>): Promise<any>;
   throw(reason: Error): Promise<R>;
   thenThrow(reason: Error): Promise<R>;
