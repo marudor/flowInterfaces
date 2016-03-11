@@ -62,6 +62,7 @@ node_modules/iflow-lodash/index.js.flow
 * iflow-react-redux
 * iflow-react-router
 * iflow-react-router-redux
+* iflow-react-widgets
 * iflow-redux
 * iflow-redux-actions
 * iflow-redux-logger

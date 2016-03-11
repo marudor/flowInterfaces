@@ -1,0 +1,30 @@
+import React from 'react';
+import moment from 'iflow-moment';
+
+declare module 'react-widgets/lib/Calendar' {
+  declare var exports: React.Component;
+}
+declare module 'react-widgets/lib/DropdownList' {
+  declare var exports: React.Component;
+}
+declare module 'react-widgets/lib/Combobox' {
+  declare var exports: React.Component;
+}
+declare module 'react-widgets/lib/NumberPicker' {
+  declare var exports: React.Component;
+}
+declare module 'react-widgets/lib/Multiselect' {
+  declare var exports: React.Component;
+}
+declare module 'react-widgets/lib/SelectList' {
+  declare var exports: React.Component;
+}
+declare module 'react-widgets/lib/DateTimePicker' {
+  declare var exports: React.Component;
+}
+declare module 'react-widgets/lib/localizers/moment' {
+  declare var exports: (moment: Class<moment>) => void;
+}
+declare module 'react-widgets/lib/localizers/globalize' {
+  declare var exports: (globalizer: any) => void;
+}
