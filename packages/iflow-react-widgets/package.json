@@ -1,6 +1,6 @@
 {
   "name": "iflow-react-widgets",
-  "version": "1.0.4",
+  "version": "1.0.16",
   "description": "Flow Interface for react-widgets",
   "main": "index.js.flow",
   "scripts": {
