@@ -1,5 +1,5 @@
 declare module 'axios' {
-  declare class AxiosXHRConfigBase<T> {
+  declare interface AxiosXHRConfigBase<T> {
     transformRequest?: <U>(data: T) => U|Array<<U>(data: T) => U>;
     transformReponse?: <U>(data: T) => U;
     headers?: Object;
@@ -9,7 +9,7 @@ declare module 'axios' {
     xsrfCookieName?: string;
     xsrfHeaderName?: string;
   }
-  declare class AxiosXHRConfig<T> extends AxiosXHRConfigBase<T> {
+  declare interface AxiosXHRConfig<T> extends AxiosXHRConfigBase<T> {
     url: string;
     method?: string;
     data?: T;
