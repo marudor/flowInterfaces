@@ -15,5 +15,5 @@ declare module 'fuse.js' {
     search(pattern: string): Array<T>;
     set<U: Array<T>>(list: U): U;
   }
-  declare var exports: Class<Fuse;>
+  declare var exports: Class<Fuse>;
 }

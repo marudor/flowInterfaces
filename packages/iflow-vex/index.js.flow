@@ -38,7 +38,7 @@ declare module 'vex' {
     static getVexByID(id: number): any;
   }
   declare class Vex extends VexDialog {
-    static dialog: Class<VexDialog;>
+    static dialog: Class<VexDialog>;
   }
-  declare var exports: Class<Vex;>
+  declare var exports: Class<Vex>;
 }
