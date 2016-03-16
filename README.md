@@ -57,6 +57,7 @@ node_modules/iflow-lodash/index.js.flow
 * iflow-primus-emit
 * iflow-primus-rooms
 * iflow-radium
+* iflow-react-addons-test-utils
 * iflow-react-dnd
 * iflow-react-native-vector-icons
 * iflow-react-redux
