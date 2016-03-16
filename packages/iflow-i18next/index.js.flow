@@ -1,9 +1,8 @@
 type TFunction = (key?: ?string, data?: ?Object) => string;
 type CallbackFn = (err: any, t: TFunction) => void;
-import { EventEmitter } from 'events';
 
 declare module 'i18next' {
-  declare class i18next extends EventEmitter {
+  declare class i18next extends events$EventEmitter {
     t(key?: ?string, data?: ?Object): string;
     init(options: Object, cb?: CallbackFn): void;
     use(module: any): Class<i18next>;
