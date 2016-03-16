@@ -1,6 +1,6 @@
 {
   "name": "iflow-koa-router",
-  "version": "1.0.16",
+  "version": "1.0.18",
   "description": "Flow Interface for koa-router",
   "main": "index.js.flow",
   "scripts": {

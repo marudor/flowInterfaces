@@ -1,6 +1,6 @@
 {
   "name": "iflow-color",
-  "version": "1.0.3",
+  "version": "1.0.18",
   "description": "Flow Interface for color",
   "main": "index.js.flow",
   "scripts": {
