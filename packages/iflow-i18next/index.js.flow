@@ -1,6 +1,6 @@
 type TFunction = (key?: ?string, data?: ?Object) => string;
 type CallbackFn = (err: any, t: TFunction) => void;
-import {EventEmitter} from 'event-emitter';
+import { EventEmitter } from 'events';
 
 declare module 'i18next' {
   declare class i18next extends EventEmitter {
