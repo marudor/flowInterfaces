@@ -1,6 +1,6 @@
 {
   "name": "iflow-eventemitter3",
-  "version": "1.0.18",
+  "version": "1.0.20",
   "description": "Flow Interface for eventemitter3",
   "main": "index.js.flow",
   "scripts": {
