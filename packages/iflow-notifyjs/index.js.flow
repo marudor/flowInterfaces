@@ -20,5 +20,5 @@ declare module 'notifyjs' {
     static needsPermission: bool;
     show(): void;
   }
-  declare var exports: typeof NotifyJS;
+  declare var exports: Class<NotifyJS;>
 }

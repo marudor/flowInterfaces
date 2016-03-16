@@ -6,7 +6,7 @@ declare module 'i18next' {
   declare class i18next extends EventEmitter {
     t(key?: ?string, data?: ?Object): string;
     init(options: Object, cb?: CallbackFn): void;
-    use(module: any): typeof i18next;
+    use(module: any): Class<i18next;>
     exists(key?: string, options: any): bool;
     getFixedT(lng: string, ns?: string): TFunction;
     changeLanguage(lng: string, callback?: TFunction): void;

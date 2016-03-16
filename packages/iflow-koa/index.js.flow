@@ -156,5 +156,5 @@ declare module 'koa' {
     keys: string[] | Object;
     use(contextFn: (ctx?: Context, next?: Function) => ?Promise): this;
   }
-  declare var exports: typeof Koa;
+  declare var exports: Class<Koa;>
 }

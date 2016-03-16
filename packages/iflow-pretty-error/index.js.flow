@@ -12,5 +12,5 @@ declare module 'pretty-error' {
     start(): void;
     withoutColors(): void;
   }
-  declare var exports: typeof PrettyError;
+  declare var exports: Class<PrettyError;>
 }

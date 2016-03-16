@@ -61,5 +61,5 @@ declare module 'dropzone' {
     removeFile(file: File): void;
     destroy(): void;
   }
-  declare var exports: typeof Dropzone;
+  declare var exports: Class<Dropzone;>
 }

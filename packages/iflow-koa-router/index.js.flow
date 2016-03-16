@@ -38,5 +38,5 @@ declare module 'koa-router' {
     url(path: string, params: Object): string;
 
   }
-  declare var exports: typeof Router;
+  declare var exports: Class<Router;>
 }

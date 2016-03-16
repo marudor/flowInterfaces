@@ -103,5 +103,5 @@ declare module 'color' {
     mix(color: Color, value?: number): Color;
     clone(): Color;
   }
-  declare var exports: typeof Color;
+  declare var exports: Class<Color>;
 }

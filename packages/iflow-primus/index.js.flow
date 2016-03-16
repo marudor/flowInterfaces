@@ -58,7 +58,7 @@ declare class Primus$Primus {
   static contructor(server: http.Server, options?: Options): Primus$Primus;
   static createServer(options: CreateOptions): Primus$Primus;
   static createServer(onConnection: (spark: Primus$Spark) => any, options?: CreateOptions): Primus$Primus;
-  static createSocket(options: SocketOptions): typeof net.Socket;
+  static createSocket(options: SocketOptions): Class<net.Socket;>
 
   clients(): string[];
   spark(id: string): ?Primus$Spark;
@@ -103,5 +103,5 @@ declare class Primus$Room {
 }
 
 declare module 'primus' {
-  declare var exports: typeof Primus$Primus;
+  declare var exports: Class<Primus$Primus;>
 }
