@@ -22,6 +22,9 @@ declare module 'bluebird' {
   }
 
   declare class Promise<R> {
+    static Defer: Class<Defer>;
+    static PromiseInspection: Class<PromiseInspection>;
+
     static all<T, Elem: Promise<T> | T>(promises: Array<Elem>): Promise<Array<T>>;
     static any<T, Elem: Promise<T> | T>(promises: Array<Elem>): Promise<T>;
     static race<T, Elem: Promise<T> | T>(promises: Array<Elem>): Promise<T>;
