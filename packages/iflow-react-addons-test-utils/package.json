@@ -1,6 +1,6 @@
 {
   "name": "iflow-react-addons-test-utils",
-  "version": "1.0.0",
+  "version": "1.0.22",
   "description": "Flow Interface for react-addons-test-utils",
   "main": "index.js.flow",
   "scripts": {
