@@ -43,6 +43,7 @@ node_modules/iflow-lodash/index.js.flow
 * iflow-immutable
 * iflow-invariant
 * iflow-isomorphic-fetch
+* iflow-jquery
 * iflow-koa
 * iflow-koa-bodyparser
 * iflow-koa-router
