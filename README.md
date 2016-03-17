@@ -71,6 +71,7 @@ node_modules/iflow-lodash/index.js.flow
 * iflow-sanitize-html
 * iflow-shallowequal
 * iflow-stardust
+* iflow-underscore
 * iflow-uuid-js
 * iflow-vex
 * iflow-warning
