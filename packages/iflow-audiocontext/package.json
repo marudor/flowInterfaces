@@ -1,6 +1,6 @@
 {
   "name": "iflow-audiocontext",
-  "version": "1.0.23",
+  "version": "1.0.24",
   "description": "Flow Interface for audiocontext",
   "main": "index.js.flow",
   "scripts": {
