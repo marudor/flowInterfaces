@@ -31,7 +31,7 @@ type ThrottleOptions = {
   trailing?: bool,
 };
 
-type RecursiveArray<T> = Array<T|Array<T>>;
+type RecursiveArray<T> = Array<T|Array<T>>|Array<T>;
 type NestedArray<T> = Array<Array<T>>;
 
 type OPredicate<O> = ((value: any, key: string, object: O) => ?bool)|Object|string;
