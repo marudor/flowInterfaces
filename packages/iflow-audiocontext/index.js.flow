@@ -7,8 +7,8 @@ declare class AudioContext {
   onstatechange: (ev: any) => any;
   close(): void;
   createBuffer(numOfChannels: number, length: number, sampleRate: number): AudioBuffer;
-  createBufferSource(myMediaElement: HTMLMediaElement): AudioBufferSourceNode;
-  createMediaElementSource(stream: MediaStream): MediaElementAudioSourceNode;
+  createBufferSource(myMediaElement?: HTMLMediaElement): AudioBufferSourceNode;
+  createMediaElementSource(stream?: MediaStream): MediaElementAudioSourceNode;
   createMediaStreamSource(): MediaStreamAudioSourceNode;
   createMediaStreamDestination(): MediaStream;
   createScriptProcessor(bufferSize: number, numberOfInputChannels: number, numberOfOutputChannels: number): ScriptProcessorNode;
