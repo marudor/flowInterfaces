@@ -31,7 +31,6 @@ type ThrottleOptions = {
   trailing?: bool,
 };
 
-type RecursiveArray<T> = Array<T|Array<T>>|Array<T>;
 type NestedArray<T> = Array<Array<T>>;
 
 type OPredicate<O> = ((value: any, key: string, object: O) => ?bool)|Object|string;
@@ -60,8 +59,8 @@ declare module 'lodash' {
     findIndex<T>(array: ?Array<T>, predicate?: Predicate<T>): number;
     findLastIndex<T>(array: ?Array<T>, predicate?: Predicate<T>): number;
     flatMap<T, U>(array: ?Array<T>, iteratee?: Iteratee2<T, U>): Array<U>;
-    flatten<T>(array: RecursiveArray<T>): RecursiveArray<T>;
-    flattenDeep<T>(array: RecursiveArray<T>): Array<T>;
+    flatten<T>(array: any[]): any[];
+    flattenDeep<T>(array: any[]): Array<T>;
     fromPairs<T>(pairs: Array<T>): Object;
     head<T>(array: ?Array<T>): T;
     // Alias
