@@ -1,6 +1,6 @@
 {
   "name": "iflow-lodash",
-  "version": "1.0.15",
+  "version": "1.0.25",
   "description": "Flow Interface for lodash",
   "main": "index.js.flow",
   "scripts": {
