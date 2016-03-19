@@ -35,6 +35,7 @@ declare module 'material-ui' {
   declare var RadioButtonGroup: React.Component;
   declare var RaisedButton: React.Component;
   declare var RefreshIndicator: React.Component;
+  declare var Slider: React.Component;
   declare var SelectField: React.Component;
   declare var Snackbar: React.Component;
   declare var Tab: React.Component;
