@@ -442,9 +442,10 @@ declare module 'lodash' {
     overSome(predicates: Array<Function>): Function;
     property(path?: ?Array<string>|string): Function;
     propertyOf(object?: ?Object): Function;
-    range(start?: number, end: number, step?: number): Array<number>;
-    range(end: number): Array<number>;
-    rangeRight(start?: number, end: number, step?: number): Array<number>;
+    range(start: number, end: number, step?: number): Array<number>;
+    range(end: number, step?: number): Array<number>;
+    rangeRight(start: number, end: number, step?: number): Array<number>;
+    rangeRight(end: number, step?: number): Array<number>;
     runInContext(context?: Object): Function;
     times(n: number, iteratee?: Function): Function;
     toPath(value: any): Array<string>;
