@@ -1,0 +1,5 @@
+import type Immutable from './index.js.flow';
+
+declare module 'immutable-devtools' {
+  declare var exports: (immutable: Immutable) => void;
+}
