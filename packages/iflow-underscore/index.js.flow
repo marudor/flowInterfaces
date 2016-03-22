@@ -1,0 +1,3832 @@
+/**
+ * Converted from DefinitelyTyped:
+ * @link https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/underscore
+ */
+
+// Module declared on line 6 in .d.ts file
+declare module 'underscore_' {
+  declare interface ThrottleSettings {
+    leading: boolean;
+    trailing: boolean;
+  }
+  declare interface TemplateSettings {
+    evaluate: RegExp;
+    interpolate: RegExp;
+    escape: RegExp;
+    variable: string;
+  }
+  declare interface Collection <T> {}
+  declare interface List <T> extends Collection <T> {
+    length: number;
+    [index: number]: T;
+  }
+  declare interface Dictionary <T> extends Collection <T> {
+    [index: string]: T;
+  }
+  declare interface ListIterator < T, TResult > {
+    $call(value: T, index: number, list: List <T> ): TResult;
+  }
+  declare interface ObjectIterator < T, TResult > {
+    $call(element: T, key: string, list: Dictionary <T> ): TResult;
+  }
+  declare interface MemoIterator < T, TResult > {
+    $call(prev: TResult, curr: T, index: number, list: List <T> ): TResult;
+  }
+  declare interface MemoObjectIterator < T, TResult > {
+    $call(prev: TResult, curr: T, key: string, list: Dictionary <T> ): TResult;
+  }
+}
+
+// Module declared on line 5909 in .d.ts file
+declare module 'underscore' {
+  declare var exports: UnderscoreStatic;
+}
+declare var G__: $Exports <'underscore_'>;
+declare interface UnderscoreStatic {
+  $call <T> (value: G__.Dictionary <T> ): Underscore <T>;
+  $call <T> (value: Array <T> ): Underscore <T>;
+  $call <T> (value: T): Underscore <T>;
+  each <T> (
+    list: G__.List <T> , iterator: G__.ListIterator < T, void >, context ? : any
+  ): G__.List <T>;
+  each <T> (
+    object: G__.Dictionary <T> ,
+    iterator: G__.ObjectIterator < T, void > ,
+    context ? : any
+  ): G__.Dictionary <T>;
+  forEach <T> (
+    list: G__.List <T> , iterator: G__.ListIterator < T, void > , context ? : any
+  ): G__.List <T>;
+  forEach <T> (
+    object: G__.Dictionary <T> ,
+    iterator: G__.ObjectIterator < T, void > ,
+    context ? : any
+  ): G__.Dictionary <T>;
+  map < T, TResult > (
+    list: G__.List <T> , iterator: G__.ListIterator < T, TResult > , context ? : any
+  ): Array < TResult >;
+  map < T, TResult > (
+    object: G__.Dictionary <T> ,
+    iterator: G__.ObjectIterator < T, TResult > ,
+    context ? : any
+  ): Array < TResult >;
+  collect < T, TResult > (
+    list: G__.List <T> , iterator: G__.ListIterator < T, TResult > , context ? : any
+  ): Array < TResult >;
+  collect < T, TResult > (
+    object: G__.Dictionary <T> ,
+    iterator: G__.ObjectIterator < T, TResult > ,
+    context ? : any
+  ): Array < TResult >;
+  reduce < T, TResult > (
+    list: G__.Collection <T> ,
+    iterator: G__.MemoIterator < T, TResult > ,
+    memo ? : TResult,
+    context ? : any
+  ): TResult;
+  reduce < T, TResult > (
+    list: G__.Dictionary <T> ,
+    iterator: G__.MemoObjectIterator < T, TResult > ,
+    memo ? : TResult,
+    context ? : any
+  ): TResult;
+  inject < T, TResult > (
+    list: G__.Collection <T> ,
+    iterator: G__.MemoIterator < T, TResult > ,
+    memo ? : TResult,
+    context ? : any
+  ): TResult;
+  foldl < T, TResult > (
+    list: G__.Collection <T> ,
+    iterator: G__.MemoIterator < T, TResult > ,
+    memo ? : TResult,
+    context ? : any
+  ): TResult;
+  reduceRight < T, TResult > (
+    list: G__.Collection <T> ,
+    iterator: G__.MemoIterator < T, TResult > ,
+    memo ? : TResult,
+    context ? : any
+  ): TResult;
+  foldr < T, TResult > (
+    list: G__.Collection <T> ,
+    iterator: G__.MemoIterator < T, TResult > ,
+    memo ? : TResult,
+    context ? : any
+  ): TResult;
+  find <T> (
+    list: G__.List <T> , iterator: G__.ListIterator < T, boolean > , context ? : any
+  ): T;
+  find <T> (
+    object: G__.Dictionary <T> ,
+    iterator: G__.ObjectIterator < T, boolean > ,
+    context ? : any
+  ): T;
+  find < T, U > (object: G__.List <T> | G__.Dictionary <T> , iterator: U): T;
+  find <T> (object: G__.List <T> | G__.Dictionary <T> , iterator: string): T;
+  detect <T> (
+    list: G__.List <T> , iterator: G__.ListIterator < T, boolean > , context ? : any
+  ): T;
+  detect <T> (
+    object: G__.Dictionary <T> ,
+    iterator: G__.ObjectIterator < T, boolean > ,
+    context ? : any
+  ): T;
+  detect < T, U > (object: G__.List <T> | G__.Dictionary <T> , iterator: U): T;
+  detect <T> (object: G__.List <T> | G__.Dictionary <T> , iterator: string): T;
+  findIndex <T> (
+    list: G__.List <T> , iterator: G__.ListIterator < T, boolean > , context ? : any
+  ): number;
+  filter <T> (
+    list: G__.List <T> , iterator: G__.ListIterator < T, boolean > , context ? : any
+  ): Array <T>;
+  filter <T> (
+    object: G__.Dictionary <T> ,
+    iterator: G__.ObjectIterator < T, boolean > ,
+    context ? : any
+  ): Array <T>;
+  select <T> (
+    list: G__.List <T> , iterator: G__.ListIterator < T, boolean > , context ? : any
+  ): Array <T>;
+  select <T> (
+    object: G__.Dictionary <T> ,
+    iterator: G__.ObjectIterator < T, boolean > ,
+    context ? : any
+  ): Array <T>;
+  where < T, U > (list: G__.List <T> , properties: U): Array <T>;
+  findWhere < T, U > (list: G__.List <T> , properties: U): T;
+  reject <T> (
+    list: G__.List <T> , iterator: G__.ListIterator < T, boolean > , context ? : any
+  ): Array <T>;
+  reject <T> (
+    object: G__.Dictionary <T> ,
+    iterator: G__.ObjectIterator < T, boolean > ,
+    context ? : any
+  ): Array <T>;
+  every <T> (
+    list: G__.List <T> , iterator ? : G__.ListIterator < T, boolean > , context ? : any
+  ): boolean;
+  every <T> (
+    list: G__.Dictionary <T> ,
+    iterator ? : G__.ObjectIterator < T, boolean > ,
+    context ? : any
+  ): boolean;
+  all <T> (
+    list: G__.List <T> , iterator ? : G__.ListIterator < T, boolean > , context ? : any
+  ): boolean;
+  all <T> (
+    list: G__.Dictionary <T> ,
+    iterator ? : G__.ObjectIterator < T, boolean > ,
+    context ? : any
+  ): boolean;
+  some <T> (
+    list: G__.List <T> , iterator ? : G__.ListIterator < T, boolean > , context ? : any
+  ): boolean;
+  some <T> (
+    object: G__.Dictionary <T> ,
+    iterator ? : G__.ObjectIterator < T, boolean > ,
+    context ? : any
+  ): boolean;
+  any <T> (
+    list: G__.List <T> , iterator ? : G__.ListIterator < T, boolean > , context ? : any
+  ): boolean;
+  any <T> (
+    object: G__.Dictionary <T> ,
+    iterator ? : G__.ObjectIterator < T, boolean > ,
+    context ? : any
+  ): boolean;
+  contains <T> (list: G__.List <T> , value: T): boolean;
+  contains <T> (object: G__.Dictionary <T> , value: T): boolean;
+  include <T> (list: G__.Collection <T> , value: T): boolean;
+  include <T> (object: G__.Dictionary <T> , value: T): boolean;
+  invoke <T> (
+    list: G__.List <T> , methodName: string, ...arguments: Array < any >
+  ): any;
+  pluck <T> (list: G__.List <T> , propertyName: string): Array < any >;
+  max(list: G__.List < number > ): number;
+  max <T> (
+    list: G__.List <T> , iterator ? : G__.ListIterator < T, any > , context ? : any
+  ): T;
+  min(list: G__.List < number > ): number;
+  min <T> (
+    list: G__.List <T> , iterator ? : G__.ListIterator < T, any > , context ? : any
+  ): T;
+  sortBy < T, TSort > (
+    list: G__.List <T> , iterator ? : G__.ListIterator < T, TSort > , context ? : any
+  ): Array <T>;
+  sortBy <T> (list: G__.List <T> , iterator: string, context ? : any): Array <T>;
+  groupBy <T> (
+    list: G__.List <T> , iterator ? : G__.ListIterator < T, any > , context ? : any
+  ): G__.Dictionary < Array <T>>;
+  groupBy <T> (
+    list: G__.List <T> , iterator: string, context ? : any
+  ): G__.Dictionary < Array <T>>;
+  indexBy <T> (
+    list: G__.List <T> , iterator: G__.ListIterator < T, any > , context ? : any
+  ): G__.Dictionary <T>;
+  indexBy <T> (
+    list: G__.List <T> , iterator: string, context ? : any
+  ): G__.Dictionary <T>;
+  countBy <T> (
+    list: G__.List <T> , iterator ? : G__.ListIterator < T, any > , context ? : any
+  ): G__.Dictionary < number >;
+  countBy <T> (
+    list: G__.List <T> , iterator: string, context ? : any
+  ): G__.Dictionary < number >;
+  shuffle <T> (list: G__.Collection <T> ): Array <T>;
+  sample <T> (list: G__.Collection <T> , n: number): Array <T>;
+  sample <T> (list: G__.Collection <T> ): T;
+  toArray <T> (list: G__.Collection <T> ): Array <T>;
+  size <T> (list: G__.Collection <T> ): number;
+  partition <T> (
+    array: Array <T> , iterator: G__.ListIterator < T, boolean > , context ? : any
+  ): Array < Array <T>>;
+  first <T> (array: G__.List <T> ): T;
+  first <T> (array: G__.List <T> , n: number): Array <T>;
+  head <T> (array: G__.List <T> ): T;
+  head <T> (array: G__.List <T> , n: number): Array <T>;
+  take <T> (array: G__.List <T> ): T;
+  take <T> (array: G__.List <T> , n: number): Array <T>;
+  initial <T> (array: G__.List <T> , n ? : number): Array <T>;
+  last <T> (array: G__.List <T> ): T;
+  last <T> (array: G__.List <T> , n: number): Array <T>;
+  rest <T> (array: G__.List <T> , n ? : number): Array <T>;
+  tail <T> (array: G__.List <T> , n ? : number): Array <T>;
+  drop <T> (array: G__.List <T> , n ? : number): Array <T>;
+  compact <T> (array: G__.List <T> ): Array <T>;
+  flatten(array: G__.List < any > , shallow ? : boolean): Array < any >;
+  without <T> (array: G__.List <T> , ...values: Array <T> ): Array <T>;
+  union <T> (...arrays: Array < G__.List <T>> ): Array <T>;
+  intersection <T> (...arrays: Array < G__.List <T>> ): Array <T>;
+  difference <T> (array: G__.List <T> , ...others: Array < G__.List <T>> ): Array <T>;
+  uniq < T, TSort > (
+    array: G__.List <T> ,
+    isSorted ? : boolean,
+    iterator ? : G__.ListIterator < T, TSort > ,
+    context ? : any
+  ): Array <T>;
+  uniq < T, TSort > (
+    array: G__.List <T> , iterator ? : G__.ListIterator < T, TSort > , context ? : any
+  ): Array <T>;
+  unique < T, TSort > (
+    array: G__.List <T> , iterator ? : G__.ListIterator < T, TSort > , context ? : any
+  ): Array <T>;
+  unique < T, TSort > (
+    array: G__.List <T> ,
+    isSorted ? : boolean,
+    iterator ? : G__.ListIterator < T, TSort > ,
+    context ? : any
+  ): Array <T>;
+  zip(...arrays: Array < Array < any >> ): Array < Array < any >>;
+  zip(...arrays: Array < any > ): Array < any >;
+  unzip(...arrays: Array < Array < any >> ): Array < Array < any >>;
+  object < TResult > (keys: G__.List < string > , values: G__.List < any > ): TResult;
+  object < TResult > (...keyValuePairs: Array < Array < any >> ): TResult;
+  object < TResult > (list: G__.List < any > , values ? : any): TResult;
+  indexOf <T> (array: G__.List <T> , value: T, isSorted ? : boolean): number;
+  indexOf <T> (array: G__.List <T> , value: T, startFrom: number): number;
+  lastIndexOf <T> (array: G__.List <T> , value: T, from ? : number): number;
+  findIndex <T> (
+    array: G__.List <T> , predicate: G__.ListIterator < T, boolean > , context ? : any
+  ): number;
+  findLastIndex <T> (
+    array: G__.List <T> , predicate: G__.ListIterator < T, boolean > , context ? : any
+  ): number;
+  sortedIndex < T, TSort > (
+    list: G__.List <T> , value: T, iterator ? : (x: T) => TSort, context ? : any
+  ): number;
+  range(start: number, stop: number, step ? : number): Array < number >;
+  range(stop: number): Array < number >;
+  bind(func: Function, context: any, ...arguments: Array < any > ): () => any;
+  bindAll(object: any, ...methodNames: Array < string > ): any;
+  partial < T1, T2 > (fn: {
+    $call(p1: T1): T2;
+  }, p1: T1): {
+    $call(): T2;
+  };
+  partial < T1, T2, T3 > (
+    fn: {
+      $call(p1: T1, p2: T2): T3;
+    }, p1: T1
+  ): {
+    $call(p2: T2): T3;
+  };
+  partial < T1, T2, T3 > (
+    fn: {
+      $call(p1: T1, p2: T2): T3;
+    }, p1: T1, p2: T2
+  ): {
+    $call(): T3;
+  };
+  partial < T1, T2, T3 > (
+    fn: {
+      $call(p1: T1, p2: T2): T3;
+    }, stub1: UnderscoreStatic, p2: T2
+  ): {
+    $call(p1: T1): T3;
+  };
+  partial < T1, T2, T3, T4 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3): T4;
+    }, p1: T1
+  ): {
+    $call(p2: T2, p3: T3): T4;
+  };
+  partial < T1, T2, T3, T4 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3): T4;
+    }, p1: T1, p2: T2
+  ): {
+    $call(p3: T3): T4;
+  };
+  partial < T1, T2, T3, T4 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3): T4;
+    }, stub1: UnderscoreStatic, p2: T2
+  ): {
+    $call(p1: T1, p3: T3): T4;
+  };
+  partial < T1, T2, T3, T4 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3): T4;
+    }, p1: T1, p2: T2, p3: T3
+  ): {
+    $call(): T4;
+  };
+  partial < T1, T2, T3, T4 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3): T4;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    p3: T3
+  ): {
+    $call(p1: T1): T4;
+  };
+  partial < T1, T2, T3, T4 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3): T4;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    p3: T3
+  ): {
+    $call(p2: T2): T4;
+  };
+  partial < T1, T2, T3, T4 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3): T4;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    p3: T3
+  ): {
+    $call(p1: T1, p2: T2): T4;
+  };
+  partial < T1, T2, T3, T4, T5 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4): T5;
+    }, p1: T1
+  ): {
+    $call(p2: T2, p3: T3, p4: T4): T5;
+  };
+  partial < T1, T2, T3, T4, T5 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4): T5;
+    }, p1: T1, p2: T2
+  ): {
+    $call(p3: T3, p4: T4): T5;
+  };
+  partial < T1, T2, T3, T4, T5 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4): T5;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2
+  ): {
+    $call(p1: T1, p3: T3, p4: T4): T5;
+  };
+  partial < T1, T2, T3, T4, T5 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4): T5;
+    }, p1: T1, p2: T2, p3: T3
+  ): {
+    $call(p4: T4): T5;
+  };
+  partial < T1, T2, T3, T4, T5 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4): T5;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    p3: T3
+  ): {
+    $call(p1: T1, p4: T4): T5;
+  };
+  partial < T1, T2, T3, T4, T5 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4): T5;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    p3: T3
+  ): {
+    $call(p2: T2, p4: T4): T5;
+  };
+  partial < T1, T2, T3, T4, T5 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4): T5;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    p3: T3
+  ): {
+    $call(p1: T1, p2: T2, p4: T4): T5;
+  };
+  partial < T1, T2, T3, T4, T5 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4): T5;
+    },
+    p1: T1,
+    p2: T2,
+    p3: T3,
+    p4: T4
+  ): {
+    $call(): T5;
+  };
+  partial < T1, T2, T3, T4, T5 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4): T5;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    p3: T3,
+    p4: T4
+  ): {
+    $call(p1: T1): T5;
+  };
+  partial < T1, T2, T3, T4, T5 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4): T5;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    p4: T4
+  ): {
+    $call(p2: T2): T5;
+  };
+  partial < T1, T2, T3, T4, T5 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4): T5;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    p4: T4
+  ): {
+    $call(p1: T1, p2: T2): T5;
+  };
+  partial < T1, T2, T3, T4, T5 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4): T5;
+    },
+    p1: T1,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    p4: T4
+  ): {
+    $call(p3: T3): T5;
+  };
+  partial < T1, T2, T3, T4, T5 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4): T5;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    p4: T4
+  ): {
+    $call(p1: T1, p3: T3): T5;
+  };
+  partial < T1, T2, T3, T4, T5 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4): T5;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    p4: T4
+  ): {
+    $call(p2: T2, p3: T3): T5;
+  };
+  partial < T1, T2, T3, T4, T5 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4): T5;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    p4: T4
+  ): {
+    $call(p1: T1, p2: T2, p3: T3): T5;
+  };
+  partial < T1, T2, T3, T4, T5, T6 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5): T6;
+    }, p1: T1
+  ): {
+    $call(p2: T2, p3: T3, p4: T4, p5: T5): T6;
+  };
+  partial < T1, T2, T3, T4, T5, T6 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5): T6;
+    }, p1: T1, p2: T2
+  ): {
+    $call(p3: T3, p4: T4, p5: T5): T6;
+  };
+  partial < T1, T2, T3, T4, T5, T6 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5): T6;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2
+  ): {
+    $call(p1: T1, p3: T3, p4: T4, p5: T5): T6;
+  };
+  partial < T1, T2, T3, T4, T5, T6 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5): T6;
+    },
+    p1: T1,
+    p2: T2,
+    p3: T3
+  ): {
+    $call(p4: T4, p5: T5): T6;
+  };
+  partial < T1, T2, T3, T4, T5, T6 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5): T6;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    p3: T3
+  ): {
+    $call(p1: T1, p4: T4, p5: T5): T6;
+  };
+  partial < T1, T2, T3, T4, T5, T6 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5): T6;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    p3: T3
+  ): {
+    $call(p2: T2, p4: T4, p5: T5): T6;
+  };
+  partial < T1, T2, T3, T4, T5, T6 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5): T6;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    p3: T3
+  ): {
+    $call(p1: T1, p2: T2, p4: T4, p5: T5): T6;
+  };
+  partial < T1, T2, T3, T4, T5, T6 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5): T6;
+    },
+    p1: T1,
+    p2: T2,
+    p3: T3,
+    p4: T4
+  ): {
+    $call(p5: T5): T6;
+  };
+  partial < T1, T2, T3, T4, T5, T6 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5): T6;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    p3: T3,
+    p4: T4
+  ): {
+    $call(p1: T1, p5: T5): T6;
+  };
+  partial < T1, T2, T3, T4, T5, T6 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5): T6;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    p4: T4
+  ): {
+    $call(p2: T2, p5: T5): T6;
+  };
+  partial < T1, T2, T3, T4, T5, T6 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5): T6;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    p4: T4
+  ): {
+    $call(p1: T1, p2: T2, p5: T5): T6;
+  };
+  partial < T1, T2, T3, T4, T5, T6 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5): T6;
+    },
+    p1: T1,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    p4: T4
+  ): {
+    $call(p3: T3, p5: T5): T6;
+  };
+  partial < T1, T2, T3, T4, T5, T6 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5): T6;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    p4: T4
+  ): {
+    $call(p1: T1, p3: T3, p5: T5): T6;
+  };
+  partial < T1, T2, T3, T4, T5, T6 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5): T6;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    p4: T4
+  ): {
+    $call(p2: T2, p3: T3, p5: T5): T6;
+  };
+  partial < T1, T2, T3, T4, T5, T6 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5): T6;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    p4: T4
+  ): {
+    $call(p1: T1, p2: T2, p3: T3, p5: T5): T6;
+  };
+  partial < T1, T2, T3, T4, T5, T6 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5): T6;
+    },
+    p1: T1,
+    p2: T2,
+    p3: T3,
+    p4: T4,
+    p5: T5
+  ): {
+    $call(): T6;
+  };
+  partial < T1, T2, T3, T4, T5, T6 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5): T6;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    p3: T3,
+    p4: T4,
+    p5: T5
+  ): {
+    $call(p1: T1): T6;
+  };
+  partial < T1, T2, T3, T4, T5, T6 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5): T6;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    p4: T4,
+    p5: T5
+  ): {
+    $call(p2: T2): T6;
+  };
+  partial < T1, T2, T3, T4, T5, T6 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5): T6;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    p4: T4,
+    p5: T5
+  ): {
+    $call(p1: T1, p2: T2): T6;
+  };
+  partial < T1, T2, T3, T4, T5, T6 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5): T6;
+    },
+    p1: T1,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    p4: T4,
+    p5: T5
+  ): {
+    $call(p3: T3): T6;
+  };
+  partial < T1, T2, T3, T4, T5, T6 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5): T6;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    p4: T4,
+    p5: T5
+  ): {
+    $call(p1: T1, p3: T3): T6;
+  };
+  partial < T1, T2, T3, T4, T5, T6 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5): T6;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    p4: T4,
+    p5: T5
+  ): {
+    $call(p2: T2, p3: T3): T6;
+  };
+  partial < T1, T2, T3, T4, T5, T6 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5): T6;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    p4: T4,
+    p5: T5
+  ): {
+    $call(p1: T1, p2: T2, p3: T3): T6;
+  };
+  partial < T1, T2, T3, T4, T5, T6 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5): T6;
+    },
+    p1: T1,
+    p2: T2,
+    p3: T3,
+    stub4: UnderscoreStatic,
+    p5: T5
+  ): {
+    $call(p4: T4): T6;
+  };
+  partial < T1, T2, T3, T4, T5, T6 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5): T6;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    p3: T3,
+    stub4: UnderscoreStatic,
+    p5: T5
+  ): {
+    $call(p1: T1, p4: T4): T6;
+  };
+  partial < T1, T2, T3, T4, T5, T6 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5): T6;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    stub4: UnderscoreStatic,
+    p5: T5
+  ): {
+    $call(p2: T2, p4: T4): T6;
+  };
+  partial < T1, T2, T3, T4, T5, T6 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5): T6;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    stub4: UnderscoreStatic,
+    p5: T5
+  ): {
+    $call(p1: T1, p2: T2, p4: T4): T6;
+  };
+  partial < T1, T2, T3, T4, T5, T6 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5): T6;
+    },
+    p1: T1,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    stub4: UnderscoreStatic,
+    p5: T5
+  ): {
+    $call(p3: T3, p4: T4): T6;
+  };
+  partial < T1, T2, T3, T4, T5, T6 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5): T6;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    stub4: UnderscoreStatic,
+    p5: T5
+  ): {
+    $call(p1: T1, p3: T3, p4: T4): T6;
+  };
+  partial < T1, T2, T3, T4, T5, T6 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5): T6;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    stub4: UnderscoreStatic,
+    p5: T5
+  ): {
+    $call(p2: T2, p3: T3, p4: T4): T6;
+  };
+  partial < T1, T2, T3, T4, T5, T6 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5): T6;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    stub4: UnderscoreStatic,
+    p5: T5
+  ): {
+    $call(p1: T1, p2: T2, p3: T3, p4: T4): T6;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    }, p1: T1
+  ): {
+    $call(p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    p1: T1,
+    p2: T2
+  ): {
+    $call(p3: T3, p4: T4, p5: T5, p6: T6): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2
+  ): {
+    $call(p1: T1, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    p1: T1,
+    p2: T2,
+    p3: T3
+  ): {
+    $call(p4: T4, p5: T5, p6: T6): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    p3: T3
+  ): {
+    $call(p1: T1, p4: T4, p5: T5, p6: T6): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    p3: T3
+  ): {
+    $call(p2: T2, p4: T4, p5: T5, p6: T6): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    p3: T3
+  ): {
+    $call(p1: T1, p2: T2, p4: T4, p5: T5, p6: T6): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    p1: T1,
+    p2: T2,
+    p3: T3,
+    p4: T4
+  ): {
+    $call(p5: T5, p6: T6): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    p3: T3,
+    p4: T4
+  ): {
+    $call(p1: T1, p5: T5, p6: T6): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    p4: T4
+  ): {
+    $call(p2: T2, p5: T5, p6: T6): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    p4: T4
+  ): {
+    $call(p1: T1, p2: T2, p5: T5, p6: T6): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    p1: T1,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    p4: T4
+  ): {
+    $call(p3: T3, p5: T5, p6: T6): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    p4: T4
+  ): {
+    $call(p1: T1, p3: T3, p5: T5, p6: T6): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    p4: T4
+  ): {
+    $call(p2: T2, p3: T3, p5: T5, p6: T6): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    p4: T4
+  ): {
+    $call(p1: T1, p2: T2, p3: T3, p5: T5, p6: T6): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    p1: T1,
+    p2: T2,
+    p3: T3,
+    p4: T4,
+    p5: T5
+  ): {
+    $call(p6: T6): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    p3: T3,
+    p4: T4,
+    p5: T5
+  ): {
+    $call(p1: T1, p6: T6): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    p4: T4,
+    p5: T5
+  ): {
+    $call(p2: T2, p6: T6): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    p4: T4,
+    p5: T5
+  ): {
+    $call(p1: T1, p2: T2, p6: T6): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    p1: T1,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    p4: T4,
+    p5: T5
+  ): {
+    $call(p3: T3, p6: T6): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    p4: T4,
+    p5: T5
+  ): {
+    $call(p1: T1, p3: T3, p6: T6): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    p4: T4,
+    p5: T5
+  ): {
+    $call(p2: T2, p3: T3, p6: T6): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    p4: T4,
+    p5: T5
+  ): {
+    $call(p1: T1, p2: T2, p3: T3, p6: T6): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    p1: T1,
+    p2: T2,
+    p3: T3,
+    stub4: UnderscoreStatic,
+    p5: T5
+  ): {
+    $call(p4: T4, p6: T6): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    p3: T3,
+    stub4: UnderscoreStatic,
+    p5: T5
+  ): {
+    $call(p1: T1, p4: T4, p6: T6): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    stub4: UnderscoreStatic,
+    p5: T5
+  ): {
+    $call(p2: T2, p4: T4, p6: T6): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    stub4: UnderscoreStatic,
+    p5: T5
+  ): {
+    $call(p1: T1, p2: T2, p4: T4, p6: T6): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    p1: T1,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    stub4: UnderscoreStatic,
+    p5: T5
+  ): {
+    $call(p3: T3, p4: T4, p6: T6): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    stub4: UnderscoreStatic,
+    p5: T5
+  ): {
+    $call(p1: T1, p3: T3, p4: T4, p6: T6): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    stub4: UnderscoreStatic,
+    p5: T5
+  ): {
+    $call(p2: T2, p3: T3, p4: T4, p6: T6): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    stub4: UnderscoreStatic,
+    p5: T5
+  ): {
+    $call(p1: T1, p2: T2, p3: T3, p4: T4, p6: T6): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    p1: T1,
+    p2: T2,
+    p3: T3,
+    p4: T4,
+    p5: T5,
+    p6: T6
+  ): {
+    $call(): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    p3: T3,
+    p4: T4,
+    p5: T5,
+    p6: T6
+  ): {
+    $call(p1: T1): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    p4: T4,
+    p5: T5,
+    p6: T6
+  ): {
+    $call(p2: T2): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    p4: T4,
+    p5: T5,
+    p6: T6
+  ): {
+    $call(p1: T1, p2: T2): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    p1: T1,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    p4: T4,
+    p5: T5,
+    p6: T6
+  ): {
+    $call(p3: T3): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    p4: T4,
+    p5: T5,
+    p6: T6
+  ): {
+    $call(p1: T1, p3: T3): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    p4: T4,
+    p5: T5,
+    p6: T6
+  ): {
+    $call(p2: T2, p3: T3): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    p4: T4,
+    p5: T5,
+    p6: T6
+  ): {
+    $call(p1: T1, p2: T2, p3: T3): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    p1: T1,
+    p2: T2,
+    p3: T3,
+    stub4: UnderscoreStatic,
+    p5: T5,
+    p6: T6
+  ): {
+    $call(p4: T4): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    p3: T3,
+    stub4: UnderscoreStatic,
+    p5: T5,
+    p6: T6
+  ): {
+    $call(p1: T1, p4: T4): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    stub4: UnderscoreStatic,
+    p5: T5,
+    p6: T6
+  ): {
+    $call(p2: T2, p4: T4): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    stub4: UnderscoreStatic,
+    p5: T5,
+    p6: T6
+  ): {
+    $call(p1: T1, p2: T2, p4: T4): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    p1: T1,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    stub4: UnderscoreStatic,
+    p5: T5,
+    p6: T6
+  ): {
+    $call(p3: T3, p4: T4): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    stub4: UnderscoreStatic,
+    p5: T5,
+    p6: T6
+  ): {
+    $call(p1: T1, p3: T3, p4: T4): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    stub4: UnderscoreStatic,
+    p5: T5,
+    p6: T6
+  ): {
+    $call(p2: T2, p3: T3, p4: T4): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    stub4: UnderscoreStatic,
+    p5: T5,
+    p6: T6
+  ): {
+    $call(p1: T1, p2: T2, p3: T3, p4: T4): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    p1: T1,
+    p2: T2,
+    p3: T3,
+    p4: T4,
+    stub5: UnderscoreStatic,
+    p6: T6
+  ): {
+    $call(p5: T5): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    p3: T3,
+    p4: T4,
+    stub5: UnderscoreStatic,
+    p6: T6
+  ): {
+    $call(p1: T1, p5: T5): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    p4: T4,
+    stub5: UnderscoreStatic,
+    p6: T6
+  ): {
+    $call(p2: T2, p5: T5): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    p4: T4,
+    stub5: UnderscoreStatic,
+    p6: T6
+  ): {
+    $call(p1: T1, p2: T2, p5: T5): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    p1: T1,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    p4: T4,
+    stub5: UnderscoreStatic,
+    p6: T6
+  ): {
+    $call(p3: T3, p5: T5): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    p4: T4,
+    stub5: UnderscoreStatic,
+    p6: T6
+  ): {
+    $call(p1: T1, p3: T3, p5: T5): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    p4: T4,
+    stub5: UnderscoreStatic,
+    p6: T6
+  ): {
+    $call(p2: T2, p3: T3, p5: T5): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    p4: T4,
+    stub5: UnderscoreStatic,
+    p6: T6
+  ): {
+    $call(p1: T1, p2: T2, p3: T3, p5: T5): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    p1: T1,
+    p2: T2,
+    p3: T3,
+    stub4: UnderscoreStatic,
+    stub5: UnderscoreStatic,
+    p6: T6
+  ): {
+    $call(p4: T4, p5: T5): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    p3: T3,
+    stub4: UnderscoreStatic,
+    stub5: UnderscoreStatic,
+    p6: T6
+  ): {
+    $call(p1: T1, p4: T4, p5: T5): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    stub4: UnderscoreStatic,
+    stub5: UnderscoreStatic,
+    p6: T6
+  ): {
+    $call(p2: T2, p4: T4, p5: T5): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    stub4: UnderscoreStatic,
+    stub5: UnderscoreStatic,
+    p6: T6
+  ): {
+    $call(p1: T1, p2: T2, p4: T4, p5: T5): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    p1: T1,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    stub4: UnderscoreStatic,
+    stub5: UnderscoreStatic,
+    p6: T6
+  ): {
+    $call(p3: T3, p4: T4, p5: T5): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    stub4: UnderscoreStatic,
+    stub5: UnderscoreStatic,
+    p6: T6
+  ): {
+    $call(p1: T1, p3: T3, p4: T4, p5: T5): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    stub4: UnderscoreStatic,
+    stub5: UnderscoreStatic,
+    p6: T6
+  ): {
+    $call(p2: T2, p3: T3, p4: T4, p5: T5): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T7;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    stub4: UnderscoreStatic,
+    stub5: UnderscoreStatic,
+    p6: T6
+  ): {
+    $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5): T7;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1
+  ): {
+    $call(p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    p2: T2
+  ): {
+    $call(p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2
+  ): {
+    $call(p1: T1, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    p2: T2,
+    p3: T3
+  ): {
+    $call(p4: T4, p5: T5, p6: T6, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    p3: T3
+  ): {
+    $call(p1: T1, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    p3: T3
+  ): {
+    $call(p2: T2, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    p3: T3
+  ): {
+    $call(p1: T1, p2: T2, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    p2: T2,
+    p3: T3,
+    p4: T4
+  ): {
+    $call(p5: T5, p6: T6, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    p3: T3,
+    p4: T4
+  ): {
+    $call(p1: T1, p5: T5, p6: T6, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    p4: T4
+  ): {
+    $call(p2: T2, p5: T5, p6: T6, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    p4: T4
+  ): {
+    $call(p1: T1, p2: T2, p5: T5, p6: T6, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    p4: T4
+  ): {
+    $call(p3: T3, p5: T5, p6: T6, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    p4: T4
+  ): {
+    $call(p1: T1, p3: T3, p5: T5, p6: T6, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    p4: T4
+  ): {
+    $call(p2: T2, p3: T3, p5: T5, p6: T6, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    p4: T4
+  ): {
+    $call(p1: T1, p2: T2, p3: T3, p5: T5, p6: T6, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    p2: T2,
+    p3: T3,
+    p4: T4,
+    p5: T5
+  ): {
+    $call(p6: T6, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    p3: T3,
+    p4: T4,
+    p5: T5
+  ): {
+    $call(p1: T1, p6: T6, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    p4: T4,
+    p5: T5
+  ): {
+    $call(p2: T2, p6: T6, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    p4: T4,
+    p5: T5
+  ): {
+    $call(p1: T1, p2: T2, p6: T6, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    p4: T4,
+    p5: T5
+  ): {
+    $call(p3: T3, p6: T6, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    p4: T4,
+    p5: T5
+  ): {
+    $call(p1: T1, p3: T3, p6: T6, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    p4: T4,
+    p5: T5
+  ): {
+    $call(p2: T2, p3: T3, p6: T6, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    p4: T4,
+    p5: T5
+  ): {
+    $call(p1: T1, p2: T2, p3: T3, p6: T6, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    p2: T2,
+    p3: T3,
+    stub4: UnderscoreStatic,
+    p5: T5
+  ): {
+    $call(p4: T4, p6: T6, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    p3: T3,
+    stub4: UnderscoreStatic,
+    p5: T5
+  ): {
+    $call(p1: T1, p4: T4, p6: T6, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    stub4: UnderscoreStatic,
+    p5: T5
+  ): {
+    $call(p2: T2, p4: T4, p6: T6, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    stub4: UnderscoreStatic,
+    p5: T5
+  ): {
+    $call(p1: T1, p2: T2, p4: T4, p6: T6, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    stub4: UnderscoreStatic,
+    p5: T5
+  ): {
+    $call(p3: T3, p4: T4, p6: T6, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    stub4: UnderscoreStatic,
+    p5: T5
+  ): {
+    $call(p1: T1, p3: T3, p4: T4, p6: T6, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    stub4: UnderscoreStatic,
+    p5: T5
+  ): {
+    $call(p2: T2, p3: T3, p4: T4, p6: T6, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    stub4: UnderscoreStatic,
+    p5: T5
+  ): {
+    $call(p1: T1, p2: T2, p3: T3, p4: T4, p6: T6, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    p2: T2,
+    p3: T3,
+    p4: T4,
+    p5: T5,
+    p6: T6
+  ): {
+    $call(p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    p3: T3,
+    p4: T4,
+    p5: T5,
+    p6: T6
+  ): {
+    $call(p1: T1, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    p4: T4,
+    p5: T5,
+    p6: T6
+  ): {
+    $call(p2: T2, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    p4: T4,
+    p5: T5,
+    p6: T6
+  ): {
+    $call(p1: T1, p2: T2, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    p4: T4,
+    p5: T5,
+    p6: T6
+  ): {
+    $call(p3: T3, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    p4: T4,
+    p5: T5,
+    p6: T6
+  ): {
+    $call(p1: T1, p3: T3, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    p4: T4,
+    p5: T5,
+    p6: T6
+  ): {
+    $call(p2: T2, p3: T3, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    p4: T4,
+    p5: T5,
+    p6: T6
+  ): {
+    $call(p1: T1, p2: T2, p3: T3, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    p2: T2,
+    p3: T3,
+    stub4: UnderscoreStatic,
+    p5: T5,
+    p6: T6
+  ): {
+    $call(p4: T4, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    p3: T3,
+    stub4: UnderscoreStatic,
+    p5: T5,
+    p6: T6
+  ): {
+    $call(p1: T1, p4: T4, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    stub4: UnderscoreStatic,
+    p5: T5,
+    p6: T6
+  ): {
+    $call(p2: T2, p4: T4, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    stub4: UnderscoreStatic,
+    p5: T5,
+    p6: T6
+  ): {
+    $call(p1: T1, p2: T2, p4: T4, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    stub4: UnderscoreStatic,
+    p5: T5,
+    p6: T6
+  ): {
+    $call(p3: T3, p4: T4, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    stub4: UnderscoreStatic,
+    p5: T5,
+    p6: T6
+  ): {
+    $call(p1: T1, p3: T3, p4: T4, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    stub4: UnderscoreStatic,
+    p5: T5,
+    p6: T6
+  ): {
+    $call(p2: T2, p3: T3, p4: T4, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    stub4: UnderscoreStatic,
+    p5: T5,
+    p6: T6
+  ): {
+    $call(p1: T1, p2: T2, p3: T3, p4: T4, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    p2: T2,
+    p3: T3,
+    p4: T4,
+    stub5: UnderscoreStatic,
+    p6: T6
+  ): {
+    $call(p5: T5, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    p3: T3,
+    p4: T4,
+    stub5: UnderscoreStatic,
+    p6: T6
+  ): {
+    $call(p1: T1, p5: T5, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    p4: T4,
+    stub5: UnderscoreStatic,
+    p6: T6
+  ): {
+    $call(p2: T2, p5: T5, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    p4: T4,
+    stub5: UnderscoreStatic,
+    p6: T6
+  ): {
+    $call(p1: T1, p2: T2, p5: T5, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    p4: T4,
+    stub5: UnderscoreStatic,
+    p6: T6
+  ): {
+    $call(p3: T3, p5: T5, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    p4: T4,
+    stub5: UnderscoreStatic,
+    p6: T6
+  ): {
+    $call(p1: T1, p3: T3, p5: T5, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    p4: T4,
+    stub5: UnderscoreStatic,
+    p6: T6
+  ): {
+    $call(p2: T2, p3: T3, p5: T5, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    p4: T4,
+    stub5: UnderscoreStatic,
+    p6: T6
+  ): {
+    $call(p1: T1, p2: T2, p3: T3, p5: T5, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    p2: T2,
+    p3: T3,
+    stub4: UnderscoreStatic,
+    stub5: UnderscoreStatic,
+    p6: T6
+  ): {
+    $call(p4: T4, p5: T5, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    p3: T3,
+    stub4: UnderscoreStatic,
+    stub5: UnderscoreStatic,
+    p6: T6
+  ): {
+    $call(p1: T1, p4: T4, p5: T5, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    stub4: UnderscoreStatic,
+    stub5: UnderscoreStatic,
+    p6: T6
+  ): {
+    $call(p2: T2, p4: T4, p5: T5, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    stub4: UnderscoreStatic,
+    stub5: UnderscoreStatic,
+    p6: T6
+  ): {
+    $call(p1: T1, p2: T2, p4: T4, p5: T5, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    stub4: UnderscoreStatic,
+    stub5: UnderscoreStatic,
+    p6: T6
+  ): {
+    $call(p3: T3, p4: T4, p5: T5, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    stub4: UnderscoreStatic,
+    stub5: UnderscoreStatic,
+    p6: T6
+  ): {
+    $call(p1: T1, p3: T3, p4: T4, p5: T5, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    stub4: UnderscoreStatic,
+    stub5: UnderscoreStatic,
+    p6: T6
+  ): {
+    $call(p2: T2, p3: T3, p4: T4, p5: T5, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    stub4: UnderscoreStatic,
+    stub5: UnderscoreStatic,
+    p6: T6
+  ): {
+    $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p7: T7): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    p2: T2,
+    p3: T3,
+    p4: T4,
+    p5: T5,
+    p6: T6,
+    p7: T7
+  ): {
+    $call(): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    p3: T3,
+    p4: T4,
+    p5: T5,
+    p6: T6,
+    p7: T7
+  ): {
+    $call(p1: T1): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    p4: T4,
+    p5: T5,
+    p6: T6,
+    p7: T7
+  ): {
+    $call(p2: T2): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    p4: T4,
+    p5: T5,
+    p6: T6,
+    p7: T7
+  ): {
+    $call(p1: T1, p2: T2): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    p4: T4,
+    p5: T5,
+    p6: T6,
+    p7: T7
+  ): {
+    $call(p3: T3): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    p4: T4,
+    p5: T5,
+    p6: T6,
+    p7: T7
+  ): {
+    $call(p1: T1, p3: T3): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    p4: T4,
+    p5: T5,
+    p6: T6,
+    p7: T7
+  ): {
+    $call(p2: T2, p3: T3): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    p4: T4,
+    p5: T5,
+    p6: T6,
+    p7: T7
+  ): {
+    $call(p1: T1, p2: T2, p3: T3): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    p2: T2,
+    p3: T3,
+    stub4: UnderscoreStatic,
+    p5: T5,
+    p6: T6,
+    p7: T7
+  ): {
+    $call(p4: T4): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    p3: T3,
+    stub4: UnderscoreStatic,
+    p5: T5,
+    p6: T6,
+    p7: T7
+  ): {
+    $call(p1: T1, p4: T4): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    stub4: UnderscoreStatic,
+    p5: T5,
+    p6: T6,
+    p7: T7
+  ): {
+    $call(p2: T2, p4: T4): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    stub4: UnderscoreStatic,
+    p5: T5,
+    p6: T6,
+    p7: T7
+  ): {
+    $call(p1: T1, p2: T2, p4: T4): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    stub4: UnderscoreStatic,
+    p5: T5,
+    p6: T6,
+    p7: T7
+  ): {
+    $call(p3: T3, p4: T4): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    stub4: UnderscoreStatic,
+    p5: T5,
+    p6: T6,
+    p7: T7
+  ): {
+    $call(p1: T1, p3: T3, p4: T4): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    stub4: UnderscoreStatic,
+    p5: T5,
+    p6: T6,
+    p7: T7
+  ): {
+    $call(p2: T2, p3: T3, p4: T4): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    stub4: UnderscoreStatic,
+    p5: T5,
+    p6: T6,
+    p7: T7
+  ): {
+    $call(p1: T1, p2: T2, p3: T3, p4: T4): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    p2: T2,
+    p3: T3,
+    p4: T4,
+    stub5: UnderscoreStatic,
+    p6: T6,
+    p7: T7
+  ): {
+    $call(p5: T5): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    p3: T3,
+    p4: T4,
+    stub5: UnderscoreStatic,
+    p6: T6,
+    p7: T7
+  ): {
+    $call(p1: T1, p5: T5): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    p4: T4,
+    stub5: UnderscoreStatic,
+    p6: T6,
+    p7: T7
+  ): {
+    $call(p2: T2, p5: T5): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    p4: T4,
+    stub5: UnderscoreStatic,
+    p6: T6,
+    p7: T7
+  ): {
+    $call(p1: T1, p2: T2, p5: T5): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    p4: T4,
+    stub5: UnderscoreStatic,
+    p6: T6,
+    p7: T7
+  ): {
+    $call(p3: T3, p5: T5): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    p4: T4,
+    stub5: UnderscoreStatic,
+    p6: T6,
+    p7: T7
+  ): {
+    $call(p1: T1, p3: T3, p5: T5): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    p4: T4,
+    stub5: UnderscoreStatic,
+    p6: T6,
+    p7: T7
+  ): {
+    $call(p2: T2, p3: T3, p5: T5): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    p4: T4,
+    stub5: UnderscoreStatic,
+    p6: T6,
+    p7: T7
+  ): {
+    $call(p1: T1, p2: T2, p3: T3, p5: T5): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    p2: T2,
+    p3: T3,
+    stub4: UnderscoreStatic,
+    stub5: UnderscoreStatic,
+    p6: T6,
+    p7: T7
+  ): {
+    $call(p4: T4, p5: T5): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    p3: T3,
+    stub4: UnderscoreStatic,
+    stub5: UnderscoreStatic,
+    p6: T6,
+    p7: T7
+  ): {
+    $call(p1: T1, p4: T4, p5: T5): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    stub4: UnderscoreStatic,
+    stub5: UnderscoreStatic,
+    p6: T6,
+    p7: T7
+  ): {
+    $call(p2: T2, p4: T4, p5: T5): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    stub4: UnderscoreStatic,
+    stub5: UnderscoreStatic,
+    p6: T6,
+    p7: T7
+  ): {
+    $call(p1: T1, p2: T2, p4: T4, p5: T5): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    stub4: UnderscoreStatic,
+    stub5: UnderscoreStatic,
+    p6: T6,
+    p7: T7
+  ): {
+    $call(p3: T3, p4: T4, p5: T5): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    stub4: UnderscoreStatic,
+    stub5: UnderscoreStatic,
+    p6: T6,
+    p7: T7
+  ): {
+    $call(p1: T1, p3: T3, p4: T4, p5: T5): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    stub4: UnderscoreStatic,
+    stub5: UnderscoreStatic,
+    p6: T6,
+    p7: T7
+  ): {
+    $call(p2: T2, p3: T3, p4: T4, p5: T5): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    stub4: UnderscoreStatic,
+    stub5: UnderscoreStatic,
+    p6: T6,
+    p7: T7
+  ): {
+    $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    p2: T2,
+    p3: T3,
+    p4: T4,
+    p5: T5,
+    stub6: UnderscoreStatic,
+    p7: T7
+  ): {
+    $call(p6: T6): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    p3: T3,
+    p4: T4,
+    p5: T5,
+    stub6: UnderscoreStatic,
+    p7: T7
+  ): {
+    $call(p1: T1, p6: T6): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    p4: T4,
+    p5: T5,
+    stub6: UnderscoreStatic,
+    p7: T7
+  ): {
+    $call(p2: T2, p6: T6): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    p4: T4,
+    p5: T5,
+    stub6: UnderscoreStatic,
+    p7: T7
+  ): {
+    $call(p1: T1, p2: T2, p6: T6): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    p4: T4,
+    p5: T5,
+    stub6: UnderscoreStatic,
+    p7: T7
+  ): {
+    $call(p3: T3, p6: T6): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    p4: T4,
+    p5: T5,
+    stub6: UnderscoreStatic,
+    p7: T7
+  ): {
+    $call(p1: T1, p3: T3, p6: T6): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    p4: T4,
+    p5: T5,
+    stub6: UnderscoreStatic,
+    p7: T7
+  ): {
+    $call(p2: T2, p3: T3, p6: T6): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    p4: T4,
+    p5: T5,
+    stub6: UnderscoreStatic,
+    p7: T7
+  ): {
+    $call(p1: T1, p2: T2, p3: T3, p6: T6): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    p2: T2,
+    p3: T3,
+    stub4: UnderscoreStatic,
+    p5: T5,
+    stub6: UnderscoreStatic,
+    p7: T7
+  ): {
+    $call(p4: T4, p6: T6): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    p3: T3,
+    stub4: UnderscoreStatic,
+    p5: T5,
+    stub6: UnderscoreStatic,
+    p7: T7
+  ): {
+    $call(p1: T1, p4: T4, p6: T6): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    stub4: UnderscoreStatic,
+    p5: T5,
+    stub6: UnderscoreStatic,
+    p7: T7
+  ): {
+    $call(p2: T2, p4: T4, p6: T6): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    stub4: UnderscoreStatic,
+    p5: T5,
+    stub6: UnderscoreStatic,
+    p7: T7
+  ): {
+    $call(p1: T1, p2: T2, p4: T4, p6: T6): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    stub4: UnderscoreStatic,
+    p5: T5,
+    stub6: UnderscoreStatic,
+    p7: T7
+  ): {
+    $call(p3: T3, p4: T4, p6: T6): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    stub4: UnderscoreStatic,
+    p5: T5,
+    stub6: UnderscoreStatic,
+    p7: T7
+  ): {
+    $call(p1: T1, p3: T3, p4: T4, p6: T6): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    stub4: UnderscoreStatic,
+    p5: T5,
+    stub6: UnderscoreStatic,
+    p7: T7
+  ): {
+    $call(p2: T2, p3: T3, p4: T4, p6: T6): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    stub4: UnderscoreStatic,
+    p5: T5,
+    stub6: UnderscoreStatic,
+    p7: T7
+  ): {
+    $call(p1: T1, p2: T2, p3: T3, p4: T4, p6: T6): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    p2: T2,
+    p3: T3,
+    p4: T4,
+    stub5: UnderscoreStatic,
+    stub6: UnderscoreStatic,
+    p7: T7
+  ): {
+    $call(p5: T5, p6: T6): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    p3: T3,
+    p4: T4,
+    stub5: UnderscoreStatic,
+    stub6: UnderscoreStatic,
+    p7: T7
+  ): {
+    $call(p1: T1, p5: T5, p6: T6): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    p4: T4,
+    stub5: UnderscoreStatic,
+    stub6: UnderscoreStatic,
+    p7: T7
+  ): {
+    $call(p2: T2, p5: T5, p6: T6): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    p4: T4,
+    stub5: UnderscoreStatic,
+    stub6: UnderscoreStatic,
+    p7: T7
+  ): {
+    $call(p1: T1, p2: T2, p5: T5, p6: T6): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    p4: T4,
+    stub5: UnderscoreStatic,
+    stub6: UnderscoreStatic,
+    p7: T7
+  ): {
+    $call(p3: T3, p5: T5, p6: T6): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    p4: T4,
+    stub5: UnderscoreStatic,
+    stub6: UnderscoreStatic,
+    p7: T7
+  ): {
+    $call(p1: T1, p3: T3, p5: T5, p6: T6): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    p4: T4,
+    stub5: UnderscoreStatic,
+    stub6: UnderscoreStatic,
+    p7: T7
+  ): {
+    $call(p2: T2, p3: T3, p5: T5, p6: T6): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    p4: T4,
+    stub5: UnderscoreStatic,
+    stub6: UnderscoreStatic,
+    p7: T7
+  ): {
+    $call(p1: T1, p2: T2, p3: T3, p5: T5, p6: T6): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    p2: T2,
+    p3: T3,
+    stub4: UnderscoreStatic,
+    stub5: UnderscoreStatic,
+    stub6: UnderscoreStatic,
+    p7: T7
+  ): {
+    $call(p4: T4, p5: T5, p6: T6): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    p3: T3,
+    stub4: UnderscoreStatic,
+    stub5: UnderscoreStatic,
+    stub6: UnderscoreStatic,
+    p7: T7
+  ): {
+    $call(p1: T1, p4: T4, p5: T5, p6: T6): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    stub4: UnderscoreStatic,
+    stub5: UnderscoreStatic,
+    stub6: UnderscoreStatic,
+    p7: T7
+  ): {
+    $call(p2: T2, p4: T4, p5: T5, p6: T6): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    p3: T3,
+    stub4: UnderscoreStatic,
+    stub5: UnderscoreStatic,
+    stub6: UnderscoreStatic,
+    p7: T7
+  ): {
+    $call(p1: T1, p2: T2, p4: T4, p5: T5, p6: T6): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    stub4: UnderscoreStatic,
+    stub5: UnderscoreStatic,
+    stub6: UnderscoreStatic,
+    p7: T7
+  ): {
+    $call(p3: T3, p4: T4, p5: T5, p6: T6): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    p2: T2,
+    stub3: UnderscoreStatic,
+    stub4: UnderscoreStatic,
+    stub5: UnderscoreStatic,
+    stub6: UnderscoreStatic,
+    p7: T7
+  ): {
+    $call(p1: T1, p3: T3, p4: T4, p5: T5, p6: T6): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    p1: T1,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    stub4: UnderscoreStatic,
+    stub5: UnderscoreStatic,
+    stub6: UnderscoreStatic,
+    p7: T7
+  ): {
+    $call(p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T8;
+  };
+  partial < T1, T2, T3, T4, T5, T6, T7, T8 > (
+    fn: {
+      $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6, p7: T7): T8;
+    },
+    stub1: UnderscoreStatic,
+    stub2: UnderscoreStatic,
+    stub3: UnderscoreStatic,
+    stub4: UnderscoreStatic,
+    stub5: UnderscoreStatic,
+    stub6: UnderscoreStatic,
+    p7: T7
+  ): {
+    $call(p1: T1, p2: T2, p3: T3, p4: T4, p5: T5, p6: T6): T8;
+  };
+  memoize(fn: Function, hashFn ? : (...args: Array < any > ) => string): Function;
+  delay(func: Function, wait: number, ...arguments: Array < any > ): any;
+  delay(func: Function, ...arguments: Array < any > ): any;
+  defer(fn: Function, ...arguments: Array < any > ): void;
+  throttle <T> (func: T, wait: number, options ? : G__.ThrottleSettings): T;
+  debounce <T> (fn: T, wait: number, immediate ? : boolean): T;
+  once <T> (fn: T): T;
+  after(count: number, fn: Function): Function;
+  before(count: number, fn: Function): Function;
+  wrap(
+    fn: Function, wrapper: (fn: Function, ...args: Array < any > ) => any
+  ): Function;
+  negate(predicate: Function): boolean;
+  compose(...functions: Array < Function > ): Function;
+  keys(object: any): Array < string >;
+  allKeys(object: any): Array < string >;
+  values <T> (object: G__.Dictionary <T> ): Array <T>;
+  values(object: any): Array < any >;
+  mapObject < T, U > (
+    object: G__.Dictionary <T> ,
+    iteratee: (
+      val: T, key: string, object: G__.Dictionary <T>
+    ) => U,
+    context ? : any
+  ): G__.Dictionary < U >;
+  mapObject <T> (
+    object: any,
+    iteratee: (
+      val: any, key: string, object: any
+    ) => T,
+    context ? : any
+  ): G__.Dictionary <T>;
+  mapObject(
+    object: any, iteratee: string, context ? : any
+  ): G__.Dictionary < any >;
+  pairs(object: any): Array < Array < any >>;
+  invert(object: any): any;
+  functions(object: any): Array < string >;
+  methods(object: any): Array < string >;
+  extend(destination: any, ...sources: Array < any > ): any;
+  extendOwn(destination: any, ...source: Array < any > ): any;
+  assign(destination: any, ...source: Array < any > ): any;
+  pick(object: any, ...keys: Array < any > ): any;
+  pick(object: any, fn: (value: any, key: any, object: any) => any): any;
+  omit(object: any, ...keys: Array < string > ): any;
+  omit(object: any, keys: Array < string > ): any;
+  omit(object: any, iteratee: Function): any;
+  defaults(object: any, ...defaults: Array < any > ): any;
+  clone <T> (object: T): T;
+  tap <T> (object: T, intercepter: Function): T;
+  has(object: any, key: string): boolean;
+  matches < T, TResult > (attrs: T): G__.ListIterator < T, TResult >;
+  property(key: string): (object: Object) => any;
+  propertyOf(object: Object): (key: string) => any;
+  isEqual(object: any, other: any): boolean;
+  isEmpty(object: any): boolean;
+  isMatch(object: any, properties: any): boolean;
+  isElement(object: any): boolean;
+  isArray(object: any): boolean;
+  isObject(object: any): boolean;
+  isArguments(object: any): boolean;
+  isFunction(object: any): boolean;
+  isError(object: any): boolean;
+  isString(object: any): boolean;
+  isNumber(object: any): boolean;
+  isFinite(object: any): boolean;
+  isBoolean(object: any): boolean;
+  isDate(object: any): boolean;
+  isRegExp(object: any): boolean;
+  isNaN(object: any): boolean;
+  isNull(object: any): boolean;
+  isUndefined(value: any): boolean;
+  noConflict(): any;
+  identity <T> (value: T): T;
+  constant <T> (value: T): () => T;
+  noop(): void;
+  times < TResult > (
+    n: number, iterator: (n: number) => TResult, context ? : any
+  ): Array < TResult >;
+  random(max: number): number;
+  random(min: number, max: number): number;
+  mixin(object: any): void;
+  iteratee(value: string): Function;
+  iteratee(value: Function, context ? : any, argCount ? : number): Function;
+  iteratee(value: Object): Function;
+  uniqueId(prefix ? : string): string;
+  escape(str: string): string;
+  unescape(str: string): string;
+  result(object: any, property: string, defaultValue ? : any): any;
+  template(
+    templateString: string, settings ? : G__.TemplateSettings
+  ): (
+    ...data: Array < any >
+  ) => string;
+  templateSettings: G__.TemplateSettings;
+  now(): number;
+  chain <T> (obj: Array <T> ): _Chain <T>;
+  chain <T> (obj: G__.Dictionary <T> ): _Chain <T>;
+  chain <T> (obj: T): _Chain <T>;
+}
+declare interface Underscore <T> {
+  each(iterator: G__.ListIterator < T, void > , context ? : any): Array <T>;
+  each(iterator: G__.ObjectIterator < T, void > , context ? : any): Array <T>;
+  forEach(iterator: G__.ListIterator < T, void > , context ? : any): Array <T>;
+  forEach(iterator: G__.ObjectIterator < T, void > , context ? : any): Array <T>;
+  map < TResult > (
+    iterator: G__.ListIterator < T, TResult > , context ? : any
+  ): Array < TResult >;
+  map < TResult > (
+    iterator: G__.ObjectIterator < T, TResult > , context ? : any
+  ): Array < TResult >;
+  collect < TResult > (
+    iterator: G__.ListIterator < T, TResult > , context ? : any
+  ): Array < TResult >;
+  collect < TResult > (
+    iterator: G__.ObjectIterator < T, TResult > , context ? : any
+  ): Array < TResult >;
+  reduce < TResult > (
+    iterator: G__.MemoIterator < T, TResult > , memo ? : TResult, context ? : any
+  ): TResult;
+  inject < TResult > (
+    iterator: G__.MemoIterator < T, TResult > , memo ? : TResult, context ? : any
+  ): TResult;
+  foldl < TResult > (
+    iterator: G__.MemoIterator < T, TResult > , memo ? : TResult, context ? : any
+  ): TResult;
+  reduceRight < TResult > (
+    iterator: G__.MemoIterator < T, TResult > , memo ? : TResult, context ? : any
+  ): TResult;
+  foldr < TResult > (
+    iterator: G__.MemoIterator < T, TResult > , memo ? : TResult, context ? : any
+  ): TResult;
+  find <T> (
+    iterator: G__.ListIterator < T, boolean > |
+    G__.ObjectIterator < T, boolean > ,
+    context ? : any
+  ): T;
+  find < T,
+  U > (interator: U): T;
+  find <T> (interator: string): T;
+  detect <T> (
+    iterator: G__.ListIterator < T, boolean > |
+    G__.ObjectIterator < T, boolean > ,
+    context ? : any
+  ): T;
+  detect < T,
+  U > (interator ? : U): T;
+  detect <T> (interator ? : string): T;
+  filter(iterator: G__.ListIterator < T, boolean > , context ? : any): Array <T>;
+  select(iterator: G__.ListIterator < T, boolean > , context ? : any): Array <T>;
+  where < U > (properties: U): Array <T>;
+  findWhere < U > (properties: U): T;
+  reject(iterator: G__.ListIterator < T, boolean > , context ? : any): Array <T>;
+  all(iterator ? : G__.ListIterator < T, boolean > , context ? : any): boolean;
+  every(iterator ? : G__.ListIterator < T, boolean > , context ? : any): boolean;
+  any(iterator ? : G__.ListIterator < T, boolean > , context ? : any): boolean;
+  some(iterator ? : G__.ListIterator < T, boolean > , context ? : any): boolean;
+  contains(value: T): boolean;
+  include(value: T): boolean;
+  invoke(methodName: string, ...arguments: Array < any > ): any;
+  pluck(propertyName: string): Array < any >;
+  max(): number;
+  max(iterator: G__.ListIterator < T, number > , context ? : any): T;
+  max(iterator ? : G__.ListIterator < T, any > , context ? : any): T;
+  min(): number;
+  min(iterator: G__.ListIterator < T, number > , context ? : any): T;
+  min(iterator ? : G__.ListIterator < T, any > , context ? : any): T;
+  sortBy(iterator ? : G__.ListIterator < T, any > , context ? : any): Array <T>;
+  sortBy(iterator: string, context ? : any): Array <T>;
+  groupBy(
+    iterator ? : G__.ListIterator < T, any > , context ? : any
+  ): G__.Dictionary < G__.List <T>>;
+  groupBy(iterator: string, context ? : any): G__.Dictionary < Array <T>>;
+  indexBy(
+    iterator: G__.ListIterator < T, any > , context ? : any
+  ): G__.Dictionary <T>;
+  indexBy(iterator: string, context ? : any): G__.Dictionary <T>;
+  countBy(
+    iterator ? : G__.ListIterator < T, any > , context ? : any
+  ): G__.Dictionary < number >;
+  countBy(iterator: string, context ? : any): G__.Dictionary < number >;
+  shuffle(): Array <T>;
+  sample <T> (n: number): Array <T>;
+  sample <T> (): T;
+  toArray(): Array <T>;
+  size(): number;
+  first(): T;
+  first(n: number): Array <T>;
+  head(): T;
+  head(n: number): Array <T>;
+  take(): T;
+  take(n: number): Array <T>;
+  initial(n ? : number): Array <T>;
+  last(): T;
+  last(n: number): Array <T>;
+  rest(n ? : number): Array <T>;
+  tail(n ? : number): Array <T>;
+  drop(n ? : number): Array <T>;
+  compact(): Array <T>;
+  flatten(shallow ? : boolean): Array < any >;
+  without(...values: Array <T> ): Array <T>;
+  partition(
+    iterator: G__.ListIterator < T, boolean > , context ? : any
+  ): Array < Array <T>>;
+  union(...arrays: Array < G__.List <T>> ): Array <T>;
+  intersection(...arrays: Array < G__.List <T>> ): Array <T>;
+  difference(...others: Array < G__.List <T>> ): Array <T>;
+  uniq(isSorted ? : boolean, iterator ? : G__.ListIterator < T, any > ): Array <T>;
+  uniq < TSort > (iterator ? : G__.ListIterator < T, TSort > , context ? : any): Array <T>;
+  unique < TSort > (
+    isSorted ? : boolean, iterator ? : G__.ListIterator < T, TSort >
+  ): Array <T>;
+  unique < TSort > (
+    iterator ? : G__.ListIterator < T, TSort > , context ? : any
+  ): Array <T>;
+  zip(...arrays: Array < Array < any >> ): Array < Array < any >>;
+  unzip(...arrays: Array < Array < any >> ): Array < Array < any >>;
+  object(...keyValuePairs: Array < Array < any >> ): any;
+  object(values ? : any): any;
+  indexOf(value: T, isSorted ? : boolean): number;
+  indexOf(value: T, startFrom: number): number;
+  lastIndexOf(value: T, from ? : number): number;
+  findIndex <T> (
+    array: G__.List <T> , predicate: G__.ListIterator < T, boolean > , context ? : any
+  ): number;
+  findLastIndex <T> (
+    array: G__.List <T> , predicate: G__.ListIterator < T, boolean > , context ? : any
+  ): number;
+  sortedIndex(value: T, iterator ? : (x: T) => any, context ? : any): number;
+  range(stop: number, step ? : number): Array < number >;
+  range(): Array < number >;
+  bind(object: any, ...arguments: Array < any > ): Function;
+  bindAll(...methodNames: Array < string > ): any;
+  partial(...arguments: Array < any > ): Function;
+  memoize(hashFn ? : (n: any) => string): Function;
+  defer(...arguments: Array < any > ): void;
+  delay(wait: number, ...arguments: Array < any > ): any;
+  delay(...arguments: Array < any > ): any;
+  throttle(wait: number, options ? : G__.ThrottleSettings): Function;
+  debounce(wait: number, immediate ? : boolean): Function;
+  once(): Function;
+  after(fn: Function): Function;
+  before(fn: Function): Function;
+  wrap(wrapper: Function): () => Function;
+  negate(): boolean;
+  compose(...functions: Array < Function > ): Function;
+  keys(): Array < string >;
+  allKeys(): Array < string >;
+  values(): Array <T>;
+  pairs(): Array < Array < any >>;
+  invert(): any;
+  functions(): Array < string >;
+  methods(): Array < string >;
+  extend(...sources: Array < any > ): any;
+  pick(...keys: Array < any > ): any;
+  pick(keys: Array < any > ): any;
+  pick(fn: (value: any, key: any, object: any) => any): any;
+  omit(...keys: Array < string > ): any;
+  omit(keys: Array < string > ): any;
+  omit(fn: Function): any;
+  defaults(...defaults: Array < any > ): any;
+  clone(): T;
+  tap(interceptor: (...as: Array < any > ) => any): any;
+  has(key: string): boolean;
+  matches < TResult > (): G__.ListIterator < T,
+  TResult >;
+  property(): (object: Object) => any;
+  propertyOf(): (key: string) => any;
+  isEqual(other: any): boolean;
+  isEmpty(): boolean;
+  isMatch(): boolean;
+  isElement(): boolean;
+  isArray(): boolean;
+  isObject(): boolean;
+  isArguments(): boolean;
+  isFunction(): boolean;
+  isError(): boolean;
+  isString(): boolean;
+  isNumber(): boolean;
+  isFinite(): boolean;
+  isBoolean(): boolean;
+  isDate(): boolean;
+  isRegExp(): boolean;
+  isNaN(): boolean;
+  isNull(): boolean;
+  isUndefined(): boolean;
+  identity(): any;
+  constant(): () => T;
+  noop(): void;
+  times < TResult > (
+    iterator: (n: number) => TResult, context ? : any
+  ): Array < TResult >;
+  random(): number;
+  random(max: number): number;
+  mixin(): void;
+  iteratee(context ? : any, argCount ? : number): Function;
+  uniqueId(): string;
+  escape(): string;
+  unescape(): string;
+  result(property: string, defaultValue ? : any): any;
+  template(settings ? : G__.TemplateSettings): (...data: Array < any > ) => string;
+  chain(): _Chain <T>;
+  value < TResult > (): TResult;
+}
+declare interface _Chain <T> {
+  each(iterator: G__.ListIterator < T, void > , context ? : any): _Chain <T>;
+  each(iterator: G__.ObjectIterator < T, void > , context ? : any): _Chain <T>;
+  forEach(iterator: G__.ListIterator < T, void > , context ? : any): _Chain <T>;
+  forEach(iterator: G__.ObjectIterator < T, void > , context ? : any): _Chain <T>;
+  map < TArray > (
+    iterator: G__.ListIterator < T, Array < TArray >> , context ? : any
+  ): _ChainOfArrays < TArray >;
+  map < TResult > (
+    iterator: G__.ListIterator < T, TResult > , context ? : any
+  ): _Chain < TResult >;
+  map < TArray > (
+    iterator: G__.ObjectIterator < T, Array < TArray >> , context ? : any
+  ): _ChainOfArrays < TArray >;
+  map < TResult > (
+    iterator: G__.ObjectIterator < T, TResult > , context ? : any
+  ): _Chain < TResult >;
+  collect < TResult > (
+    iterator: G__.ListIterator < T, TResult > , context ? : any
+  ): _Chain < TResult >;
+  collect < TResult > (
+    iterator: G__.ObjectIterator < T, TResult > , context ? : any
+  ): _Chain < TResult >;
+  reduce < TResult > (
+    iterator: G__.MemoIterator < T, TResult > , memo ? : TResult, context ? : any
+  ): _ChainSingle < TResult >;
+  inject < TResult > (
+    iterator: G__.MemoIterator < T, TResult > , memo ? : TResult, context ? : any
+  ): _ChainSingle < TResult >;
+  foldl < TResult > (
+    iterator: G__.MemoIterator < T, TResult > , memo ? : TResult, context ? : any
+  ): _ChainSingle < TResult >;
+  reduceRight < TResult > (
+    iterator: G__.MemoIterator < T, TResult > , memo ? : TResult, context ? : any
+  ): _ChainSingle < TResult >;
+  foldr < TResult > (
+    iterator: G__.MemoIterator < T, TResult > , memo ? : TResult, context ? : any
+  ): _ChainSingle < TResult >;
+  find <T> (
+    iterator: G__.ListIterator < T, boolean > |
+    G__.ObjectIterator < T, boolean > ,
+    context ? : any
+  ): _ChainSingle <T>;
+  find < T,
+  U > (interator: U): _ChainSingle <T>;
+  find <T> (interator: string): _ChainSingle <T>;
+  detect <T> (
+    iterator: G__.ListIterator < T, boolean > |
+    G__.ObjectIterator < T, boolean > ,
+    context ? : any
+  ): _ChainSingle <T>;
+  detect < T,
+  U > (interator: U): _ChainSingle <T>;
+  detect <T> (interator: string): _ChainSingle <T>;
+  filter(iterator: G__.ListIterator < T, boolean > , context ? : any): _Chain <T>;
+  select(iterator: G__.ListIterator < T, boolean > , context ? : any): _Chain <T>;
+  where < U > (properties: U): _Chain <T>;
+  findWhere < U > (properties: U): _ChainSingle <T>;
+  reject(iterator: G__.ListIterator < T, boolean > , context ? : any): _Chain <T>;
+  all(iterator ? : G__.ListIterator < T, boolean > , context ? : any): _Chain <T>;
+  every(iterator ? : G__.ListIterator < T, boolean > , context ? : any): _Chain <T>;
+  any(iterator ? : G__.ListIterator < T, boolean > , context ? : any): _Chain <T>;
+  some(iterator ? : G__.ListIterator < T, boolean > , context ? : any): _Chain <T>;
+  contains(value: T): _Chain <T>;
+  include(value: T): _Chain <T>;
+  invoke(methodName: string, ...arguments: Array < any > ): _Chain <T>;
+  pluck(propertyName: string): _Chain < any >;
+  max(): _ChainSingle <T>;
+  max(iterator: G__.ListIterator < T, number > , context ? : any): _ChainSingle <T>;
+  max(iterator ? : G__.ListIterator < T, any > , context ? : any): _ChainSingle <T>;
+  min(): _ChainSingle <T>;
+  min(iterator: G__.ListIterator < T, number > , context ? : any): _ChainSingle <T>;
+  min(iterator ? : G__.ListIterator < T, any > , context ? : any): _ChainSingle <T>;
+  sortBy(iterator ? : G__.ListIterator < T, any > , context ? : any): _Chain <T>;
+  sortBy(iterator: string, context ? : any): _Chain <T>;
+  groupBy(
+    iterator ? : G__.ListIterator < T, any > , context ? : any
+  ): _ChainOfArrays <T>;
+  groupBy(iterator: string, context ? : any): _ChainOfArrays <T>;
+  indexBy(iterator: G__.ListIterator < T, any > , context ? : any): _Chain <T>;
+  indexBy(iterator: string, context ? : any): _Chain <T>;
+  countBy(iterator ? : G__.ListIterator < T, any > , context ? : any): _Chain <T>;
+  countBy(iterator: string, context ? : any): _Chain <T>;
+  shuffle(): _Chain <T>;
+  sample <T> (n: number): _Chain <T>;
+  sample <T> (): _Chain <T>;
+  toArray(): _Chain <T>;
+  size(): _ChainSingle < number >;
+  first(): _ChainSingle <T>;
+  first(n: number): _Chain <T>;
+  head(): _Chain <T>;
+  head(n: number): _Chain <T>;
+  take(): _Chain <T>;
+  take(n: number): _Chain <T>;
+  initial(n ? : number): _Chain <T>;
+  last(): _ChainSingle <T>;
+  last(n: number): _Chain <T>;
+  rest(n ? : number): _Chain <T>;
+  tail(n ? : number): _Chain <T>;
+  drop(n ? : number): _Chain <T>;
+  compact(): _Chain <T>;
+  flatten(shallow ? : boolean): _Chain < any >;
+  without(...values: Array <T> ): _Chain <T>;
+  partition(
+    iterator: G__.ListIterator < T, boolean > , context ? : any
+  ): _Chain < Array <T>>;
+  union(...arrays: Array < G__.List <T>> ): _Chain <T>;
+  intersection(...arrays: Array < G__.List <T>> ): _Chain <T>;
+  difference(...others: Array < G__.List <T>> ): _Chain <T>;
+  uniq(isSorted ? : boolean, iterator ? : G__.ListIterator < T, any > ): _Chain <T>;
+  uniq < TSort > (iterator ? : G__.ListIterator < T, TSort > , context ? : any): _Chain <T>;
+  unique < TSort > (
+    isSorted ? : boolean, iterator ? : G__.ListIterator < T, TSort >
+  ): _Chain <T>;
+  unique < TSort > (
+    iterator ? : G__.ListIterator < T, TSort > , context ? : any
+  ): _Chain <T>;
+  zip(...arrays: Array < Array < any >> ): _Chain <T>;
+  unzip(...arrays: Array < Array < any >> ): _Chain <T>;
+  object(...keyValuePairs: Array < Array < any >> ): _Chain <T>;
+  object(values ? : any): _Chain <T>;
+  indexOf(value: T, isSorted ? : boolean): _ChainSingle <T>;
+  indexOf(value: T, startFrom: number): _ChainSingle <T>;
+  lastIndexOf(value: T, from ? : number): _ChainSingle <T>;
+  findIndex <T> (
+    predicate: G__.ListIterator < T, boolean > , context ? : any
+  ): _Chain <T>;
+  findLastIndex <T> (
+    predicate: G__.ListIterator < T, boolean > , context ? : any
+  ): _Chain <T>;
+  sortedIndex(value: T, iterator ? : (x: T) => any, context ? : any): _Chain <T>;
+  range(stop: number, step ? : number): _Chain <T>;
+  range(): _Chain <T>;
+  bind(object: any, ...arguments: Array < any > ): _Chain <T>;
+  bindAll(...methodNames: Array < string > ): _Chain <T>;
+  partial(...arguments: Array < any > ): _Chain <T>;
+  memoize(hashFn ? : (n: any) => string): _Chain <T>;
+  defer(...arguments: Array < any > ): _Chain <T>;
+  delay(wait: number, ...arguments: Array < any > ): _Chain <T>;
+  delay(...arguments: Array < any > ): _Chain <T>;
+  throttle(wait: number, options ? : G__.ThrottleSettings): _Chain <T>;
+  debounce(wait: number, immediate ? : boolean): _Chain <T>;
+  once(): _Chain <T>;
+  after(func: Function): _Chain <T>;
+  before(fn: Function): _Chain <T>;
+  wrap(wrapper: Function): () => _Chain <T>;
+  negate(): _Chain <T>;
+  compose(...functions: Array < Function > ): _Chain <T>;
+  keys(): _Chain < string >;
+  allKeys(): _Chain < string >;
+  values(): _Chain <T>;
+  pairs(): _Chain <T>;
+  invert(): _Chain <T>;
+  functions(): _Chain <T>;
+  methods(): _Chain <T>;
+  extend(...sources: Array < any > ): _Chain <T>;
+  pick(...keys: Array < any > ): _Chain <T>;
+  pick(keys: Array < any > ): _Chain <T>;
+  pick(fn: (value: any, key: any, object: any) => any): _Chain <T>;
+  omit(...keys: Array < string > ): _Chain <T>;
+  omit(keys: Array < string > ): _Chain <T>;
+  omit(iteratee: Function): _Chain <T>;
+  defaults(...defaults: Array < any > ): _Chain <T>;
+  clone(): _Chain <T>;
+  tap(interceptor: (...as: Array < any > ) => any): _Chain <T>;
+  has(key: string): _Chain <T>;
+  matches < TResult > (): _Chain <T>;
+  property(): _Chain <T>;
+  propertyOf(): _Chain <T>;
+  isEqual(other: any): _Chain <T>;
+  isEmpty(): _Chain <T>;
+  isMatch(): _Chain <T>;
+  isElement(): _Chain <T>;
+  isArray(): _Chain <T>;
+  isObject(): _Chain <T>;
+  isArguments(): _Chain <T>;
+  isFunction(): _Chain <T>;
+  isError(): _Chain <T>;
+  isString(): _Chain <T>;
+  isNumber(): _Chain <T>;
+  isFinite(): _Chain <T>;
+  isBoolean(): _Chain <T>;
+  isDate(): _Chain <T>;
+  isRegExp(): _Chain <T>;
+  isNaN(): _Chain <T>;
+  isNull(): _Chain <T>;
+  isUndefined(): _Chain <T>;
+  identity(): _Chain <T>;
+  constant(): _Chain <T>;
+  noop(): _Chain <T>;
+  times < TResult > (iterator: (n: number) => TResult, context ? : any): _Chain <T>;
+  random(): _Chain <T>;
+  random(max: number): _Chain <T>;
+  mixin(): _Chain <T>;
+  iteratee(context ? : any, argCount ? : number): _Chain <T>;
+  uniqueId(): _Chain <T>;
+  escape(): _Chain <T>;
+  unescape(): _Chain <T>;
+  result(property: string, defaultValue ? : any): _Chain <T>;
+  template(
+    settings ? : G__.TemplateSettings
+  ): (
+    ...data: Array < any >
+  ) => _Chain <T>;
+  concat(...arr: Array < Array <T>> ): _Chain <T>;
+  join(separator ? : any): _ChainSingle <T>;
+  pop(): _ChainSingle <T>;
+  push(...item: Array <T> ): _Chain <T>;
+  reverse(): _Chain <T>;
+  shift(): _ChainSingle <T>;
+  slice(start: number, end ? : number): _Chain <T>;
+  sort(compareFn: (a: T, b: T) => boolean): _Chain <T>;
+  splice(index: number, quantity: number, ...items: Array <T> ): _Chain <T>;
+  toString(): _ChainSingle <T>;
+  unshift(...items: Array <T> ): _Chain <T>;
+  chain(): _Chain <T>;
+  value < TResult > (): Array <T>;
+  each <T> (o: {
+    [key: string]: T
+  }, iteratee: (val: T, key: string) => void): void;
+  each <T> (a: T[], iteratee: (val: T, key: string) => void): void;
+
+  each <T> (o: {
+    [key: string]: T
+  }, iteratee: (val: T, key: string) => void): void;
+  each <T> (a: T[], iteratee: (val: T, key: string) => void): void;
+}
+declare interface _ChainSingle <T> {
+  value(): T;
+}
+declare interface _ChainOfArrays <T> extends _Chain < Array <T>> {
+  flatten(): _Chain <T>;
+}
