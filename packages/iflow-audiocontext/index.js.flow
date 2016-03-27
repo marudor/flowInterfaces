@@ -139,10 +139,10 @@ declare class AnalyserNode extends AudioNode {
   minDecibels: number;
   maxDecibels: number;
   smoothingTimeConstant: number;
-  getFloatFrequencyData(array: Float32Array): Float32Array;
-  getByteFrequencyData(array: Uint8Array): Uint8Array;
-  getFloatTimeDomainData(array: Float32Array): Float32Array;
-  getByteTimeDomainData(array: Uint8Array): Uint8Array;
+  getFloatFrequencyData(array: Float32Array): void;
+  getByteFrequencyData(array: Uint8Array): void;
+  getFloatTimeDomainData(array: Float32Array): void;
+  getByteTimeDomainData(array: Uint8Array): void;
 }
 
 declare class BiquadFilterNode extends AudioNode {
