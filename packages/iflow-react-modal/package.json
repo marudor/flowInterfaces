@@ -1,6 +1,6 @@
 {
   "name": "iflow-react-modal",
-  "version": "1.0.4",
+  "version": "1.0.23",
   "description": "Flow Interface for react-modal",
   "main": "index.js.flow",
   "scripts": {
