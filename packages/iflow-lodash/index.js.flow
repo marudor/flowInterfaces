@@ -41,6 +41,7 @@ type Predicate<T> = ((value: T, index: number, array: ?Array<T>) => ?bool)|Objec
 type _Iteratee<T> = (item: T, index: number, array: ?Array<T>) => mixed;
 type Iteratee<T> = _Iteratee<T>|Object|string;
 type Iteratee2<T, U> = ((item: T, index: number, array: ?Array<T>) => U)|Object|string;
+type FlatMapIteratee<T, U> = ((item: T, index: number, array: ?Array<T>) => Array<U>)|Object|string;
 type Comparator<T> = (arr: Array<T>, arr2: Array<T>) => bool;
 
 declare module 'lodash' {
@@ -58,7 +59,7 @@ declare module 'lodash' {
     fill<T, U>(array: ?Array<T>, value: U, start?: number, end?: number): Array<T|U>;
     findIndex<T>(array: ?Array<T>, predicate?: Predicate<T>): number;
     findLastIndex<T>(array: ?Array<T>, predicate?: Predicate<T>): number;
-    flatMap<T, U>(array: ?Array<T>, iteratee?: Iteratee2<T, U>): Array<U>;
+    flatMap<T, U>(array: ?Array<T>, iteratee?: FlatMapIteratee<T, U>): Array<U>;
     flatten<T>(array: any[]): any[];
     flattenDeep<T>(array: any[]): Array<T>;
     fromPairs<T>(pairs: Array<T>): Object;
