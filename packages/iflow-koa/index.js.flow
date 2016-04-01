@@ -154,7 +154,7 @@ declare module 'koa' {
     listen(port: number): void;
     callback(): Function;
     keys: string[] | Object;
-    use(contextFn: (ctx?: Context, next?: Function) => ?Promise): this;
+    use(contextFn: (ctx: Context, next: Function) => ?Promise): this;
   }
   declare var exports: Class<Koa>;
 }
