@@ -1,0 +1,15 @@
+import React from 'react';
+
+type DefaultProps = {
+  autoshow: false,
+  forceGemini: false,
+}
+type Props = {
+  autoshow: bool,
+  forceGemini: bool,
+}
+type State = void;
+
+declare module 'react-gemimi-scrollbar' {
+  declare var exports: React.Component<DefaultProps, Props, State>;
+}
