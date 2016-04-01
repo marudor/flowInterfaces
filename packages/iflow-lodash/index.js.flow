@@ -60,8 +60,11 @@ declare module 'lodash' {
     findIndex<T>(array: ?Array<T>, predicate?: Predicate<T>): number;
     findLastIndex<T>(array: ?Array<T>, predicate?: Predicate<T>): number;
     flatMap<T, U>(array: ?Array<T>, iteratee?: FlatMapIteratee<T, U>): Array<U>;
-    flatten<T>(array: any[]): any[];
+    flatMapDeep<T, U>(array: ?Array<T>, iteratee?: FlatMapIteratee<T, U>): Array<U>;
+    flatMapDepth<T, U>(array: ?Array<T>, iteratee?: FlatMapIteratee<T, U>, depth?: number): Array<U>;
+    flatten(array: any[]): any[];
     flattenDeep<T>(array: any[]): Array<T>;
+    flattenDepth(array: any[], depth?: number): any[];
     fromPairs<T>(pairs: Array<T>): Object;
     head<T>(array: ?Array<T>): T;
     // Alias
@@ -85,6 +88,7 @@ declare module 'lodash' {
     lastIndexOf<T>(array: ?Array<T>, value: T, fromIndex?: number): number;
     pull<T>(array: ?Array<T>, ...values?: Array<T>): Array<T>;
     pullAll<T>(array: ?Array<T>, values: Array<T>): Array<T>;
+    pullAllWith<T>(array?: T[], values: T[], comparator?: Function): T[];
     pullAllBy<T>(array: ?Array<T>, values: Array<T>, iteratee?: Iteratee<T>): Array<T>;
     pullAt<T>(array: ?Array<T>, ...indexed?: Array<number>): Array<T>;
     pullAt<T>(array: ?Array<T>, indexed?: Array<number>): Array<T>;
@@ -131,6 +135,7 @@ declare module 'lodash' {
 
     zip<T>(...arrays: Array<Array<T>>): NestedArray<T>;
     zipObject(props?: Array<any>, values?: Array<any>): Object;
+    zipObjectDeep(props?: any[], values?: any): Object;
     //Workaround until (...parameter: T, parameter2: U) works
     zipWith<T>(a1: NestedArray<T>, iteratee?: Iteratee<T>): Array<T>;
     zipWith<T>(a1: NestedArray<T>, a2: NestedArray<T>, iteratee?: Iteratee<T>): Array<T>;
@@ -248,6 +253,7 @@ declare module 'lodash' {
     wrap(value: any, wrapper: Function): Function;
 
     // Lang
+    castArray(value: *): any[];
     clone<T>(value: T): T;
     cloneDeep<T>(value: T): T;
     cloneDeepWith<T, U>(value: T, customizer?: (value: T, key: number|string, object: T, stack: any) => U): U;
@@ -286,6 +292,12 @@ declare module 'lodash' {
     isSymbol(value: any): bool;
     isTypedArray(value: any): bool;
     isUndefined(value: any): bool;
+    isArrayBuffer(value: any): bool;
+    isBuffer(value: any): bool;
+    isMap(value: any): bool;
+    isSet(value: any): bool;
+    isWeakMap(value: any): bool;
+    isWeakSet(value: any): bool;
     lt(value: any, other: any): bool;
     lte(value: any, other: any): bool;
     toArray(value: any): Array<any>;
@@ -303,12 +315,15 @@ declare module 'lodash' {
     max<T>(array: ?Array<T>): T;
     maxBy<T>(array: ?Array<T>, iteratee?: Iteratee<T>): T;
     mean(array: Array<*>): number;
+    meanBy<T>(array: Array<T>, iteratee?: Iteratee<T>): number;
     min<T>(array: ?Array<T>): T;
     minBy<T>(array: ?Array<T>, iteratee?: Iteratee<T>): T;
     round(number: number, precision?: number): number;
     subtract(minuend: number, subtrahend: number): number;
     sum(array: Array<*>): number;
     sum(array: Array<*>, iteratee?: Iteratee<*>): number;
+    multiply(multiplier: number, multiplicand: number): number;
+    divide(dividend: number, divisor: number): number;
 
     // number
     clamp(number: number, lower?: number, upper: number): number;
@@ -349,6 +364,7 @@ declare module 'lodash' {
     has(object?: ?Object, path?: ?Array<string>|string): bool;
     hasIn(object?: ?Object, path?: ?Array<string>|string): bool;
     invert(object?: ?Object, multiVal?: bool): Object;
+    invertBy(object: ?Object, iteratee?: Function): Object;
     invoke(object?: ?Object, path?: ?Array<string>|string, ...args?: Array<any>): any;
     keys(object?: ?Object): Array<string>;
     keysIn(object?: ?Object): Array<string>;
@@ -371,9 +387,13 @@ declare module 'lodash' {
     set(object?: ?Object, path?: ?Array<string>|string, value: any): Object;
     setWith<T>(object: T, path?: ?Array<string>|string, value: any, customizer?: (nsValue: any, key: string, nsObject: T) => any): Object;
     toPairs(object?: ?Object): NestedArray<any>;
+    entries(object?: ?Object): NestedArray<any>;
     toPairsIn(object?: ?Object): NestedArray<any>;
+    entriesIn(object?: ?Object): NestedArray<any>;
     transform(collection: Object|Array<any>, iteratee?: OIteratee, accumulator?: any): any;
     unset(object?: ?Object, path?: ?Array<string>|string): bool;
+    update(object: Object, path: string[]|string, updater: Function): Object;
+    updateWith(object: Object, path: string[]|string, updater: Function, customizer?: Function): Object;
     values(object?: ?Object): Array<any>;
     valuesIn(object?: ?Object): Array<any>;
     // declare interface lodashSeq {
