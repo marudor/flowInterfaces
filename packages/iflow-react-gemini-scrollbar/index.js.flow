@@ -10,6 +10,6 @@ type Props = {
 }
 type State = void;
 
-declare module 'react-gemimi-scrollbar' {
+declare module 'react-gemini-scrollbar' {
   declare var exports: React.Component<DefaultProps, Props, State>;
 }
