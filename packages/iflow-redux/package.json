@@ -1,6 +1,6 @@
 {
   "name": "iflow-redux",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "Flow Interface for redux",
   "main": "index.js.flow",
   "scripts": {
