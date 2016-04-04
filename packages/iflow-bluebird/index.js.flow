@@ -10,8 +10,15 @@ type ConcurrencyOption = {
 type SpreadOption = {
   spread: boolean;
 };
+type BluebirdConfig = {
+  warnings?: boolean,
+  longStackTraces?: boolean,
+  cancellation?: boolean,
+  monitoring?: boolean
+};
 
 declare module 'bluebird' {
+
   declare class PromiseInspection<T> {
     isCancelled(): bool;
     isFulfilled(): bool;
@@ -59,6 +66,7 @@ declare module 'bluebird' {
     static attempt<T>(fn: () => T|Promise<T>, args: ?Array<any>, ctx: ?any): Promise<T>;
     static delay<T>(value: T|Promise<T>, ms: number): Promise<T>;
     static delay(ms: number): Promise<void>;
+    static config(config: BluebirdConfig): void;
 
 
     static defer(): Defer;
@@ -88,6 +96,7 @@ declare module 'bluebird' {
     tap<T>(onDone?: (value: R) => mixed): Promise<T>;
     delay(ms: number): Promise<R>;
     timeout(ms: number, message?: string): Promise<R>;
+    cancel(): void;
 
     bind(ctx: any): Promise<R>;
     call(propertyName: string, ...args: Array<any>): Promise<any>;
