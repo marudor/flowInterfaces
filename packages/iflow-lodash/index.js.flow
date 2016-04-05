@@ -256,8 +256,8 @@ declare module 'lodash' {
     castArray(value: *): any[];
     clone<T>(value: T): T;
     cloneDeep<T>(value: T): T;
-    cloneDeepWith<T, U>(value: T, customizer?: (value: T, key: number|string, object: T, stack: any) => U): U;
-    cloneWith<T, U>(value: T, customizer?: (value: T, key: number|string, object: T, stack: any) => U): U;
+    cloneDeepWith<T, U>(value: T, customizer?: ?(value: T, key: number|string, object: T, stack: any) => U): U;
+    cloneWith<T, U>(value: T, customizer?: ?(value: T, key: number|string, object: T, stack: any) => U): U;
     eq(value: any, other: any): bool;
     gt(value: any, other: any): bool;
     gte(value: any, other: any): bool;
