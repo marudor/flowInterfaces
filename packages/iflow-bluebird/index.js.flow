@@ -18,8 +18,7 @@ type BluebirdConfig = {
 };
 
 declare module 'bluebird' {
-
-  declare class PromiseInspection<T> {
+  declare class BluebirdPromiseInspection<T> {
     isCancelled(): bool;
     isFulfilled(): bool;
     isRejected(): bool;
@@ -28,53 +27,54 @@ declare module 'bluebird' {
     value(): T;
   }
 
-  declare class Promise<R> {
+  declare class BluebirdPromise<R> {
     static Defer: Class<Defer>;
-    static PromiseInspection: Class<PromiseInspection>;
+    static BluebirdPromiseInspection: Class<BluebirdPromiseInspection>;
 
-    static all<T, Elem: Promise<T> | T>(promises: Array<Elem>): Promise<Array<T>>;
-    static any<T, Elem: Promise<T> | T>(promises: Array<Elem>): Promise<T>;
-    static race<T, Elem: Promise<T> | T>(promises: Array<Elem>): Promise<T>;
-    static reject<T>(error?: any): Promise<T>;
-    static resolve<T>(object?: Promise<T> | T): Promise<T>;
-    static some<T, Elem: Promise<T> | T>(promises: Array<Elem>, count: number): Promise<Array<T>>;
-    static join<T, Elem: Promise<T> | T>(...promises: Array<Elem>): Promise<Array<T>>;
-    static map<T, U, Elem: Promise<T> | T>(
-      promises: Array<Elem>,
+    static all<T, Elem: BluebirdPromise<T> | T>(BluebirdPromises: Array<Elem>): BluebirdPromise<Array<T>>;
+    static props(input: Object|Map|Promise<Object|Map>): BluebirdPromise;
+    static any<T, Elem: BluebirdPromise<T> | T>(BluebirdPromises: Array<Elem>): BluebirdPromise<T>;
+    static race<T, Elem: BluebirdPromise<T> | T>(BluebirdPromises: Array<Elem>): BluebirdPromise<T>;
+    static reject<T>(error?: any): BluebirdPromise<T>;
+    static resolve<T>(object?: BluebirdPromise<T> | T): BluebirdPromise<T>;
+    static some<T, Elem: BluebirdPromise<T> | T>(BluebirdPromises: Array<Elem>, count: number): BluebirdPromise<Array<T>>;
+    static join<T, Elem: BluebirdPromise<T> | T>(...BluebirdPromises: Array<Elem>): BluebirdPromise<Array<T>>;
+    static map<T, U, Elem: BluebirdPromise<T> | T>(
+      BluebirdPromises: Array<Elem>,
       mapper: (item: T, index: number, arrayLength: number) => U,
       options?: ConcurrencyOption
-    ): Promise<Array<U>>;
-    static mapSeries<T, U, Elem: Promise<T> | T>(
-      promises: Array<Elem>,
+    ): BluebirdPromise<Array<U>>;
+    static mapSeries<T, U, Elem: BluebirdPromise<T> | T>(
+      BluebirdPromises: Array<Elem>,
       mapper: (item: T, index: number, arrayLength: number) => U
-    ): Promise<Array<U>>;
-    static reduce<T, U, Elem: Promise<T> | T>(
-      promises: Array<Elem>,
+    ): BluebirdPromise<Array<U>>;
+    static reduce<T, U, Elem: BluebirdPromise<T> | T>(
+      BluebirdPromises: Array<Elem>,
       reducer: (total: U, current: T, index: number, arrayLength: number) => U,
       initialValue?: U
-    ): Promise<U>;
-    static filter<T, Elem: Promise<T> | T>(
-      promises: Array<Elem>,
-      filterer: (item: T, index: number, arrayLength: number) => Promise<bool>|bool,
+    ): BluebirdPromise<U>;
+    static filter<T, Elem: BluebirdPromise<T> | T>(
+      BluebirdPromises: Array<Elem>,
+      filterer: (item: T, index: number, arrayLength: number) => BluebirdPromise<bool>|bool,
       option?: ConcurrencyOption
-    ): Promise<Array<T>>;
-    static each<T, Elem: Promise<T> | T>(
-      promises: Array<Elem>,
-      iterator: (item: T, index: number, arrayLength: number) => Promise<mixed>|mixed,
-    ): Promise<Array<T>>;
-    static try<T>(fn: () => T|Promise<T>, args: ?Array<any>, ctx: ?any): Promise<T>;
-    static attempt<T>(fn: () => T|Promise<T>, args: ?Array<any>, ctx: ?any): Promise<T>;
-    static delay<T>(value: T|Promise<T>, ms: number): Promise<T>;
-    static delay(ms: number): Promise<void>;
+    ): BluebirdPromise<Array<T>>;
+    static each<T, Elem: BluebirdPromise<T> | T>(
+      BluebirdPromises: Array<Elem>,
+      iterator: (item: T, index: number, arrayLength: number) => BluebirdPromise<mixed>|mixed,
+    ): BluebirdPromise<Array<T>>;
+    static try<T>(fn: () => T|BluebirdPromise<T>, args: ?Array<any>, ctx: ?any): BluebirdPromise<T>;
+    static attempt<T>(fn: () => T|BluebirdPromise<T>, args: ?Array<any>, ctx: ?any): BluebirdPromise<T>;
+    static delay<T>(value: T|BluebirdPromise<T>, ms: number): BluebirdPromise<T>;
+    static delay(ms: number): BluebirdPromise<void>;
     static config(config: BluebirdConfig): void;
 
 
     static defer(): Defer;
     static setScheduler(scheduler: (callback: (...args: Array<any>) => void) => void): void;
 
-    static method<T>(fn: (...args: any) => T): Promise<T>;
-    static cast<T>(value: T|Promise<T>): Promise<T>;
-    static bind(ctx: any): Promise<void>;
+    static method<T>(fn: (...args: any) => T): BluebirdPromise<T>;
+    static cast<T>(value: T|BluebirdPromise<T>): BluebirdPromise<T>;
+    static bind(ctx: any): BluebirdPromise<void>;
     static is(value: any): boolean;
     static longStackTraces(): void;
 
@@ -83,39 +83,39 @@ declare module 'bluebird' {
 
 
     constructor(callback: (
-      resolve: (result?: Promise<R> | R) => void,
+      resolve: (result?: BluebirdPromise<R> | R) => void,
       reject: (error?: any) => void
     ) => mixed): void;
-    then<U>(onFulfill?: (value: R) => Promise<U> | U, onReject?: (error: any) => Promise<U> | U): Promise<U>;
-    catch<U>(onReject?: (error: any) => ?Promise<U> | U): Promise<U>;
-    caught<U>(onReject?: (error: any) => ?Promise<U> | U): Promise<U>;
-    error<U>(onReject?: (error: any) => ?Promise<U> | U): Promise<U>;
+    then<U>(onFulfill?: (value: R) => BluebirdPromise<U> | U, onReject?: (error: any) => BluebirdPromise<U> | U): BluebirdPromise<U>;
+    catch<U>(onReject?: (error: any) => ?BluebirdPromise<U> | U): BluebirdPromise<U>;
+    caught<U>(onReject?: (error: any) => ?BluebirdPromise<U> | U): BluebirdPromise<U>;
+    error<U>(onReject?: (error: any) => ?BluebirdPromise<U> | U): BluebirdPromise<U>;
     done<U>(onFulfill?: (value: R) => mixed, onReject?: (error: any) => mixed): void;
-    finally<T>(onDone?: (value: R) => mixed): Promise<T>;
-    lastly<T>(onDone?: (value: R) => mixed): Promise<T>;
-    tap<T>(onDone?: (value: R) => mixed): Promise<T>;
-    delay(ms: number): Promise<R>;
-    timeout(ms: number, message?: string): Promise<R>;
+    finally<T>(onDone?: (value: R) => mixed): BluebirdPromise<T>;
+    lastly<T>(onDone?: (value: R) => mixed): BluebirdPromise<T>;
+    tap<T>(onDone?: (value: R) => mixed): BluebirdPromise<T>;
+    delay(ms: number): BluebirdPromise<R>;
+    timeout(ms: number, message?: string): BluebirdPromise<R>;
     cancel(): void;
 
-    bind(ctx: any): Promise<R>;
-    call(propertyName: string, ...args: Array<any>): Promise<any>;
-    throw(reason: Error): Promise<R>;
-    thenThrow(reason: Error): Promise<R>;
-    all<T>(): Promise<Array<T>>;
-    any<T>(): Promise<T>;
-    some<T>(count: number): Promise<Array<T>>;
-    race<T>(): Promise<T>;
-    map<T, U>(mapper: (item: T, index: number, arrayLength: number) => Promise<U> | U, options?: ConcurrencyOption): Promise<Array<U>>;
-    mapSeries<T, U>(mapper: (item: T, index: number, arrayLength: number) => Promise<U> | U): Promise<Array<U>>;
+    bind(ctx: any): BluebirdPromise<R>;
+    call(propertyName: string, ...args: Array<any>): BluebirdPromise<any>;
+    throw(reason: Error): BluebirdPromise<R>;
+    thenThrow(reason: Error): BluebirdPromise<R>;
+    all<T>(): BluebirdPromise<Array<T>>;
+    any<T>(): BluebirdPromise<T>;
+    some<T>(count: number): BluebirdPromise<Array<T>>;
+    race<T>(): BluebirdPromise<T>;
+    map<T, U>(mapper: (item: T, index: number, arrayLength: number) => BluebirdPromise<U> | U, options?: ConcurrencyOption): BluebirdPromise<Array<U>>;
+    mapSeries<T, U>(mapper: (item: T, index: number, arrayLength: number) => BluebirdPromise<U> | U): BluebirdPromise<Array<U>>;
     reduce<T, U>(
-      reducer: (total: T, item: U, index: number, arrayLength: number) => Promise<T> | T,
+      reducer: (total: T, item: U, index: number, arrayLength: number) => BluebirdPromise<T> | T,
       initialValue?: T
-    ): Promise<T>;
-    filter<T>(filterer: (item: T, index: number, arrayLength: number) => Promise<bool> | bool, options?: ConcurrencyOption): Promise<Array<T>>;
-    each<T, U>(iterator: (item: T, index: number, arrayLength: number) => Promise<U> | U): Promise<Array<T>>;
+    ): BluebirdPromise<T>;
+    filter<T>(filterer: (item: T, index: number, arrayLength: number) => BluebirdPromise<bool> | bool, options?: ConcurrencyOption): BluebirdPromise<Array<T>>;
+    each<T, U>(iterator: (item: T, index: number, arrayLength: number) => BluebirdPromise<U> | U): BluebirdPromise<Array<T>>;
 
-    reflect(): Promise<PromiseInspection>;
+    reflect(): BluebirdPromise<BluebirdPromiseInspection>;
 
     isFulfilled(): bool;
     isRejected(): bool;
@@ -127,9 +127,9 @@ declare module 'bluebird' {
   }
 
   declare class Defer {
-    promise: Promise;
+    BluebirdPromise: BluebirdPromise;
     resolve: (value: any) => any;
     reject: (value: any) => any;
   }
-  declare var exports: Class<Promise>;
+  declare var exports: Class<BluebirdPromise>;
 }
