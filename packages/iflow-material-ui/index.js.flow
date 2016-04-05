@@ -1,7 +1,100 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 declare module 'material-ui' {
-  declare var AppBar: React.Component;
+  declare class AppBar extends React$Component {
+      props: {
+        /**
+         * Can be used to render a tab inside an app bar for instance.
+         */
+        children?: React$Element,
+
+        /**
+         * Applied to the app bar's root element.
+         */
+        className?: string,
+        /**
+         * The classname of the icon on the left of the app bar.
+         * If you are using a stylesheet for your icons, enter the class name for the icon to be used here.
+         */
+        iconClassNameLeft?: string,
+
+        /**
+         * Similiar to the iconClassNameLeft prop except that
+         * it applies to the icon displayed on the right of the app bar.
+         */
+        iconClassNameRight?: string,
+
+        /**
+         * The custom element to be displayed on the left side of the
+         * app bar such as an SvgIcon.
+         */
+        iconElementLeft?: React$Element,
+
+        /**
+         * Similiar to the iconElementLeft prop except that this element is displayed on the right of the app bar.
+         */
+        iconElementRight?: React$Element,
+
+        /**
+         * Override the inline-styles of the element displayed on the right side of the app bar.
+         */
+        iconStyleRight?: Object,
+
+        /**
+         * Callback function for when the left icon is selected via a touch tap.
+         *
+         * @param {object} event TouchTap event targeting the left `IconButton`.
+         */
+        onLeftIconButtonTouchTap?: Function,
+
+        /**
+         * Callback function for when the right icon is selected via a touch tap.
+         *
+         * @param {object} event TouchTap event targeting the right `IconButton`.
+         */
+        onRightIconButtonTouchTap?: Function,
+
+        /**
+         * Callback function for when the title text is selected via a touch tap.
+         *
+         * @param {object} event TouchTap event targeting the `title` node.
+         */
+        onTitleTouchTap?: Function,
+
+        /**
+         * Determines whether or not to display the Menu icon next to the title.
+         * Setting this prop to false will hide the icon.
+         */
+        showMenuIconButton?: boolean,
+
+        /**
+         * Override the inline-styles of the root element.
+         */
+        style?: Object,
+
+        /**
+         * The title to display on the app bar.
+         */
+        title?: React$Element | string,
+
+        /**
+         * Override the inline-styles of the app bar's title element.
+         */
+        titleStyle?: Object,
+
+        /**
+         * The zDepth of the component.
+         * The shadow of the app bar is also dependent on this property.
+         */
+        zDepth?: number;
+      };
+      static defaultProps: {
+        showMenuIconButton: true,
+        title: '',
+        zDepth: 1,
+      };
+  }
+
   declare var AutoComplete: React.Component;
   declare var Avatar: React.Component;
   declare var Badge: React.Component;
