@@ -1,6 +1,6 @@
 {
   "name": "iflow-bluebird",
-  "version": "1.0.19",
+  "version": "1.0.37",
   "description": "Flow Interface for bluebird",
   "main": "index.js.flow",
   "scripts": {
