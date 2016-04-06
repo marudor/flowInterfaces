@@ -6,7 +6,7 @@ import path from 'path';
 describe('Material UI', function() {
   this.timeout(6 * 1000);
   it('should be able to tell the props of the app bar', (done) => {
-      execFile(flow, ['check', path.resolve(__dirname, './fixtures/fail.js')], (err, stdout) => {
+      execFile(flow, ['check', path.resolve('fixtures/fail.js')], (err, stdout) => {
         expect(err).to.be.defined;
         expect(stdout).to.contain(
 ` 6: const element = <AppBar className={false} showMenuIconButton={null} />;
