@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
+
 flowBin=$(which flow 2> /dev/null)
 if ! test -f $flowBin || [ -z $flowBin ]; then
     flowBin="./node_modules/.bin/flow"
@@ -7,4 +8,7 @@ for a in $(ls packages)
 do
     echo $a
     $flowBin check-contents < packages/$a/index.js.flow
+    cd packages/$a
+    npm test
+    cd ../..
 done
