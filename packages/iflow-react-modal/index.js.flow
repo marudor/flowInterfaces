@@ -1,5 +1,3 @@
-import type React from 'react';
-
 type DefaultProps = {
   isOpen: false,
   ariaHideApp: true,
