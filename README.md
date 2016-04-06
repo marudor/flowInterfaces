@@ -37,6 +37,7 @@ node_modules/iflow-lodash/index.js.flow
 * iflow-deep-diff
 * iflow-dropzone
 * iflow-eventemitter3
+* iflow-enzyme
 * iflow-fuse
 * iflow-fuzzaldrin
 * iflow-i18next
