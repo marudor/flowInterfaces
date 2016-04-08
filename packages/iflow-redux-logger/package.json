@@ -1,6 +1,6 @@
 {
   "name": "iflow-redux-logger",
-  "version": "1.0.15",
+  "version": "1.0.39",
   "description": "Flow Interface for redux-logger",
   "main": "index.js.flow",
   "scripts": {

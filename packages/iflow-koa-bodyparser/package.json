@@ -1,6 +1,6 @@
 {
   "name": "iflow-koa-bodyparser",
-  "version": "1.0.6",
+  "version": "1.0.39",
   "description": "Flow Interface for koa-bodyparser",
   "main": "index.js.flow",
   "scripts": {

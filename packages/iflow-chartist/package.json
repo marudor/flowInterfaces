@@ -1,6 +1,6 @@
 {
   "name": "iflow-chartist",
-  "version": "1.0.3",
+  "version": "1.0.39",
   "description": "Flow Interface for chartist",
   "main": "index.js.flow",
   "scripts": {

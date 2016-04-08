@@ -1,6 +1,6 @@
 {
   "name": "iflow-uuid-js",
-  "version": "1.0.18",
+  "version": "1.0.39",
   "description": "Flow Interface for uuid-js",
   "main": "index.js.flow",
   "scripts": {

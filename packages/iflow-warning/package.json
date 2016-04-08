@@ -1,6 +1,6 @@
 {
   "name": "iflow-warning",
-  "version": "1.0.3",
+  "version": "1.0.39",
   "description": "Flow Interface for warning",
   "main": "index.js.flow",
   "scripts": {

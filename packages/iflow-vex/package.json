@@ -1,6 +1,6 @@
 {
   "name": "iflow-vex",
-  "version": "1.0.18",
+  "version": "1.0.39",
   "description": "Flow Interface for vex",
   "main": "index.js.flow",
   "scripts": {

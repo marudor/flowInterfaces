@@ -1,6 +1,6 @@
 {
   "name": "iflow-react-redux",
-  "version": "1.0.15",
+  "version": "1.0.39",
   "description": "Flow Interface for react-redux",
   "main": "index.js.flow",
   "scripts": {

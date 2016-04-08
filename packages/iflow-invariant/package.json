@@ -1,6 +1,6 @@
 {
   "name": "iflow-invariant",
-  "version": "1.0.5",
+  "version": "1.0.39",
   "description": "Flow Interface for invariant",
   "main": "index.js.flow",
   "scripts": {

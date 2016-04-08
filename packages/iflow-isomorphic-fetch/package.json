@@ -1,6 +1,6 @@
 {
   "name": "iflow-isomorphic-fetch",
-  "version": "1.0.15",
+  "version": "1.0.39",
   "description": "Flow Interface for isomorphic-fetch",
   "main": "index.js.flow",
   "scripts": {

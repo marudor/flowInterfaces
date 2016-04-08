@@ -1,6 +1,6 @@
 {
   "name": "iflow-enzyme",
-  "version": "1.0.0",
+  "version": "1.0.39",
   "description": "Flow Interface for enzyme.",
   "main": "index.js.flow",
   "scripts": {

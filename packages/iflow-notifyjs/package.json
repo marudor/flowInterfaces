@@ -1,6 +1,6 @@
 {
   "name": "iflow-notifyjs",
-  "version": "1.0.18",
+  "version": "1.0.39",
   "description": "Flow Interface for notifyjs",
   "main": "index.js.flow",
   "scripts": {
