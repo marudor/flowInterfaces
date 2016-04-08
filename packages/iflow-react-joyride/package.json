@@ -1,6 +1,6 @@
 {
   "name": "iflow-react-joyride",
-  "version": "1.0.39",
+  "version": "1.0.40",
   "description": "Flow Interface for react-joyride",
   "main": "index.js.flow",
   "scripts": {
