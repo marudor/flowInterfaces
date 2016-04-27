@@ -5,6 +5,7 @@ declare module 'react-router' {
     IndexRoute: React.Component;
     Link: React.Component;
     Redirect: React.Component;
+    IndexRedirect: React.Component;
     Route: React.Component;
     Router: React.Component;
     browserHistory: any;
