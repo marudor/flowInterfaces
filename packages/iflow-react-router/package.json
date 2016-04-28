@@ -1,6 +1,6 @@
 {
   "name": "iflow-react-router",
-  "version": "1.0.39",
+  "version": "1.0.42",
   "description": "Flow Interface for react-router",
   "main": "index.js.flow",
   "scripts": {
