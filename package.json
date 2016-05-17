@@ -9,6 +9,7 @@
   },
   "devDependencies": {
     "flow-bin": "^0.22.0",
-    "radium": "^0.16.6"
+    "radium": "^0.16.6",
+    "lerna": "2.0.0-beta.10"
   }
 }
