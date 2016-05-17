@@ -1,5 +1,3 @@
-import React, { Component } from 'react';
-
 declare module 'material-ui' {
   declare class AppBar extends React$Component {
       props: {
@@ -95,56 +93,77 @@ declare module 'material-ui' {
       };
   }
 
-  declare var AutoComplete: React.Component;
-  declare var Avatar: React.Component;
-  declare var Badge: React.Component;
-  declare var Card: React.Component;
-  declare var CardActions: React.Component;
-  declare var CardHeader: React.Component;
-  declare var CardMedia: React.Component;
-  declare var CardText: React.Component;
-  declare var CardTitle: React.Component;
-  declare var Checkbox: React.Component;
-  declare var CircularProgress: React.Component;
-  declare var DatePicker: React.Component;
-  declare var Dialog: React.Component;
-  declare var Divider: React.Component;
-  declare var DropDownMenu: React.Component;
-  declare var FlatButton: React.Component;
-  declare var FloatingActionButton: React.Component;
-  declare var FontIcon: React.Component;
-  declare var GridList: React.Component;
-  declare var IconButton: React.Component;
-  declare var IconMenu: React.Component;
-  declare var LeftNav: React.Component;
-  declare var LinearProgress: React.Component;
-  declare var List: React.Component;
-  declare var ListItem: React.Component;
-  declare var Menu: React.Component;
-  declare var MenuItem: React.Component;
-  declare var Paper: React.Component;
-  declare var Popover: React.Component;
-  declare var RadioButton: React.Component;
-  declare var RadioButtonGroup: React.Component;
-  declare var RaisedButton: React.Component;
-  declare var RefreshIndicator: React.Component;
-  declare var Slider: React.Component;
-  declare var SelectField: React.Component;
-  declare var Snackbar: React.Component;
-  declare var Tab: React.Component;
-  declare var Table: React.Component;
-  declare var TableBody: React.Component;
-  declare var TableFooter: React.Component;
-  declare var TableHeader: React.Component;
-  declare var TableHeaderColumn: React.Component;
-  declare var TableRow: React.Component;
-  declare var TableRowColumn: React.Component;
-  declare var Tabs: React.Component;
-  declare var TextField: React.Component;
-  declare var TimePicker: React.Component;
-  declare var Toggle: React.Component;
-  declare var Toolbar: React.Component;
-  declare var ToolbarGroup: React.Component;
-  declare var ToolbarSeparator: React.Component;
-  declare var ToolbarTitle: React.Component;
+  declare var AutoComplete: React$Component;
+  declare var Avatar: React$Component;
+  declare var Badge: React$Component;
+  declare var Card: React$Component;
+  declare var CardActions: React$Component;
+  declare var CardHeader: React$Component;
+  declare var CardMedia: React$Component;
+  declare var CardText: React$Component;
+  declare var CardTitle: React$Component;
+  declare var Checkbox: React$Component;
+  declare var CircularProgress: React$Component;
+  declare var DatePicker: React$Component;
+  declare var Dialog: React$Component;
+  declare var Divider: React$Component;
+  declare var Drawer: React$Component;
+  declare var DropDownMenu: React$Component;
+  declare var FlatButton: React$Component;
+  declare var FloatingActionButton: React$Component;
+  declare var FontIcon: React$Component;
+  declare var GridList: React$Component;
+  declare var IconButton: React$Component;
+  declare var IconMenu: React$Component;
+  declare var LeftNav: React$Component;
+  declare var LinearProgress: React$Component;
+  declare var List: React$Component;
+  declare var ListItem: React$Component;
+  declare var Menu: React$Component;
+  declare var MenuItem: React$Component;
+  declare var Paper: React$Component;
+  declare var Popover: React$Component;
+  declare var RadioButton: React$Component;
+  declare var RadioButtonGroup: React$Component;
+  declare var RaisedButton: React$Component;
+  declare var RefreshIndicator: React$Component;
+  declare var Slider: React$Component;
+  declare var SelectField: React$Component;
+  declare var Snackbar: React$Component;
+  declare var Tab: React$Component;
+  declare var Table: React$Component;
+  declare var TableBody: React$Component;
+  declare var TableFooter: React$Component;
+  declare var TableHeader: React$Component;
+  declare var TableHeaderColumn: React$Component;
+  declare var TableRow: React$Component;
+  declare var TableRowColumn: React$Component;
+  declare var Tabs: React$Component;
+  declare var TextField: React$Component;
+  declare var TimePicker: React$Component;
+  declare var Toggle: React$Component;
+  declare var Toolbar: React$Component;
+  declare var ToolbarGroup: React$Component;
+  declare var ToolbarSeparator: React$Component;
+  declare var ToolbarTitle: React$Component;
+}
+
+declare module 'material-ui/svg-icons/notification/sms' {
+  declare var exports: any;
+}
+
+declare module 'material-ui/svg-icons/notification/mms' {
+  declare var exports: any;
+}
+
+declare module 'material-ui/styles/MuiThemeProvider' {
+  declare var exports: any;
+}
+
+declare module 'material-ui/styles/getMuiTheme' {
+  declare var exports: any;
+}
+
+declare module 'material-ui/utils/withWidth' {
+  declare var exports: any;
 }
