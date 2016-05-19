@@ -12,6 +12,9 @@
     "flow",
     "iflow"
   ],
+  "dependencies": {
+    "iflow-moment": "1.0.39"
+  },
   "author": "marudor",
   "license": "MIT"
 }
