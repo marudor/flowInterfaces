@@ -9,5 +9,5 @@ declare module 'react-redux' {
   declare function connect(mapStateToProps?: (state: Object, ownProps: Object) => Object, mapDispatchToProps?: any, mergeProps?: (stateProps: any, dispatchProps: any, ownProps: any) => any, options?: {
     pure?: bool,
     withRef?: bool,
-  }): (component: React.Component) => ConnectedReactClass;
+  }): (component: React.Component) => Class<ConnectedReactClass>;
 }
