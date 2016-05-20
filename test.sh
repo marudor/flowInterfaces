@@ -1,14 +1,12 @@
 #!/usr/bin/env sh
 
-flowBin=$(which flow 2> /dev/null)
-if ! test -f $flowBin || [ -z $flowBin ]; then
-    flowBin="./node_modules/.bin/flow"
-fi
-for a in $(ls packages)
+lerna bootstrap
+lerna run test
+
+for package in packages/*
 do
-    echo $a
-    $flowBin check-contents < packages/$a/index.js.flow
-    cd packages/$a
-    npm test
-    cd ../..
+    basename "$package"
+    FILE="$package/index.js.flow"
+    # Intentionally specifying FILE twice; first time tells Flow the root dir
+    flow check-contents $FILE < $FILE
 done

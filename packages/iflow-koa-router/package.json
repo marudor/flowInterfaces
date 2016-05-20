@@ -12,6 +12,9 @@
     "flow",
     "iflow"
   ],
+  "dependencies": {
+    "iflow-koa": "1.0.39"
+  },
   "author": "marudor",
   "license": "MIT"
 }

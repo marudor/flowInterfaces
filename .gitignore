@@ -1,5 +1,5 @@
 /test.js
 .DS_Store
-npm-debug.log
+*-debug.log
 test.fish
 node_modules

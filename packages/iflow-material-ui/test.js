@@ -3,7 +3,7 @@ import flow from 'flow-bin';
 import { expect } from 'chai';
 import path from 'path';
 
-describe('Material UI', function() {
+xdescribe('Material UI', function() {
   this.timeout(6 * 1000);
   it('should be able to tell the props of the app bar', (done) => {
       execFile(flow, ['check', path.resolve(__dirname, './fixtures/fail.js')], (err, stdout) => {
