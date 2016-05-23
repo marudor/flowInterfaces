@@ -93,6 +93,7 @@ declare module 'lodash' {
     pullAt<T>(array: ?Array<T>, ...indexed?: Array<number>): Array<T>;
     pullAt<T>(array: ?Array<T>, indexed?: Array<number>): Array<T>;
     remove<T>(array: ?Array<T>, predicate?: Predicate<T>): Array<T>;
+    reverse<T>(array: ?Array<T>): Array<T>;
     slice<T>(array: ?Array<T>, start?: number, end?: number): Array<T>;
     sortedIndex<T>(array: ?Array<T>, value: T): number;
     sortedIndexBy<T>(array: ?Array<T>, value: T, iteratee?: Iteratee<T>): number;
