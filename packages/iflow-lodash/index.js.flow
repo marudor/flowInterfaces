@@ -322,7 +322,7 @@ declare module 'lodash' {
     round(number: number, precision?: number): number;
     subtract(minuend: number, subtrahend: number): number;
     sum(array: Array<*>): number;
-    sum(array: Array<*>, iteratee?: Iteratee<*>): number;
+    sumBy<T>(array: Array<T>, iteratee?: Iteratee<T>): number;
     multiply(multiplier: number, multiplicand: number): number;
     divide(dividend: number, divisor: number): number;
 
