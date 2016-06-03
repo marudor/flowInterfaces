@@ -9,7 +9,7 @@ declare module 'react-router' {
     Route: React.Component;
     Router: React.Component;
     browserHistory: any;
-    useRouterHistory: any;
+    useRouterHistory: (historyFactory: Function) => (options: ?Object) => Object;
     match: Function;
     RouterContext: React.Component;
   }
