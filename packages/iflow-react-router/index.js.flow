@@ -12,6 +12,8 @@ declare module 'react-router' {
     useRouterHistory: (historyFactory: Function) => (options: ?Object) => Object;
     match: Function;
     RouterContext: React.Component;
+    createRoutes: (routes: React$Element) => Array<Object>;
+    formatPattern: (pattern: string, params: Object) => string;
   }
   declare var exports: ReactRouter;
 }
