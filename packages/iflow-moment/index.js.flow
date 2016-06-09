@@ -206,12 +206,12 @@ declare class moment$Moment {
   locale(locale: string, customization?: Object|null): void;
   locale(): string;
   static months(): Array<string>;
-  static monthsShort(): Array<string>;
+  static monthShort(): Array<string>;
   static weekdays(): Array<string>;
   static weekdaysShort(): Array<string>;
   static weekdaysMin(): Array<string>;
   static months(): string;
-  static monthsShort(): string;
+  static monthShort(): string;
   static weekdays(): string;
   static weekdaysShort(): string;
   static weekdaysMin(): string;
