@@ -145,81 +145,81 @@ declare module 'lodash' {
 
     // Collection
     countBy<T>(array: ?Array<T>, iteratee?: Iteratee<T>): Object;
-    countBy<T>(object: T, iteratee?: OIteratee<T>): Object;
+    countBy<T: Object>(object: T, iteratee?: OIteratee<T>): Object;
 
     every<T>(array: ?Array<T>, iteratee?: Iteratee<T>): bool;
-    every<T>(object: T, iteratee?: OIteratee<T>): bool;
+    every<T: Object>(object: T, iteratee?: OIteratee<T>): bool;
 
     filter<T>(array: ?Array<T>, predicate?: Predicate<T>): Array<T>;
-    filter<V, T>(object: T, predicate?: OPredicate<T>): Array<any>;
+    filter<V, T: Object>(object: T, predicate?: OPredicate<T>): Array<any>;
 
     find<T>(array: ?Array<T>, predicate?: Predicate<T>): T;
-    find<V, T>(object: T, predicate?: OPredicate<T>): V;
+    find<V, T: Object>(object: T, predicate?: OPredicate<T>): V;
 
     findLast<T>(array: ?Array<T>, predicate?: Predicate<T>): T;
     findLast<V, T>(object: T, predicate?: OPredicate<T>): V;
 
     forEach<T>(array: ?Array<T>, iteratee?: Iteratee<T>): Array<T>;
-    forEach<T>(object: T, iteratee?: OIteratee<T>): T;
+    forEach<T: Object>(object: T, iteratee?: OIteratee<T>): T;
     //Alias
     each<T>(array: ?Array<T>, iteratee?: Iteratee<T>): Array<T>;
-    each<T>(object: T, iteratee?: OIteratee<T>): T;
+    each<T: Object>(object: T, iteratee?: OIteratee<T>): T;
 
     forEachRight<T>(array: ?Array<T>, iteratee?: Iteratee<T>): Array<T>;
-    forEachRight<T>(object: T, iteratee?: OIteratee<T>): T;
+    forEachRight<T: Object>(object: T, iteratee?: OIteratee<T>): T;
     //Alias
     eachRight<T>(array: ?Array<T>, iteratee?: Iteratee<T>): Array<T>;
-    eachRight<T>(object: T, iteratee?: OIteratee<T>): T;
+    eachRight<T: Object>(object: T, iteratee?: OIteratee<T>): T;
 
     groupBy<T>(array: ?Array<T>, iteratee?: Iteratee<T>): Object;
-    groupBy<T>(object: T, iteratee?: OIteratee<T>): Object;
+    groupBy<T: Object>(object: T, iteratee?: OIteratee<T>): Object;
 
     includes<T>(array: ?Array<T>, value: T, fromIndex?: number): bool;
-    includes<T>(object: T, value: any, fromIndex?: number): bool;
+    includes<T: Object>(object: T, value: any, fromIndex?: number): bool;
     includes(str: string, value: string, fromIndex?: number): bool;
 
     invokeMap<T>(array: ?Array<T>, path: ((value: T) => Array<string>|string)|Array<string>|string, ...args?: Array<any>): Array<any>;
-    invokeMap<T>(object: T, path: ((value: any) => Array<string>|string)|Array<string>|string, ...args?: Array<any>): Array<any>;
+    invokeMap<T: Object>(object: T, path: ((value: any) => Array<string>|string)|Array<string>|string, ...args?: Array<any>): Array<any>;
 
     keyBy<T>(array: ?Array<T>, iteratee?: Iteratee<T>): Object;
-    keyBy<V, T>(object: T, iteratee?: OIteratee<T>): Object;
+    keyBy<V, T: Object>(object: T, iteratee?: OIteratee<T>): Object;
 
     map<T, U>(array: ?Array<T>, iteratee?: Iteratee2<T, U>): Array<U>;
-    map<V, T, U>(object: T, iteratee?: OIterateeWithResult<V, T, U>): Array<U>;
+    map<V, T: Object, U>(object: T, iteratee?: OIterateeWithResult<V, T, U>): Array<U>;
 
     orderBy<T>(array: ?Array<T>, iteratees?: Array<Iteratee<T>>, orders?: Array<'asc'|'desc'>): Array<T>;
     orderBy<V, T>(object: T, iteratees?: Array<OIteratee>, orders?: Array<'asc'|'desc'>): Array<V>;
 
     partition<T>(array: ?Array<T>, predicate?: Predicate<T>): NestedArray<T>;
-    partition<V, T>(object: T, predicate?: OPredicate<T>): NestedArray<V>;
+    partition<V, T: Object>(object: T, predicate?: OPredicate<T>): NestedArray<V>;
 
     reduce<T, U>(array: ?Array<T>, iteratee?: (accumulator: U, value: T, index: number, array: ?Array<T>) => U, accumulator?: U): U;
-    reduce<T, U>(object: T, iteratee?: (accumulator: U, value: any, key: string, object: T) => U, accumulator?: U): U;
+    reduce<T: Object, U>(object: T, iteratee?: (accumulator: U, value: any, key: string, object: T) => U, accumulator?: U): U;
 
     reduceRight<T, U>(array: ?Array<T>, iteratee?: (accumulator: U, value: T, index: number, array: ?Array<T>) => U, accumulator?: U): U;
-    reduceRight<T, U>(object: T, iteratee?: (accumulator: U, value: any, key: string, object: T) => U, accumulator?: U): U;
+    reduceRight<T: Object, U>(object: T, iteratee?: (accumulator: U, value: any, key: string, object: T) => U, accumulator?: U): U;
 
     reject<T>(array: ?Array<T>, predicate?: Predicate<T>): Array<T>;
-    reject<V, T>(object: T, predicate?: OPredicate<T>): Array<V>;
+    reject<V: Object, T>(object: T, predicate?: OPredicate<T>): Array<V>;
 
     sample<T>(array: ?Array<T>): T;
-    sample<V, T>(object: T): V;
+    sample<V, T: Object>(object: T): V;
 
     sampleSize<T>(array: ?Array<T>, n?: number): Array<T>;
-    sampleSize<V, T>(object: T, n?: number): Array<V>;
+    sampleSize<V, T: Object>(object: T, n?: number): Array<V>;
 
     shuffle<T>(array: ?Array<T>): Array<T>;
-    shuffle<V, T>(object: T): Array<V>;
+    shuffle<V, T: Object>(object: T): Array<V>;
 
     size(collection: Array<any>|Object): number;
 
     some<T>(array: ?Array<T>, predicate?: Predicate<T>): bool;
-    some<T>(object?: ?Object, predicate?: OPredicate<T>): bool;
+    some<T: Object>(object?: ?Object, predicate?: OPredicate<T>): bool;
 
     sortBy<T>(array: ?Array<T>, ...iteratees?: Array<Iteratee<T>>): Array<T>;
     sortBy<T>(array: ?Array<T>, iteratees?: Array<Iteratee<T>>): Array<T>;
-    sortBy<V, T>(object: T, ...iteratees?: Array<OIteratee<T>>): Array<V>;
-    sortBy<V, T>(object: T, iteratees?: Array<OIteratee<T>>): Array<V>;
+    sortBy<V, T: Object>(object: T, ...iteratees?: Array<OIteratee<T>>): Array<V>;
+    sortBy<V, T: Object>(object: T, iteratees?: Array<OIteratee<T>>): Array<V>;
 
     // Date
     now(): number;
