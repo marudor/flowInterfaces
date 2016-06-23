@@ -188,9 +188,10 @@ declare module 'lodash' {
 
     map<T, U>(array: ?Array<T>, iteratee?: Iteratee2<T, U>): Array<U>;
     map<V, T: Object, U>(object: T, iteratee?: OIterateeWithResult<V, T, U>): Array<U>;
+    map(str: string, iteratee?: (char: string, index: number, str: string) => any): string;
 
     orderBy<T>(array: ?Array<T>, iteratees?: Array<Iteratee<T>>, orders?: Array<'asc'|'desc'>): Array<T>;
-    orderBy<V, T>(object: T, iteratees?: Array<OIteratee>, orders?: Array<'asc'|'desc'>): Array<V>;
+    orderBy<V, T>(object: T, iteratees?: Array<OIteratee<*>>, orders?: Array<'asc'|'desc'>): Array<V>;
 
     partition<T>(array: ?Array<T>, predicate?: Predicate<T>): NestedArray<T>;
     partition<V, T: Object>(object: T, predicate?: OPredicate<T>): NestedArray<V>;
@@ -355,12 +356,12 @@ declare module 'lodash' {
     create<T>(prototype: T, properties?: Object): $Supertype<T>;
     defaults(object?: ?Object, ...sources?: Array<Object>): Object;
     defaultsDeep(object?: ?Object, ...sources?: Array<Object>): Object;
-    findKey(object?: ?Object, predicate?: OPredicate): string|void;
-    findLastKey(object?: ?Object, predicate?: OPredicate): string|void;
-    forIn(object?: ?Object, iteratee?: OIteratee): Object;
-    forInRight(object?: ?Object, iteratee?: OIteratee): Object;
-    forOwn(object?: ?Object, iteratee?: OIteratee): Object;
-    forOwnRight(object?: ?Object, iteratee?: OIteratee): Object;
+    findKey(object?: ?Object, predicate?: OPredicate<*>): string|void;
+    findLastKey(object?: ?Object, predicate?: OPredicate<*>): string|void;
+    forIn(object?: ?Object, iteratee?: OIteratee<*>): Object;
+    forInRight(object?: ?Object, iteratee?: OIteratee<*>): Object;
+    forOwn(object?: ?Object, iteratee?: OIteratee<*>): Object;
+    forOwnRight(object?: ?Object, iteratee?: OIteratee<*>): Object;
     functions(object?: ?Object): Array<string>;
     functionsIn(object?: ?Object): Array<string>;
     get(object?: ?Object, path?: ?Array<string>|string, defaultValue?: any): any;
@@ -371,8 +372,8 @@ declare module 'lodash' {
     invoke(object?: ?Object, path?: ?Array<string>|string, ...args?: Array<any>): any;
     keys(object?: ?Object): Array<string>;
     keysIn(object?: ?Object): Array<string>;
-    mapKeys(object?: ?Object, iteratee?: OIteratee): Object;
-    mapValues(object?: ?Object, iteratee?: OIteratee): Object;
+    mapKeys(object?: ?Object, iteratee?: OIteratee<*>): Object;
+    mapValues(object?: ?Object, iteratee?: OIteratee<*>): Object;
     merge(object?: ?Object, ...sources?: Array<?Object>): Object;
 
     mergeWith<T: Object, A: Object>(object: T, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A) => any|void): Object;
@@ -382,10 +383,10 @@ declare module 'lodash' {
 
     omit(object?: ?Object, ...props: Array<string>): Object;
     omit(object?: ?Object, props: Array<string>): Object;
-    omitBy(object?: ?Object, predicate?: OPredicate): Object;
+    omitBy(object?: ?Object, predicate?: OPredicate<*>): Object;
     pick(object?: ?Object, ...props: Array<string>): Object;
     pick(object?: ?Object, props: Array<string>): Object;
-    pickBy(object?: ?Object, predicate?: OPredicate): Object;
+    pickBy(object?: ?Object, predicate?: OPredicate<*>): Object;
     result(object?: ?Object, path?: ?Array<string>|string, defaultValue?: any): any;
     set(object?: ?Object, path?: ?Array<string>|string, value: any): Object;
     setWith<T>(object: T, path?: ?Array<string>|string, value: any, customizer?: (nsValue: any, key: string, nsObject: T) => any): Object;
@@ -393,7 +394,7 @@ declare module 'lodash' {
     entries(object?: ?Object): NestedArray<any>;
     toPairsIn(object?: ?Object): NestedArray<any>;
     entriesIn(object?: ?Object): NestedArray<any>;
-    transform(collection: Object|Array<any>, iteratee?: OIteratee, accumulator?: any): any;
+    transform(collection: Object|Array<any>, iteratee?: OIteratee<*>, accumulator?: any): any;
     unset(object?: ?Object, path?: ?Array<string>|string): bool;
     update(object: Object, path: string[]|string, updater: Function): Object;
     updateWith(object: Object, path: string[]|string, updater: Function, customizer?: Function): Object;

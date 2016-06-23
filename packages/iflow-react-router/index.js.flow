@@ -1,18 +1,18 @@
 import React from 'react';
 
 declare module 'react-router' {
-  declare interface ReactRouter extends React.Component {
-    IndexRoute: React.Component;
-    Link: React.Component;
-    Redirect: React.Component;
-    IndexRedirect: React.Component;
-    Route: React.Component;
-    Router: React.Component;
+  declare interface ReactRouter extends React.Component<*, *, *> {
+    IndexRoute: React.Component<*, *, *>;
+    Link: React.Component<*, *, *>;
+    Redirect: React.Component<*, *, *>;
+    IndexRedirect: React.Component<*, *, *>;
+    Route: React.Component<*, *, *>;
+    Router: React.Component<*, *, *>;
     browserHistory: any;
     useRouterHistory: (historyFactory: Function) => (options: ?Object) => Object;
     match: Function;
-    RouterContext: React.Component;
-    createRoutes: (routes: React$Element) => Array<Object>;
+    RouterContext: React.Component<*, *, *>;
+    createRoutes: (routes: React$Element<*>) => Array<Object>;
     formatPattern: (pattern: string, params: Object) => string;
   }
   declare var exports: ReactRouter;

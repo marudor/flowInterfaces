@@ -28,10 +28,10 @@ declare class Bluebird$PromiseInspection<T> {
 
 declare class Bluebird$Promise<R> {
   static Defer: Class<Bluebird$Defer>;
-  static PromiseInspection: Class<Bluebird$PromiseInspection>;
+  static PromiseInspection: Class<Bluebird$PromiseInspection<*>>;
 
   static all<T, Elem: Bluebird$Promise<T> | T>(Promises: Array<Elem>): Bluebird$Promise<Array<T>>;
-  static props(input: Object|Map|Bluebird$Promise<Object|Map>): Bluebird$Promise;
+  static props(input: Object|Map<*,*>|Bluebird$Promise<Object|Map<*,*>>): Bluebird$Promise<*>;
   static any<T, Elem: Bluebird$Promise<T> | T>(Promises: Array<Elem>): Bluebird$Promise<T>;
   static race<T, Elem: Bluebird$Promise<T> | T>(Promises: Array<Elem>): Bluebird$Promise<T>;
   static reject<T>(error?: any): Bluebird$Promise<T>;
@@ -114,7 +114,7 @@ declare class Bluebird$Promise<R> {
   filter<T>(filterer: (item: T, index: number, arrayLength: number) => Bluebird$Promise<bool> | bool, options?: Bluebird$ConcurrencyOption): Bluebird$Promise<Array<T>>;
   each<T, U>(iterator: (item: T, index: number, arrayLength: number) => Bluebird$Promise<U> | U): Bluebird$Promise<Array<T>>;
 
-  reflect(): Bluebird$Promise<Bluebird$PromiseInspection>;
+  reflect(): Bluebird$Promise<Bluebird$PromiseInspection<*>>;
 
   isFulfilled(): bool;
   isRejected(): bool;
@@ -126,7 +126,7 @@ declare class Bluebird$Promise<R> {
 }
 
 declare class Bluebird$Defer {
-  promise: Bluebird$Promise;
+  promise: Bluebird$Promise<*>;
   resolve: (value: any) => any;
   reject: (value: any) => any;
 }
