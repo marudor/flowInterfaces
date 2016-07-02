@@ -389,7 +389,7 @@ declare module 'lodash' {
     result(object?: ?Object, path?: ?Array<string>|string, defaultValue?: any): any;
     set(object?: ?Object, path?: ?Array<string>|string, value: any): Object;
     setWith<T>(object: T, path?: ?Array<string>|string, value: any, customizer?: (nsValue: any, key: string, nsObject: T) => any): Object;
-    toPairs(object?: ?Object): NestedArray<any>;
+    toPairs(object?: ?Object|Array<*>): NestedArray<any>;
     entries(object?: ?Object): NestedArray<any>;
     toPairsIn(object?: ?Object): NestedArray<any>;
     entriesIn(object?: ?Object): NestedArray<any>;
