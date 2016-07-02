@@ -244,8 +244,7 @@ declare module 'lodash' {
     once(func: Function): Function;
     overArgs(func: Function, ...transforms: Array<Function>): Function;
     overArgs(func: Function, transforms: Array<Function>): Function;
-    partial(func: Function, ...partials: Array<any>): Function;
-    partial(func: Function, partials: Array<any>): Function;
+    partial(func: Function, ...partials: any[]): Function;
     partialRight(func: Function, ...partials: Array<any>): Function;
     partialRight(func: Function, partials: Array<any>): Function;
     rearg(func: Function, ...indexes: Array<number>): Function;
