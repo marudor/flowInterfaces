@@ -4,6 +4,7 @@ declare module 'react-router' {
   declare interface ReactRouter extends React.Component<*, *, *> {
     IndexRoute: React.Component<*, *, *>;
     Link: React.Component<*, *, *>;
+    IndexLink: React.Component<*, *, *>;
     Redirect: React.Component<*, *, *>;
     IndexRedirect: React.Component<*, *, *>;
     Route: React.Component<*, *, *>;
