@@ -80,7 +80,7 @@ declare class Bluebird$Promise<R> {
   static longStackTraces(): void;
 
   static onPossiblyUnhandledRejection(handler: (reason: any) => any): void;
-  static fromCallback<T>(wrapper: (fn: (error: ?Error, value?: T) => any) => any, options?: Bluebird$MultiArgsOption): Bluebird$Promise<T>;
+  static fromCallback<T>(resolver: (fn: (error: ?Error, value?: T) => any) => any, options?: Bluebird$MultiArgsOption): Bluebird$Promise<T>;
 
   constructor(callback: (
     resolve: (result?: Bluebird$Promise<R> | R) => void,
