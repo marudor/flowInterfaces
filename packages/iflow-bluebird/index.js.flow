@@ -10,6 +10,9 @@ type Bluebird$ConcurrencyOption = {
 type Bluebird$SpreadOption = {
   spread: boolean;
 };
+type Bluebird$MultiArgsOption = {
+  multiArgs: boolean;
+};
 type Bluebird$BluebirdConfig = {
   warnings?: boolean,
   longStackTraces?: boolean,
@@ -67,7 +70,6 @@ declare class Bluebird$Promise<R> {
   static delay(ms: number): Bluebird$Promise<void>;
   static config(config: Bluebird$BluebirdConfig): void;
 
-
   static defer(): Bluebird$Defer;
   static setScheduler(scheduler: (callback: (...args: Array<any>) => void) => void): void;
 
@@ -78,8 +80,7 @@ declare class Bluebird$Promise<R> {
   static longStackTraces(): void;
 
   static onPossiblyUnhandledRejection(handler: (reason: any) => any): void;
-
-
+  static fromCallback<T>(resolver: (fn: (error: ?Error, value?: T) => any) => any, options?: Bluebird$MultiArgsOption): Bluebird$Promise<T>;
 
   constructor(callback: (
     resolve: (result?: Bluebird$Promise<R> | R) => void,
@@ -113,6 +114,8 @@ declare class Bluebird$Promise<R> {
   ): Bluebird$Promise<T>;
   filter<T>(filterer: (item: T, index: number, arrayLength: number) => Bluebird$Promise<bool> | bool, options?: Bluebird$ConcurrencyOption): Bluebird$Promise<Array<T>>;
   each<T, U>(iterator: (item: T, index: number, arrayLength: number) => Bluebird$Promise<U> | U): Bluebird$Promise<Array<T>>;
+  asCallback<T>(callback: (error: ?any, value?: T) => any, options?: Bluebird$SpreadOption): void;
+  return<T>(value: T): Bluebird$Promise<T>;
 
   reflect(): Bluebird$Promise<Bluebird$PromiseInspection<*>>;
 
