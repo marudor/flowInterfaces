@@ -479,6 +479,7 @@ declare module 'lodash' {
     stubString(): '';
     stubTrue(): true;
 
+    chain<T>(value: T): any;
     times(n: number, iteratee?: Function): Function;
     toPath(value: any): Array<string>;
     toFinite(value: any): number;
