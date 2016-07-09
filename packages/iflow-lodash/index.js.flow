@@ -131,10 +131,10 @@ declare module 'lodash' {
     xorBy<T>(a1: Array<T>, a2: Array<T>, a3: Array<T>, iteratee?: Iteratee<T>): Array<T>;
     xorBy<T>(a1: Array<T>, a2: Array<T>, a3: Array<T>, a4: Array<T>, iteratee?: Iteratee<T>): Array<T>;
     //Workaround until (...parameter: T, parameter2: U) works
-    xorWith<T>(a1: NestedArray<T>, comparator?: Comparator<T>): Array<T>;
-    xorWith<T>(a1: NestedArray<T>, a2: NestedArray<T>, comparator?: Comparator<T>): Array<T>;
-    xorWith<T>(a1: NestedArray<T>, a2: NestedArray<T>, a3: NestedArray<T>, comparator?: Comparator<T>): Array<T>;
-    xorWith<T>(a1: NestedArray<T>, a2: NestedArray<T>, a3: NestedArray<T>, a4: NestedArray<T>, comparator?: Comparator<T>): Array<T>;
+    xorWith<T>(a1: Array<T>, comparator?: Comparator<T>): Array<T>;
+    xorWith<T>(a1: Array<T>, a2: Array<T>, comparator?: Comparator<T>): Array<T>;
+    xorWith<T>(a1: Array<T>, a2: Array<T>, a3: Array<T>, comparator?: Comparator<T>): Array<T>;
+    xorWith<T>(a1: Array<T>, a2: Array<T>, a3: Array<T>, a4: Array<T>, comparator?: Comparator<T>): Array<T>;
 
     zip<T>(...arrays: Array<Array<T>>): NestedArray<T>;
     zipObject(props?: Array<any>, values?: Array<any>): Object;
