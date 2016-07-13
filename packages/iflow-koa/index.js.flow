@@ -1,3 +1,6 @@
+//@flow
+import type {Server} from 'http';
+
 type Koa$Request$charset = string;
 type Koa$Request$fresh = bool;
 type Koa$Request$header = Object;
@@ -152,7 +155,7 @@ declare class Koa$Context {
 
 declare class Koa$Koa extends events$EventEmitter {
   static constructor(): Koa$Koa;
-  listen(port: number | string): void;
+  listen(port: number | string): Server;
   callback(): Function;
   keys: string[] | Object;
   use(contextFn: (ctx: Koa$Context, next: Function) => ?Promise<*>): this;
