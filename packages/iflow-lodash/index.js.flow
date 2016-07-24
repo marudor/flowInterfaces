@@ -279,7 +279,8 @@ declare module 'lodash' {
     isEqualWith<T, U>(value: T, other: U, customizer?: (objValue: any, otherValue: any, key: number|string, object: T, other: U, stack: any) => bool|void): bool;
     isError(value: any): bool;
     isFinite(value: any): bool;
-    isFunction(value: any): bool;
+    isFunction(value: Function): true;
+    isFunction(value: number|string|void|null|Object): false;
     isInteger(value: any): bool;
     isLength(value: any): bool;
     isMatch(object?: ?Object, source: Object): bool;
