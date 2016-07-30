@@ -190,8 +190,8 @@ declare module 'lodash' {
     map<V, T: Object, U>(object: T, iteratee?: OIterateeWithResult<V, T, U>): Array<U>;
     map(str: string, iteratee?: (char: string, index: number, str: string) => any): string;
 
-    orderBy<T>(array: ?Array<T>, iteratees?: Array<Iteratee<T>>, orders?: Array<'asc'|'desc'>): Array<T>;
-    orderBy<V, T>(object: T, iteratees?: Array<OIteratee<*>>, orders?: Array<'asc'|'desc'>): Array<V>;
+    orderBy<T>(array: ?Array<T>, iteratees?: Array<Iteratee<T>>|string, orders?: Array<'asc'|'desc'>|string): Array<T>;
+    orderBy<V, T: Object>(object: T, iteratees?: Array<OIteratee<*>>|string, orders?: Array<'asc'|'desc'>|string): Array<V>;
 
     partition<T>(array: ?Array<T>, predicate?: Predicate<T>): NestedArray<T>;
     partition<V, T: Object>(object: T, predicate?: OPredicate<T>): NestedArray<V>;
