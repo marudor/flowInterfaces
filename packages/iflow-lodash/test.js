@@ -40,3 +40,11 @@ nativeStrings = nums.map(function(num) {
 directStrings = map(nums, function(num) {
   return JSON.stringify(num);
 });
+
+var bool:bool;
+var obj = {a:1, b:2};
+bool = lodash.conformsTo(obj, {
+  a: function(x:number) {
+    return true;
+  },
+});
