@@ -1,11 +1,3 @@
-type Support = {
-  enumErrorProps: bool,
-  enumPrototypes: bool,
-  nonEnumShadows: bool,
-  ownLast: bool,
-  spliceObjects: bool,
-  unindexedChars: bool,
-};
 type TemplateSettings = {
   escape?: RegExp,
   evaluate?: RegExp,
@@ -471,7 +463,6 @@ declare module 'lodash' {
 
     // Properties
     VERSION: string;
-    support: Support;
     templateSettings: TemplateSettings;
   }
 
