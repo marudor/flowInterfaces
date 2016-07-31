@@ -1,35 +1,32 @@
 // @flow
 
 var lodash = require('lodash');
+var map = require('lodash').map;
 
 var nums : number[] = [1,2,3,4,5,6];
 
-var seq = lodash(nums);
-var chain = lodash.chain(nums);
-var unwrapped = seq.value();
-var num = unwrapped[0];
-var unwrapped = chain.value();
-num === unwrapped[0];
+var num : number;
 
-var squareSeq = seq.map(function(num) {
+var nativeSquares : number[];
+var directSquares : number[];
+
+var nativeStrings : string[];
+var directStrings : string[];
+
+// Array#map, lodash.map, lodash#map
+nativeSquares = nums.map(function(num) {
+  return num * num;
+});
+directSquares = map(nums, function(num) {
   return num * num;
 });
 
-var nsquares = nums.map(function(val, ind, arr) {
-  return val * val;
-});
+num = lodash.first(nums);
 
-nsquares = nums.map(function(val, ind) {
-  return val * val;
-});
-
-nsquares = nums.map(function(val) {
-  return val * val;
-});
-
-var strSeq = squareSeq.map(function(num) {
+// return type of iterator is reflected in result and chain
+nativeStrings = nums.map(function(num) {
   return JSON.stringify(num);
 });
-
-var squares = squareSeq.value();
-var strings = strSeq.value();
+directStrings = map(nums, function(num) {
+  return JSON.stringify(num);
+});

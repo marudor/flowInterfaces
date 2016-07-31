@@ -1,26 +1,35 @@
 // @flow
 
 // sanity check for default export
-import _ from 'lodash';
+import lodash from 'lodash';
 
 // sanity check for named exports
-import {flatten, map} from 'lodash';
+import {map} from 'lodash';
 
-var nums : Array<number> = [1,2,3,4,5,6];
+var nums : number[] = [1,2,3,4,5,6];
 
-var seq = _(nums);
+var num : number;
 
-var squareSeq = seq.map(function(num) {
+var nativeSquares : number[];
+var directSquares : number[];
+
+var nativeStrings : string[];
+var directStrings : string[];
+
+// Array#map, lodash.map, lodash#map
+nativeSquares = nums.map(function(num) {
+  return num * num;
+});
+directSquares = map(nums, function(num) {
   return num * num;
 });
 
-var nsquares = nums.map(function(val, ind, arr) {
-  return val * val;
-});
+num = lodash.first(nums);
 
-var strSeq = squareSeq.map(function(num) {
+// return type of iterator is reflected in result and chain
+nativeStrings = nums.map(function(num) {
   return JSON.stringify(num);
 });
-
-var squares = squareSeq.value();
-var strings = strSeq.value();
+directStrings = map(nums, function(num) {
+  return JSON.stringify(num);
+});
