@@ -5,8 +5,9 @@ var map = require('lodash').map;
 var concat = require('lodash').concat;
 
 var nums : number[] = [1,2,3,4,5,6];
-
 var num : number;
+var string : string;
+var bool : bool;
 
 var nativeSquares : number[];
 var directSquares : number[];
@@ -41,10 +42,14 @@ directStrings = map(nums, function(num) {
   return JSON.stringify(num);
 });
 
-var bool:bool;
 var obj = {a:1, b:2};
 bool = lodash.conformsTo(obj, {
   a: function(x:number) {
     return true;
   },
 });
+
+num = lodash.defaultTo(undefined, 2);
+string = lodash.defaultTo(undefined, 'str');
+bool = lodash.defaultTo(true, 'str');
+string = lodash.defaultTo('str', true);
