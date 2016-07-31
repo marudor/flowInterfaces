@@ -56,6 +56,9 @@ num = implicit.sum();
 num = explicit.sum().value();
 num = implicit.chain().sum().value();
 num = explicit.chain().sum().value();
+num = lodash.first(nums);
+num = implicit.first();
+num = explicit.first().value();
 
 // return type of iterator is reflected in result and chain
 nativeStrings = nums.map(function(num) {

@@ -93,7 +93,7 @@ declare module 'lodash' {
     // extend
     // extendWith
     // fill
-    // filter
+    filter(predicate?: Predicate<E>): ImplicitChain<W,E>;
     // flatMap
     // flatMapDeep
     // flatMapDepth
@@ -236,7 +236,7 @@ declare module 'lodash' {
     // findLast
     // findLastIndex
     // findLastKey
-    // first
+    first(): E;
     // floor
     // forEach
     // forEachRight
@@ -424,14 +424,14 @@ declare module 'lodash' {
     // extend
     // extendWith
     // fill
-    // filter
+    filter(predicate?: Predicate<E>): ExplicitChain<W,E>;
     // find
     // findIndex
     // findKey
     // findLast
     // findLastIndex
     // findLastKey
-    // first
+    first(): ExplicitChain<E,E>;
     // flatMap
     // flatMapDeep
     // flatMapDepth
