@@ -334,7 +334,10 @@ declare module 'lodash' {
     // alias for _.assignIn
     extend(object?: ?Object, ...sources?: Array<Object>): Object;
     // alias for _.assignInWith
-    // TODO: _.extendWith
+    extendWith<T: Object, A: Object>(object: T, s1: A, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A) => any|void): Object;
+    extendWith<T: Object, A: Object, B: Object>(object: T, s1: A, s2: B, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A|B) => any|void): Object;
+    extendWith<T: Object, A: Object, B: Object, C: Object>(object: T, s1: A, s2: B, s3: C, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A|B|C) => any|void): Object;
+    extendWith<T: Object, A: Object, B: Object, C: Object, D: Object>(object: T, s1: A, s2: B, s3: C, s4: D, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A|B|C|D) => any|void): Object;
     findKey(object?: ?Object, predicate?: OPredicate<*>): string|void;
     findLastKey(object?: ?Object, predicate?: OPredicate<*>): string|void;
     forIn(object?: ?Object, iteratee?: OIteratee<*>): Object;
