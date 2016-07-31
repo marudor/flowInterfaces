@@ -4,7 +4,7 @@
 import lodash from 'lodash';
 
 // sanity check for named exports
-import {map} from 'lodash';
+import {concat, map} from 'lodash';
 
 var nums : number[] = [1,2,3,4,5,6];
 
@@ -15,6 +15,15 @@ var directSquares : number[];
 
 var nativeStrings : string[];
 var directStrings : string[];
+
+var allNums : number[];
+var numsAndStrList : Array<number|string>;
+var mixedList : Array<mixed>;
+allNums = concat(nums, nums, nums);
+numsAndStrList = concat(nums, '123', '456');
+numsAndStrList = concat(nums, ['123', '456']);
+numsAndStrList = concat(nums, [[1,2,3], '456']);
+mixedList = concat(nums, [[1,2,3], '456']);
 
 // Array#map, lodash.map, lodash#map
 nativeSquares = nums.map(function(num) {
