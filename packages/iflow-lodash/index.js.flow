@@ -172,9 +172,9 @@ declare module 'lodash' {
     invokeMap<T: Object>(object: T, path: ((value: any) => Array<string>|string)|Array<string>|string, ...args?: Array<any>): Array<any>;
     keyBy<T>(array: ?Array<T>, iteratee?: Iteratee<T>): Object;
     keyBy<V, T: Object>(object: T, iteratee?: OIteratee<T>): Object;
-    map<T, U>(array: Array<T>, iteratee?: MapIterator<T, U>): Array<U>;
-    map<V, T: Object, U>(object: T, iteratee?: OIterateeWithResult<V, T, U>): Array<U>;
-    map(str: string, iteratee?: (char: string, index: number, str: string) => any): string;
+    map<T, U>(array: ?Array<T>, iteratee?: MapIterator<T, U>): Array<U>;
+    map<V, T: Object, U>(object: ?T, iteratee?: OIterateeWithResult<V, T, U>): Array<U>;
+    map(str: ?string, iteratee?: (char: string, index: number, str: string) => any): string;
     orderBy<T>(array: ?Array<T>, iteratees?: Array<Iteratee<T>>|string, orders?: Array<'asc'|'desc'>|string): Array<T>;
     orderBy<V, T: Object>(object: T, iteratees?: Array<OIteratee<*>>|string, orders?: Array<'asc'|'desc'>|string): Array<V>;
     partition<T>(array: ?Array<T>, predicate?: Predicate<T>): NestedArray<T>;
