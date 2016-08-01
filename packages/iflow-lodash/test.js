@@ -53,3 +53,6 @@ num = lodash.defaultTo(undefined, 2);
 string = lodash.defaultTo(undefined, 'str');
 bool = lodash.defaultTo(true, 'str');
 string = lodash.defaultTo('str', true);
+
+num = lodash.tap(1, function(n) { return false; });
+bool = lodash.thru(1, function(n) { return false; });

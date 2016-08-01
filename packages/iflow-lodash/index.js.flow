@@ -383,8 +383,8 @@ declare module 'lodash' {
     // harder to read, but this is _()
     (value: any): any;
     chain<T>(value: T): any;
-    // TODO: _.tap
-    // TODO: _.thru
+    tap<T>(value: T, interceptor: (value:T)=>any): T;
+    thru<T1,T2>(value: T1, interceptor: (value:T1)=>T2): T2;
     // TODO: _.prototype.*
 
     // String
