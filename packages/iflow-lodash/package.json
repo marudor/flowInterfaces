@@ -4,7 +4,8 @@
   "description": "Flow Interface for lodash",
   "main": "index.js.flow",
   "scripts": {
-    "test": "flow check"
+    "pretest": "flow check",
+    "test": "flow coverage --json test.js | node test-coverage.js"
   },
   "keywords": [
     "flowInterface",
