@@ -4,7 +4,11 @@ var lodash = require('lodash');
 var map = require('lodash').map;
 var concat = require('lodash').concat;
 
-var nums : number[] = [1,2,3,4,5,6];
+var nums : Array<number> = [1,2,3,4,5,6];
+var strings : Array<string> = ['one', 'two', 'three'];
+var bools : Array<bool> = [true, false, true];
+var mixed : Array<?any> = [1, true, null];
+var empty = [];
 var num : number;
 var string : string;
 var bool : bool;
@@ -86,3 +90,13 @@ string = lodash.defaultTo('str', true);
 
 num = lodash.tap(1, function(n) { return false; });
 bool = lodash.thru(1, function(n) { return false; });
+
+var zip = lodash.zip;
+    empty = lodash.zip();
+var singles = lodash.zip(nums);
+var tuples = lodash.zip(nums, bools);
+var triples = lodash.zip(nums, bools, strings);
+var quadruples = lodash.zip(nums, bools, strings, nums);
+var multiple1 = lodash.zip(nums, bools, strings, [], nums);
+var multiple2 = lodash.zip(nums, bools, strings, nums, [], mixed);
+var multiple3 = lodash.zip(nums, bools, mixed);
