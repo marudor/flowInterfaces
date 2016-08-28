@@ -62,7 +62,7 @@ declare module 'lodash' {
     findLastIndex<T>(array: ?Array<T>, predicate?: Predicate<T>): number;
     // alias of _.head
     first<T>(array: ?Array<T>): T;
-    flatten(array: any[]): any[];
+    flatten<T,X>(array: Array<Array<T>|X>): Array<T|X>;
     flattenDeep<T>(array: any[]): Array<T>;
     flattenDepth(array: any[], depth?: number): any[];
     fromPairs<T>(pairs: Array<T>): Object;
