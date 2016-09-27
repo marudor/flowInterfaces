@@ -26,7 +26,7 @@ type ThrottleOptions = {
 type NestedArray<T> = Array<Array<T>>;
 
 type OPredicate<O> = ((value: any, key: string, object: O) => ?bool)|Object|string;
-type OIterateeWithResult<V, O, R> = ((value: V, key: string, object: O) => R)|Object|string;
+type OIterateeWithResult<V, O, R> = Object|string|((value: V, key: string, object: O) => R);
 type OIteratee<O> = OIterateeWithResult<any, O, any>;
 
 type Predicate<T> = ((value: T, index: number, array: Array<T>) => ?bool)
