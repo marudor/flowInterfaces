@@ -47,7 +47,7 @@ type MapIterator<T,U> = MapIterator1<T,U>|MapIterator2<T,U>|MapIterator3<T,U>;
 declare module 'lodash' {
   declare class Lodash {
     // Array
-    chunk<T>(array: ?Array<T>, size?: number): Array<T>;
+    chunk<T>(array: ?Array<T>, size?: number): Array<Array<T>>;
     compact<T,N:?T>(array: Array<N>): Array<T>;
     concat<T>(base: Array<T>, ...elements: Array<any>): Array<T|any>;
     difference<T>(array: ?Array<T>, values?: Array<T>): Array<T>;
