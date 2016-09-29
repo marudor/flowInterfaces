@@ -11,11 +11,18 @@ var num : number;
 var string : string;
 var bool : bool;
 
+var implicit = lodash(nums);
+var explicit = lodash.chain(nums);
+
 var nativeSquares : number[];
 var directSquares : number[];
+var implicitSquares : number[];
+var explicitSquares : number[];
 
 var nativeStrings : string[];
 var directStrings : string[];
+var implicitStrings : string[];
+var explicitStrings : string[];
 
 var allNums : number[];
 var numsAndStrList : Array<number|string>;
@@ -33,8 +40,25 @@ nativeSquares = nums.map(function(num) {
 directSquares = map(nums, function(num) {
   return num * num;
 });
+implicitSquares = implicit.map(function(num) {
+  return num * num;
+}).value();
+explicitSquares = explicit.map(function(num) {
+  return num * num;
+}).value();
 
 num = lodash.first(nums);
+num = implicit.value()[0];
+num = explicit.value()[0];
+
+// Implicit chain vs explicit chain
+num = implicit.sum();
+num = explicit.sum().value();
+num = implicit.chain().sum().value();
+num = explicit.chain().sum().value();
+num = lodash.first(nums);
+num = implicit.first();
+num = explicit.first().value();
 
 // return type of iterator is reflected in result and chain
 nativeStrings = nums.map(function(num) {
@@ -43,6 +67,12 @@ nativeStrings = nums.map(function(num) {
 directStrings = map(nums, function(num) {
   return JSON.stringify(num);
 });
+implicitStrings = implicit.map(function(num) {
+  return JSON.stringify(num);
+}).value();
+explicitStrings = explicit.map(function(num) {
+  return JSON.stringify(num);
+}).value();
 
 var obj = {a:1, b:2};
 bool = lodash.conformsTo(obj, {
