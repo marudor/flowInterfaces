@@ -29,10 +29,10 @@ type OPredicate<O> = ((value: any, key: string, object: O) => ?bool)|Object|stri
 type OIterateeWithResult<V, O, R> = Object|string|((value: V, key: string, object: O) => R);
 type OIteratee<O> = OIterateeWithResult<any, O, any>;
 
-type Predicate<T> = ((value: T, index: number, array: Array<T>) => ?bool)
-                  | ((value: T, index: number) => ?bool)
+type Predicate<T> = Object | string
                   | ((value: T) => ?bool)
-                  | Object | string;
+                  | ((value: T, index: number) => ?bool)
+                  | ((value: T, index: number, array: Array<T>) => ?bool);
 type _Iteratee<T> = (item: T, index: number, array: ?Array<T>) => mixed;
 type Iteratee<T> = _Iteratee<T>|Object|string;
 type Iteratee2<T, U> = ((item: T, index: number, array: ?Array<T>) => U)|Object|string;
