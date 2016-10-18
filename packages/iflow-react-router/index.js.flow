@@ -15,6 +15,7 @@ declare module 'react-router' {
     RouterContext: React.Component<*, *, *>;
     createRoutes: (routes: React$Element<*>) => Array<Object>;
     formatPattern: (pattern: string, params: Object) => string;
+    withRouter: (React.Component<*, *, *>, options: ?Object) => React.Component<*, *, *>;
   }
   declare var exports: ReactRouter;
 }
