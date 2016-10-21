@@ -311,7 +311,7 @@ declare class JQueryGenericPromise <T> {
 /**
  * Interface for the JQuery promise/deferred callbacks
  */
-declare class JQueryPromiseCallback <T> {
+declare interface JQueryPromiseCallback <T> {
   (value?: T, ...args: any[]): void;
 }
 
