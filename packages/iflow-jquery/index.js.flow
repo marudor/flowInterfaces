@@ -572,7 +572,7 @@ declare class JQuerySerializeArrayElement {
   value: string;
 }
 
-declare class JQueryAnimationOptions {
+declare interface JQueryAnimationOptions {
   /**
    * A string or number determining how long the animation will run.
    */
