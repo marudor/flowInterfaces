@@ -1,6 +1,6 @@
 {
   "name": "iflow-jquery",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Flow Interface for jQuery",
   "main": "index.js.flow",
   "scripts": {
