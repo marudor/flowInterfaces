@@ -199,6 +199,14 @@ declare class JQueryXHR {
    */
   responseJSON?: any;
   /**
+   * Property containing the parsed response if the response
+   */
+  responseText?: string;
+  /**
+   * The status code for the returned web service call
+   */
+  status?: number;
+  /**
    * A function to be called if the request fails.
    */
   error(xhr: JQueryXHR, textStatus: string, errorThrown: string): void;
